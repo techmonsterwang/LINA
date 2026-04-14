@@ -1,0 +1,15 @@
+{
+  "_class_name": "NOVAPipeline",
+  "scheduler": [
+    "diffusers",
+    "FlowMatchEulerDiscreteScheduler"
+  ],
+  "vae": [
+    "diffnext.models.autoencoders.autoencoder_kl_mar",
+    "AutoencoderKLMAR"
+  ],
+  "transformer": [
+    "diffnext.models.transformers.transformer_nova_linear2",
+    "NOVATransformer3DModel"
+  ]
+}

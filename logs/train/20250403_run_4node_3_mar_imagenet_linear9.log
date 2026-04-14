@@ -1,0 +1,703 @@
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+2025-04-03 11:41:15.925378: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-04-03 11:41:16.379776: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-04-03 11:41:18.006764: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:18.007087: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:18.007094: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+INFO train_torchrun.py:60] Called with args:
+Namespace(cfg='/share/project/wangjiahao/LAR/diffnext/config/imagenet/linear/linear9_mar1k_nova_d48w768_256px.yml', exp_dir='exp_dir/linear9', tensorboard=True, distributed=False, host='', deepspeed='/share/project/wangjiahao/LAR/configs/deepspeed/zero2_bf16.json', num_gpus='8', world_size='4', rank='3', master_ip='job-70ab8b73-3323-4283-981d-3eca451df53e-master-0')
+INFO train_torchrun.py:64] Using config:
+GPU_ID: 0
+MODEL:
+  CONFIG: {'image_dim': 16, 'image_size': [256, 256], 'image_stride': 16, 'rotary_pos_embed': False, 'video_base_size': [1, 8, 8], 'image_base_size': [16, 16], 'arch': ['vit_d16w768', 'vit_d32w768', 'mlp_d6w768']}
+  PRECISION: bfloat16
+  TYPE: transformer
+  WEIGHTS: /share/project/wangjiahao/LAR/pretrained/models.c2i/linear9/scratch_d48w768_256px_f16c16
+NUM_GPUS: 32
+PIPELINE:
+  MODULES: {'vae': '/share/project/panting/mm_ckpt/vae/mar', 'scheduler': '/share/project/panting/mm_ckpt/nova_shared/scheduler/flow', 'model_index': '/share/project/wangjiahao/LAR/diffnext/model_index/linear/linear9_flow_mar_cls_nova.json'}
+  TYPE: nova_train_c2i
+RNG_SEED: 3
+SOLVER:
+  ACCUM_STEPS: 1
+  ADAM_BETA2: 0.95
+  BASE_LR: 0.0008
+  DECAY_GAMMA: 0.5
+  DECAY_STEPS: []
+  DISPLAY: 20
+  EMA_EVERY: 100
+  LR_POLICY: 
+  MAX_STEPS: 2500000
+  MIN_LR: 0.0
+  OPTIMIZER: AdamW
+  SNAPSHOT_EVERY: 5000
+  SNAPSHOT_PREFIX: in1k_nova_d48w768_256px
+  WARM_UP_FACTOR: 0.001
+  WARM_UP_STEPS: 10000
+  WEIGHT_DECAY: 0.02
+TRAIN:
+  BATCH_SIZE: 64
+  CHECKPOINTING: 0
+  DATASET: /share/project/panting/share_datasets/in1k_collection/in1k_mar256
+  DATASET2: 
+  DEVICE_EMA: gpu
+  LOADER: vae_train
+  LOSS_REPEAT: 4
+  MODEL_EMA: 0.99
+  NUM_THREADS: 8
+W0403 11:41:25.853000 140511275136832 torch/distributed/run.py:779] 
+W0403 11:41:25.853000 140511275136832 torch/distributed/run.py:779] *****************************************
+W0403 11:41:25.853000 140511275136832 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0403 11:41:25.853000 140511275136832 torch/distributed/run.py:779] *****************************************
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+2025-04-03 11:41:43.002467: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-04-03 11:41:43.002516: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-04-03 11:41:43.002642: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-04-03 11:41:43.006853: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-04-03 11:41:43.006885: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-04-03 11:41:43.007010: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-04-03 11:41:43.007029: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-04-03 11:41:43.007035: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-04-03 11:41:43.220212: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-04-03 11:41:43.220854: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-04-03 11:41:43.221017: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-04-03 11:41:43.221204: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-04-03 11:41:43.221376: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-04-03 11:41:43.223828: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-04-03 11:41:43.272769: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-04-03 11:41:43.277974: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-04-03 11:41:45.147989: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:45.147990: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:45.148026: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:45.148169: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:45.148199: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:45.148229: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:45.148267: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:45.148319: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:45.148455: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:45.148462: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-04-03 11:41:45.148467: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:45.148472: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-04-03 11:41:45.148473: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:45.148478: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-04-03 11:41:45.148495: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:45.148501: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-04-03 11:41:45.148526: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:45.148534: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-04-03 11:41:45.148539: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:45.148545: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-04-03 11:41:45.148547: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:45.148550: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-03 11:41:45.148555: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-04-03 11:41:45.148555: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]An error occurred while trying to fetch /tmp/tmpl4sdum2x/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpl4sdum2x/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpegt2_bhm/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpegt2_bhm/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmp4k7tphrr/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp4k7tphrr/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpnmw98oz7/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpnmw98oz7/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmp8t3x515w/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp8t3x515w/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmp2mq29fzi/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp2mq29fzi/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmp6jaxbbps/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp6jaxbbps/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpmr500aqw/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpmr500aqw/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:00<00:01,  1.13it/s]An error occurred while trying to fetch /tmp/tmpl4sdum2x/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpl4sdum2x/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:00<00:01,  1.08it/s]Loading pipeline components...:  33%|███▎      | 1/3 [00:00<00:01,  1.08it/s]An error occurred while trying to fetch /tmp/tmpegt2_bhm/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpegt2_bhm/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmp4k7tphrr/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp4k7tphrr/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:00<00:00,  2.10it/s]An error occurred while trying to fetch /tmp/tmp2mq29fzi/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp2mq29fzi/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:01<00:00,  1.96it/s]An error occurred while trying to fetch /tmp/tmpmr500aqw/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpmr500aqw/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:01<00:00,  1.91it/s]An error occurred while trying to fetch /tmp/tmp6jaxbbps/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp6jaxbbps/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:02<00:04,  2.20s/it]An error occurred while trying to fetch /tmp/tmpnmw98oz7/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpnmw98oz7/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:02<00:04,  2.26s/it]An error occurred while trying to fetch /tmp/tmp8t3x515w/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp8t3x515w/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.59it/s]Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.27it/s]
+Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.52it/s]Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.22it/s]
+[2025-04-03 11:41:58,614] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-03 11:41:58,649] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.22s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.07s/it]
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.24s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.10s/it]
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.12s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.10s/it]
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.14s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.12s/it]
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.28s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.13s/it]
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.17s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.14s/it]
+[2025-04-03 11:41:59,672] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-03 11:41:59,870] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-03 11:41:59,886] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-03 11:41:59,928] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-03 11:41:59,945] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-03 11:41:59,972] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py:69: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py:69: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py:69: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py:69: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py:69: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py:69: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py:69: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py:69: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+[rank29]: Traceback (most recent call last):
+[rank29]:   File "/share/project/wangjiahao/LAR/scripts/train_torchrun.py", line 89, in <module>
+[rank29]:     main_distributed(args) if args.distributed else main(args)
+[rank29]:   File "/share/project/wangjiahao/LAR/scripts/train_torchrun.py", line 84, in main_distributed
+[rank29]:     engine.run_train(coordinator, start_iter, enable_tensorboard=args.tensorboard)
+[rank29]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 184, in run_train
+[rank29]:     trainer.train_model(start_iter)
+[rank29]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 164, in train_model
+[rank29]:     stats = self.step(accum_steps)
+[rank29]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 145, in step
+[rank29]:     self.step_ds(metrics, accum_steps) if self.ds_model else None
+[rank29]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 123, in step_ds
+[rank29]:     outputs, losses = self.ds_model(inputs), []
+[rank29]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank29]:     return self._call_impl(*args, **kwargs)
+[rank29]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank29]:     return forward_call(*args, **kwargs)
+[rank29]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank29]:     ret_val = func(*args, **kwargs)
+[rank29]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1914, in forward
+[rank29]:     loss = self.module(*inputs, **kwargs)
+[rank29]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank29]:     return self._call_impl(*args, **kwargs)
+[rank29]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank29]:     return forward_call(*args, **kwargs)
+[rank29]:   File "/share/project/wangjiahao/LAR/diffnext/models/transformers/transformer_3d.py", line 206, in forward
+[rank29]:     return self.train_video(inputs)
+[rank29]:   File "/share/project/wangjiahao/LAR/diffnext/models/transformers/transformer_3d.py", line 184, in train_video
+[rank29]:     c = self.video_encoder(c.flatten(1, 2), inputs["c"], pos=pos) # c: [64, 64, 768]
+[rank29]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank29]:     return self._call_impl(*args, **kwargs)
+[rank29]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank29]:     return forward_call(*args, **kwargs)
+[rank29]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 213, in forward
+[rank29]:     x = blk(x, pe2)
+[rank29]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank29]:     return self._call_impl(*args, **kwargs)
+[rank29]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank29]:     return forward_call(*args, **kwargs)
+[rank29]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 157, in forward
+[rank29]:     x = self.forward_ckpt(x, "attn").add_(x)
+[rank29]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 153, in forward_ckpt
+[rank29]:     return getattr(self, f"forward_{name}")(x)
+[rank29]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 145, in forward_attn
+[rank29]:     return self.norm1(self.attn(x))
+[rank29]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank29]:     return self._call_impl(*args, **kwargs)
+[rank29]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank29]:     return forward_call(*args, **kwargs)
+[rank29]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 119, in forward
+[rank29]:     x = x + self.dwc(v).reshape(B, C, N).permute(0, 2, 1)   # (B, N, C): (32, 256, 384) 
+[rank29]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank29]:     return self._call_impl(*args, **kwargs)
+[rank29]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank29]:     return forward_call(*args, **kwargs)
+[rank29]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 458, in forward
+[rank29]:     return self._conv_forward(input, self.weight, self.bias)
+[rank29]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 454, in _conv_forward
+[rank29]:     return F.conv2d(input, weight, bias, self.stride,
+[rank29]: RuntimeError: Given groups=64, weight of size [64, 1, 5, 5], expected input[768, 65, 8, 8] to have 64 channels, but got 65 channels instead
+[rank31]: Traceback (most recent call last):
+[rank31]:   File "/share/project/wangjiahao/LAR/scripts/train_torchrun.py", line 89, in <module>
+[rank31]:     main_distributed(args) if args.distributed else main(args)
+[rank31]:   File "/share/project/wangjiahao/LAR/scripts/train_torchrun.py", line 84, in main_distributed
+[rank31]:     engine.run_train(coordinator, start_iter, enable_tensorboard=args.tensorboard)
+[rank31]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 184, in run_train
+[rank31]:     trainer.train_model(start_iter)
+[rank31]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 164, in train_model
+[rank31]:     stats = self.step(accum_steps)
+[rank31]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 145, in step
+[rank31]:     self.step_ds(metrics, accum_steps) if self.ds_model else None
+[rank31]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 123, in step_ds
+[rank31]:     outputs, losses = self.ds_model(inputs), []
+[rank31]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank31]:     return self._call_impl(*args, **kwargs)
+[rank31]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank31]:     return forward_call(*args, **kwargs)
+[rank31]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank31]:     ret_val = func(*args, **kwargs)
+[rank31]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1914, in forward
+[rank31]:     loss = self.module(*inputs, **kwargs)
+[rank31]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank31]:     return self._call_impl(*args, **kwargs)
+[rank31]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank31]:     return forward_call(*args, **kwargs)
+[rank31]:   File "/share/project/wangjiahao/LAR/diffnext/models/transformers/transformer_3d.py", line 206, in forward
+[rank31]:     return self.train_video(inputs)
+[rank31]:   File "/share/project/wangjiahao/LAR/diffnext/models/transformers/transformer_3d.py", line 184, in train_video
+[rank31]:     c = self.video_encoder(c.flatten(1, 2), inputs["c"], pos=pos) # c: [64, 64, 768]
+[rank31]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank31]:     return self._call_impl(*args, **kwargs)
+[rank31]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank31]:     return forward_call(*args, **kwargs)
+[rank31]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 213, in forward
+[rank31]:     x = blk(x, pe2)
+[rank31]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank31]:     return self._call_impl(*args, **kwargs)
+[rank31]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank31]:     return forward_call(*args, **kwargs)
+[rank31]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 157, in forward
+[rank31]:     x = self.forward_ckpt(x, "attn").add_(x)
+[rank31]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 153, in forward_ckpt
+[rank31]:     return getattr(self, f"forward_{name}")(x)
+[rank31]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 145, in forward_attn
+[rank31]:     return self.norm1(self.attn(x))
+[rank31]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank31]:     return self._call_impl(*args, **kwargs)
+[rank31]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank31]:     return forward_call(*args, **kwargs)
+[rank31]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 119, in forward
+[rank31]:     x = x + self.dwc(v).reshape(B, C, N).permute(0, 2, 1)   # (B, N, C): (32, 256, 384) 
+[rank31]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank31]:     return self._call_impl(*args, **kwargs)
+[rank31]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank31]:     return forward_call(*args, **kwargs)
+[rank31]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 458, in forward
+[rank31]:     return self._conv_forward(input, self.weight, self.bias)
+[rank31]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 454, in _conv_forward
+[rank31]:     return F.conv2d(input, weight, bias, self.stride,
+[rank31]: RuntimeError: Given groups=64, weight of size [64, 1, 5, 5], expected input[768, 65, 8, 8] to have 64 channels, but got 65 channels instead
+[rank28]: Traceback (most recent call last):
+[rank28]:   File "/share/project/wangjiahao/LAR/scripts/train_torchrun.py", line 89, in <module>
+[rank28]:     main_distributed(args) if args.distributed else main(args)
+[rank28]:   File "/share/project/wangjiahao/LAR/scripts/train_torchrun.py", line 84, in main_distributed
+[rank28]:     engine.run_train(coordinator, start_iter, enable_tensorboard=args.tensorboard)
+[rank28]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 184, in run_train
+[rank28]:     trainer.train_model(start_iter)
+[rank28]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 164, in train_model
+[rank28]:     stats = self.step(accum_steps)
+[rank28]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 145, in step
+[rank28]:     self.step_ds(metrics, accum_steps) if self.ds_model else None
+[rank28]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 123, in step_ds
+[rank28]:     outputs, losses = self.ds_model(inputs), []
+[rank28]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank28]:     return self._call_impl(*args, **kwargs)
+[rank28]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank28]:     return forward_call(*args, **kwargs)
+[rank28]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank28]:     ret_val = func(*args, **kwargs)
+[rank28]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1914, in forward
+[rank28]:     loss = self.module(*inputs, **kwargs)
+[rank28]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank28]:     return self._call_impl(*args, **kwargs)
+[rank28]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank28]:     return forward_call(*args, **kwargs)
+[rank28]:   File "/share/project/wangjiahao/LAR/diffnext/models/transformers/transformer_3d.py", line 206, in forward
+[rank28]:     return self.train_video(inputs)
+[rank28]:   File "/share/project/wangjiahao/LAR/diffnext/models/transformers/transformer_3d.py", line 184, in train_video
+[rank28]:     c = self.video_encoder(c.flatten(1, 2), inputs["c"], pos=pos) # c: [64, 64, 768]
+[rank28]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank28]:     return self._call_impl(*args, **kwargs)
+[rank28]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank28]:     return forward_call(*args, **kwargs)
+[rank28]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 213, in forward
+[rank28]:     x = blk(x, pe2)
+[rank28]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank28]:     return self._call_impl(*args, **kwargs)
+[rank28]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank28]:     return forward_call(*args, **kwargs)
+[rank28]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 157, in forward
+[rank28]:     x = self.forward_ckpt(x, "attn").add_(x)
+[rank28]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 153, in forward_ckpt
+[rank28]:     return getattr(self, f"forward_{name}")(x)
+[rank28]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 145, in forward_attn
+[rank28]:     return self.norm1(self.attn(x))
+[rank28]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank28]:     return self._call_impl(*args, **kwargs)
+[rank28]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank28]:     return forward_call(*args, **kwargs)
+[rank28]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 119, in forward
+[rank28]:     x = x + self.dwc(v).reshape(B, C, N).permute(0, 2, 1)   # (B, N, C): (32, 256, 384) 
+[rank28]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank28]:     return self._call_impl(*args, **kwargs)
+[rank28]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank28]:     return forward_call(*args, **kwargs)
+[rank28]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 458, in forward
+[rank28]:     return self._conv_forward(input, self.weight, self.bias)
+[rank28]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 454, in _conv_forward
+[rank28]:     return F.conv2d(input, weight, bias, self.stride,
+[rank28]: RuntimeError: Given groups=64, weight of size [64, 1, 5, 5], expected input[768, 65, 8, 8] to have 64 channels, but got 65 channels instead
+[rank25]: Traceback (most recent call last):
+[rank25]:   File "/share/project/wangjiahao/LAR/scripts/train_torchrun.py", line 89, in <module>
+[rank25]:     main_distributed(args) if args.distributed else main(args)
+[rank25]:   File "/share/project/wangjiahao/LAR/scripts/train_torchrun.py", line 84, in main_distributed
+[rank25]:     engine.run_train(coordinator, start_iter, enable_tensorboard=args.tensorboard)
+[rank25]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 184, in run_train
+[rank25]:     trainer.train_model(start_iter)
+[rank25]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 164, in train_model
+[rank25]:     stats = self.step(accum_steps)
+[rank25]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 145, in step
+[rank25]:     self.step_ds(metrics, accum_steps) if self.ds_model else None
+[rank25]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 123, in step_ds
+[rank25]:     outputs, losses = self.ds_model(inputs), []
+[rank25]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank25]:     return self._call_impl(*args, **kwargs)
+[rank25]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank25]:     return forward_call(*args, **kwargs)
+[rank25]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank25]:     ret_val = func(*args, **kwargs)
+[rank25]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1914, in forward
+[rank25]:     loss = self.module(*inputs, **kwargs)
+[rank25]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank25]:     return self._call_impl(*args, **kwargs)
+[rank25]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank25]:     return forward_call(*args, **kwargs)
+[rank25]:   File "/share/project/wangjiahao/LAR/diffnext/models/transformers/transformer_3d.py", line 206, in forward
+[rank25]:     return self.train_video(inputs)
+[rank25]:   File "/share/project/wangjiahao/LAR/diffnext/models/transformers/transformer_3d.py", line 184, in train_video
+[rank25]:     c = self.video_encoder(c.flatten(1, 2), inputs["c"], pos=pos) # c: [64, 64, 768]
+[rank25]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank25]:     return self._call_impl(*args, **kwargs)
+[rank25]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank25]:     return forward_call(*args, **kwargs)
+[rank25]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 213, in forward
+[rank25]:     x = blk(x, pe2)
+[rank25]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank25]:     return self._call_impl(*args, **kwargs)
+[rank25]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank25]:     return forward_call(*args, **kwargs)
+[rank25]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 157, in forward
+[rank25]:     x = self.forward_ckpt(x, "attn").add_(x)
+[rank25]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 153, in forward_ckpt
+[rank25]:     return getattr(self, f"forward_{name}")(x)
+[rank25]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 145, in forward_attn
+[rank25]:     return self.norm1(self.attn(x))
+[rank25]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank25]:     return self._call_impl(*args, **kwargs)
+[rank25]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank25]:     return forward_call(*args, **kwargs)
+[rank25]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 119, in forward
+[rank25]:     x = x + self.dwc(v).reshape(B, C, N).permute(0, 2, 1)   # (B, N, C): (32, 256, 384) 
+[rank25]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank25]:     return self._call_impl(*args, **kwargs)
+[rank25]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank25]:     return forward_call(*args, **kwargs)
+[rank25]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 458, in forward
+[rank25]:     return self._conv_forward(input, self.weight, self.bias)
+[rank25]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 454, in _conv_forward
+[rank25]:     return F.conv2d(input, weight, bias, self.stride,
+[rank25]: RuntimeError: Given groups=64, weight of size [64, 1, 5, 5], expected input[768, 65, 8, 8] to have 64 channels, but got 65 channels instead
+[rank27]: Traceback (most recent call last):
+[rank27]:   File "/share/project/wangjiahao/LAR/scripts/train_torchrun.py", line 89, in <module>
+[rank27]:     main_distributed(args) if args.distributed else main(args)
+[rank27]:   File "/share/project/wangjiahao/LAR/scripts/train_torchrun.py", line 84, in main_distributed
+[rank27]:     engine.run_train(coordinator, start_iter, enable_tensorboard=args.tensorboard)
+[rank27]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 184, in run_train
+[rank27]:     trainer.train_model(start_iter)
+[rank27]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 164, in train_model
+[rank27]:     stats = self.step(accum_steps)
+[rank27]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 145, in step
+[rank27]:     self.step_ds(metrics, accum_steps) if self.ds_model else None
+[rank27]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 123, in step_ds
+[rank27]:     outputs, losses = self.ds_model(inputs), []
+[rank27]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank27]:     return self._call_impl(*args, **kwargs)
+[rank27]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank27]:     return forward_call(*args, **kwargs)
+[rank27]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank27]:     ret_val = func(*args, **kwargs)
+[rank27]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1914, in forward
+[rank27]:     loss = self.module(*inputs, **kwargs)
+[rank27]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank27]:     return self._call_impl(*args, **kwargs)
+[rank27]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank27]:     return forward_call(*args, **kwargs)
+[rank27]:   File "/share/project/wangjiahao/LAR/diffnext/models/transformers/transformer_3d.py", line 206, in forward
+[rank27]:     return self.train_video(inputs)
+[rank27]:   File "/share/project/wangjiahao/LAR/diffnext/models/transformers/transformer_3d.py", line 184, in train_video
+[rank27]:     c = self.video_encoder(c.flatten(1, 2), inputs["c"], pos=pos) # c: [64, 64, 768]
+[rank27]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank27]:     return self._call_impl(*args, **kwargs)
+[rank27]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank27]:     return forward_call(*args, **kwargs)
+[rank27]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 213, in forward
+[rank27]:     x = blk(x, pe2)
+[rank27]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank27]:     return self._call_impl(*args, **kwargs)
+[rank27]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank27]:     return forward_call(*args, **kwargs)
+[rank27]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 157, in forward
+[rank27]:     x = self.forward_ckpt(x, "attn").add_(x)
+[rank27]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 153, in forward_ckpt
+[rank27]:     return getattr(self, f"forward_{name}")(x)
+[rank27]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 145, in forward_attn
+[rank27]:     return self.norm1(self.attn(x))
+[rank27]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank27]:     return self._call_impl(*args, **kwargs)
+[rank27]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank27]:     return forward_call(*args, **kwargs)
+[rank27]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 119, in forward
+[rank27]:     x = x + self.dwc(v).reshape(B, C, N).permute(0, 2, 1)   # (B, N, C): (32, 256, 384) 
+[rank27]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank27]:     return self._call_impl(*args, **kwargs)
+[rank27]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank27]:     return forward_call(*args, **kwargs)
+[rank27]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 458, in forward
+[rank27]:     return self._conv_forward(input, self.weight, self.bias)
+[rank27]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 454, in _conv_forward
+[rank27]:     return F.conv2d(input, weight, bias, self.stride,
+[rank27]: RuntimeError: Given groups=64, weight of size [64, 1, 5, 5], expected input[768, 65, 8, 8] to have 64 channels, but got 65 channels instead
+[rank24]: Traceback (most recent call last):
+[rank24]:   File "/share/project/wangjiahao/LAR/scripts/train_torchrun.py", line 89, in <module>
+[rank24]:     main_distributed(args) if args.distributed else main(args)
+[rank24]:   File "/share/project/wangjiahao/LAR/scripts/train_torchrun.py", line 84, in main_distributed
+[rank24]:     engine.run_train(coordinator, start_iter, enable_tensorboard=args.tensorboard)
+[rank24]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 184, in run_train
+[rank24]:     trainer.train_model(start_iter)
+[rank24]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 164, in train_model
+[rank24]:     stats = self.step(accum_steps)
+[rank24]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 145, in step
+[rank24]:     self.step_ds(metrics, accum_steps) if self.ds_model else None
+[rank24]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 123, in step_ds
+[rank24]:     outputs, losses = self.ds_model(inputs), []
+[rank24]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank24]:     return self._call_impl(*args, **kwargs)
+[rank24]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank24]:     return forward_call(*args, **kwargs)
+[rank24]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank24]:     ret_val = func(*args, **kwargs)
+[rank24]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1914, in forward
+[rank24]:     loss = self.module(*inputs, **kwargs)
+[rank24]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank24]:     return self._call_impl(*args, **kwargs)
+[rank24]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank24]:     return forward_call(*args, **kwargs)
+[rank24]:   File "/share/project/wangjiahao/LAR/diffnext/models/transformers/transformer_3d.py", line 206, in forward
+[rank24]:     return self.train_video(inputs)
+[rank24]:   File "/share/project/wangjiahao/LAR/diffnext/models/transformers/transformer_3d.py", line 184, in train_video
+[rank24]:     c = self.video_encoder(c.flatten(1, 2), inputs["c"], pos=pos) # c: [64, 64, 768]
+[rank24]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank24]:     return self._call_impl(*args, **kwargs)
+[rank24]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank24]:     return forward_call(*args, **kwargs)
+[rank24]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 213, in forward
+[rank24]:     x = blk(x, pe2)
+[rank24]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank24]:     return self._call_impl(*args, **kwargs)
+[rank24]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank24]:     return forward_call(*args, **kwargs)
+[rank24]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 157, in forward
+[rank24]:     x = self.forward_ckpt(x, "attn").add_(x)
+[rank24]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 153, in forward_ckpt
+[rank24]:     return getattr(self, f"forward_{name}")(x)
+[rank24]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 145, in forward_attn
+[rank24]:     return self.norm1(self.attn(x))
+[rank24]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank24]:     return self._call_impl(*args, **kwargs)
+[rank24]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank24]:     return forward_call(*args, **kwargs)
+[rank24]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 119, in forward
+[rank24]:     x = x + self.dwc(v).reshape(B, C, N).permute(0, 2, 1)   # (B, N, C): (32, 256, 384) 
+[rank24]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank24]:     return self._call_impl(*args, **kwargs)
+[rank24]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank24]:     return forward_call(*args, **kwargs)
+[rank24]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 458, in forward
+[rank24]:     return self._conv_forward(input, self.weight, self.bias)
+[rank24]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 454, in _conv_forward
+[rank24]:     return F.conv2d(input, weight, bias, self.stride,
+[rank24]: RuntimeError: Given groups=64, weight of size [64, 1, 5, 5], expected input[768, 65, 8, 8] to have 64 channels, but got 65 channels instead
+[rank30]: Traceback (most recent call last):
+[rank30]:   File "/share/project/wangjiahao/LAR/scripts/train_torchrun.py", line 89, in <module>
+[rank30]:     main_distributed(args) if args.distributed else main(args)
+[rank30]:   File "/share/project/wangjiahao/LAR/scripts/train_torchrun.py", line 84, in main_distributed
+[rank30]:     engine.run_train(coordinator, start_iter, enable_tensorboard=args.tensorboard)
+[rank30]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 184, in run_train
+[rank30]:     trainer.train_model(start_iter)
+[rank30]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 164, in train_model
+[rank30]:     stats = self.step(accum_steps)
+[rank30]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 145, in step
+[rank30]:     self.step_ds(metrics, accum_steps) if self.ds_model else None
+[rank30]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 123, in step_ds
+[rank30]:     outputs, losses = self.ds_model(inputs), []
+[rank30]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank30]:     return self._call_impl(*args, **kwargs)
+[rank30]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank30]:     return forward_call(*args, **kwargs)
+[rank30]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank30]:     ret_val = func(*args, **kwargs)
+[rank30]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1914, in forward
+[rank30]:     loss = self.module(*inputs, **kwargs)
+[rank30]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank30]:     return self._call_impl(*args, **kwargs)
+[rank30]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank30]:     return forward_call(*args, **kwargs)
+[rank30]:   File "/share/project/wangjiahao/LAR/diffnext/models/transformers/transformer_3d.py", line 206, in forward
+[rank30]:     return self.train_video(inputs)
+[rank30]:   File "/share/project/wangjiahao/LAR/diffnext/models/transformers/transformer_3d.py", line 184, in train_video
+[rank30]:     c = self.video_encoder(c.flatten(1, 2), inputs["c"], pos=pos) # c: [64, 64, 768]
+[rank30]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank30]:     return self._call_impl(*args, **kwargs)
+[rank30]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank30]:     return forward_call(*args, **kwargs)
+[rank30]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 213, in forward
+[rank30]:     x = blk(x, pe2)
+[rank30]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank30]:     return self._call_impl(*args, **kwargs)
+[rank30]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank30]:     return forward_call(*args, **kwargs)
+[rank30]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 157, in forward
+[rank30]:     x = self.forward_ckpt(x, "attn").add_(x)
+[rank30]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 153, in forward_ckpt
+[rank30]:     return getattr(self, f"forward_{name}")(x)
+[rank30]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 145, in forward_attn
+[rank30]:     return self.norm1(self.attn(x))
+[rank30]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank30]:     return self._call_impl(*args, **kwargs)
+[rank30]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank30]:     return forward_call(*args, **kwargs)
+[rank30]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 119, in forward
+[rank30]:     x = x + self.dwc(v).reshape(B, C, N).permute(0, 2, 1)   # (B, N, C): (32, 256, 384) 
+[rank30]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank30]:     return self._call_impl(*args, **kwargs)
+[rank30]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank30]:     return forward_call(*args, **kwargs)
+[rank30]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 458, in forward
+[rank30]:     return self._conv_forward(input, self.weight, self.bias)
+[rank30]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 454, in _conv_forward
+[rank30]:     return F.conv2d(input, weight, bias, self.stride,
+[rank30]: RuntimeError: Given groups=64, weight of size [64, 1, 5, 5], expected input[768, 65, 8, 8] to have 64 channels, but got 65 channels instead
+[rank26]: Traceback (most recent call last):
+[rank26]:   File "/share/project/wangjiahao/LAR/scripts/train_torchrun.py", line 89, in <module>
+[rank26]:     main_distributed(args) if args.distributed else main(args)
+[rank26]:   File "/share/project/wangjiahao/LAR/scripts/train_torchrun.py", line 84, in main_distributed
+[rank26]:     engine.run_train(coordinator, start_iter, enable_tensorboard=args.tensorboard)
+[rank26]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 184, in run_train
+[rank26]:     trainer.train_model(start_iter)
+[rank26]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 164, in train_model
+[rank26]:     stats = self.step(accum_steps)
+[rank26]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 145, in step
+[rank26]:     self.step_ds(metrics, accum_steps) if self.ds_model else None
+[rank26]:   File "/share/project/wangjiahao/LAR/diffnext/engine/train_engine.py", line 123, in step_ds
+[rank26]:     outputs, losses = self.ds_model(inputs), []
+[rank26]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank26]:     return self._call_impl(*args, **kwargs)
+[rank26]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank26]:     return forward_call(*args, **kwargs)
+[rank26]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/deepspeed/utils/nvtx.py", line 18, in wrapped_fn
+[rank26]:     ret_val = func(*args, **kwargs)
+[rank26]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/deepspeed/runtime/engine.py", line 1914, in forward
+[rank26]:     loss = self.module(*inputs, **kwargs)
+[rank26]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank26]:     return self._call_impl(*args, **kwargs)
+[rank26]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank26]:     return forward_call(*args, **kwargs)
+[rank26]:   File "/share/project/wangjiahao/LAR/diffnext/models/transformers/transformer_3d.py", line 206, in forward
+[rank26]:     return self.train_video(inputs)
+[rank26]:   File "/share/project/wangjiahao/LAR/diffnext/models/transformers/transformer_3d.py", line 184, in train_video
+[rank26]:     c = self.video_encoder(c.flatten(1, 2), inputs["c"], pos=pos) # c: [64, 64, 768]
+[rank26]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank26]:     return self._call_impl(*args, **kwargs)
+[rank26]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank26]:     return forward_call(*args, **kwargs)
+[rank26]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 213, in forward
+[rank26]:     x = blk(x, pe2)
+[rank26]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank26]:     return self._call_impl(*args, **kwargs)
+[rank26]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank26]:     return forward_call(*args, **kwargs)
+[rank26]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 157, in forward
+[rank26]:     x = self.forward_ckpt(x, "attn").add_(x)
+[rank26]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 153, in forward_ckpt
+[rank26]:     return getattr(self, f"forward_{name}")(x)
+[rank26]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 145, in forward_attn
+[rank26]:     return self.norm1(self.attn(x))
+[rank26]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank26]:     return self._call_impl(*args, **kwargs)
+[rank26]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank26]:     return forward_call(*args, **kwargs)
+[rank26]:   File "/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear9.py", line 119, in forward
+[rank26]:     x = x + self.dwc(v).reshape(B, C, N).permute(0, 2, 1)   # (B, N, C): (32, 256, 384) 
+[rank26]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+[rank26]:     return self._call_impl(*args, **kwargs)
+[rank26]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+[rank26]:     return forward_call(*args, **kwargs)
+[rank26]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 458, in forward
+[rank26]:     return self._conv_forward(input, self.weight, self.bias)
+[rank26]:   File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 454, in _conv_forward
+[rank26]:     return F.conv2d(input, weight, bias, self.stride,
+[rank26]: RuntimeError: Given groups=64, weight of size [64, 1, 5, 5], expected input[768, 65, 8, 8] to have 64 channels, but got 65 channels instead
+W0403 11:42:12.877000 140511275136832 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 24326 closing signal SIGTERM
+W0403 11:42:12.878000 140511275136832 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 24328 closing signal SIGTERM
+W0403 11:42:12.878000 140511275136832 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 24329 closing signal SIGTERM
+W0403 11:42:12.878000 140511275136832 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 24331 closing signal SIGTERM
+W0403 11:42:12.878000 140511275136832 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 24332 closing signal SIGTERM
+W0403 11:42:12.878000 140511275136832 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 24333 closing signal SIGTERM
+E0403 11:42:13.757000 140511275136832 torch/distributed/elastic/multiprocessing/api.py:833] failed (exitcode: 1) local_rank: 1 (pid: 24327) of binary: /share/project/wangjiahao/anaconda3/envs/nova3/bin/python
+Traceback (most recent call last):
+  File "/share/project/wangjiahao/anaconda3/envs/nova3/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.4.0', 'console_scripts', 'torchrun')())
+  File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+    return f(*args, **kwargs)
+  File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 133, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/share/project/wangjiahao/LAR/scripts/train_torchrun.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2025-04-03_11:42:12
+  host      : job-70ab8b73-3323-4283-981d-3eca451df53e-worker-2
+  rank      : 28 (local_rank: 4)
+  exitcode  : 1 (pid: 24330)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-04-03_11:42:12
+  host      : job-70ab8b73-3323-4283-981d-3eca451df53e-worker-2
+  rank      : 25 (local_rank: 1)
+  exitcode  : 1 (pid: 24327)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

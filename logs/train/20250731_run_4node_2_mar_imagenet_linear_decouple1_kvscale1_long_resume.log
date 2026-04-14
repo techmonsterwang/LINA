@@ -1,0 +1,265 @@
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+2025-07-31 10:13:25.956523: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-07-31 10:13:26.489043: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-07-31 10:13:28.357661: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:13:28.359959: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:13:28.359970: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+INFO train_torchrun.py:60] Called with args:
+Namespace(cfg='/share/project/wangjiahao/LAR/diffnext/config/imagenet/linear/linear_decouple1_kvscale1_mar1k_nova_d48w768_256px.yml', exp_dir='exp_dir/linear_decouple1_kvscale1_long', tensorboard=True, distributed=False, host='', deepspeed='/share/project/wangjiahao/LAR/configs/deepspeed/zero2_bf16.json', num_gpus='8', world_size='4', rank='2', master_ip='job-884532f3-b984-46d4-a5ba-b81c057676b8-master-0')
+INFO train_torchrun.py:64] Using config:
+GPU_ID: 0
+MODEL:
+  CONFIG: {'image_dim': 16, 'image_size': [256, 256], 'image_stride': 16, 'rotary_pos_embed': False, 'video_base_size': [1, 8, 8], 'image_base_size': [16, 16], 'arch': ['vit_d16w768', 'vit_d32w768', 'mlp_d6w768']}
+  PRECISION: bfloat16
+  TYPE: transformer
+  WEIGHTS: /share/project/wangjiahao/LAR/exp_dir/linear_decouple1_kvscale1_long/checkpoints/in1k_nova_d48w768_256px_iter_515000
+NUM_GPUS: 32
+PIPELINE:
+  MODULES: {'vae': '/share/project/panting/mm_ckpt/vae/mar', 'scheduler': '/share/project/panting/mm_ckpt/nova_shared/scheduler/flow', 'model_index': '/share/project/wangjiahao/LAR/diffnext/model_index/linear/linear_decouple1_kvscale1_flow_mar_cls_nova.json'}
+  TYPE: nova_train_c2i
+RNG_SEED: 3
+SOLVER:
+  ACCUM_STEPS: 1
+  ADAM_BETA2: 0.95
+  BASE_LR: 0.0008
+  DECAY_GAMMA: 0.5
+  DECAY_STEPS: []
+  DISPLAY: 20
+  EMA_EVERY: 100
+  LR_POLICY: 
+  MAX_STEPS: 2500000
+  MIN_LR: 0.0
+  OPTIMIZER: AdamW
+  SNAPSHOT_EVERY: 5000
+  SNAPSHOT_PREFIX: in1k_nova_d48w768_256px
+  WARM_UP_FACTOR: 0.001
+  WARM_UP_STEPS: 10000
+  WEIGHT_DECAY: 0.02
+TRAIN:
+  BATCH_SIZE: 64
+  CHECKPOINTING: 0
+  DATASET: /share/project/panting/share_datasets/in1k_collection/in1k_mar256
+  DATASET2: 
+  DEVICE_EMA: gpu
+  LOADER: vae_train
+  LOSS_REPEAT: 4
+  MODEL_EMA: 0.99
+  NUM_THREADS: 8
+W0731 10:13:38.033000 140438505637696 torch/distributed/run.py:779] 
+W0731 10:13:38.033000 140438505637696 torch/distributed/run.py:779] *****************************************
+W0731 10:13:38.033000 140438505637696 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0731 10:13:38.033000 140438505637696 torch/distributed/run.py:779] *****************************************
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+2025-07-31 10:14:24.190138: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-07-31 10:14:24.190323: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-07-31 10:14:24.192820: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-07-31 10:14:24.193451: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-07-31 10:14:24.193739: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-07-31 10:14:24.193822: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-07-31 10:14:24.196053: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-07-31 10:14:24.196058: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-07-31 10:14:24.400518: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-07-31 10:14:24.400587: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-07-31 10:14:24.404216: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-07-31 10:14:24.404572: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-07-31 10:14:24.404572: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-07-31 10:14:24.404799: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-07-31 10:14:24.404799: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-07-31 10:14:24.404815: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-07-31 10:14:26.675922: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:14:26.675999: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:14:26.676332: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:14:26.676344: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-07-31 10:14:26.676344: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:14:26.676354: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-07-31 10:14:26.677136: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:14:26.677230: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:14:26.677236: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-07-31 10:14:26.688297: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:14:26.688297: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:14:26.688397: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:14:26.688403: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:14:26.688405: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-07-31 10:14:26.688410: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-07-31 10:14:26.710342: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:14:26.710462: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:14:26.710471: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:14:26.710478: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-07-31 10:14:26.710555: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:14:26.710564: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-07-31 10:14:26.795977: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:14:26.796082: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-07-31 10:14:26.796089: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]An error occurred while trying to fetch /tmp/tmpo0evhrdp/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpo0evhrdp/vae.
+An error occurred while trying to fetch /tmp/tmpr5xgmupr/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpr5xgmupr/vae.
+An error occurred while trying to fetch /tmp/tmpe40v01zv/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpe40v01zv/vae.
+An error occurred while trying to fetch /tmp/tmp4zv3hapf/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp4zv3hapf/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmplghfr2mn/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmplghfr2mn/vae.
+An error occurred while trying to fetch /tmp/tmpx1vkairg/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpx1vkairg/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmp22d73pan/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp22d73pan/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpx5c6e048/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpx5c6e048/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:01<00:02,  1.07s/it]Loading pipeline components...:  33%|███▎      | 1/3 [00:01<00:02,  1.07s/it]Loading pipeline components...:  33%|███▎      | 1/3 [00:01<00:02,  1.09s/it]An error occurred while trying to fetch /tmp/tmpo0evhrdp/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpo0evhrdp/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:01<00:02,  1.10s/it]An error occurred while trying to fetch /tmp/tmp4zv3hapf/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp4zv3hapf/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpe40v01zv/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpe40v01zv/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpr5xgmupr/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpr5xgmupr/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:01<00:00,  1.68it/s]Loading pipeline components...:  67%|██████▋   | 2/3 [00:01<00:00,  1.67it/s]Loading pipeline components...:  67%|██████▋   | 2/3 [00:01<00:00,  1.65it/s]An error occurred while trying to fetch /tmp/tmpx1vkairg/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpx1vkairg/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:01<00:00,  1.65it/s]An error occurred while trying to fetch /tmp/tmp22d73pan/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp22d73pan/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmplghfr2mn/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmplghfr2mn/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpx5c6e048/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpx5c6e048/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:02<00:01,  1.50s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.05it/s]Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.04it/s]
+Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.05it/s]Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.04it/s]
+Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.04it/s]
+[2025-07-31 10:14:41,179] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-07-31 10:14:41,179] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.45s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.28s/it]
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.45s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.28s/it]
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:03<00:02,  2.07s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.46s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.29s/it]
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.28s/it]
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.47s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.29s/it]
+[2025-07-31 10:14:41,808] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-07-31 10:14:42,140] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-07-31 10:14:42,233] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-07-31 10:14:42,257] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-07-31 10:14:42,281] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-07-31 10:14:42,301] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1.py:120: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1.py:120: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1.py:120: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1.py:120: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1.py:120: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1.py:120: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1.py:120: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1.py:120: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+[rank23]:[E801 00:26:19.278186322 ProcessGroupNCCL.cpp:607] [Rank 23] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=550427, OpType=ALLREDUCE, NumelIn=362349328, NumelOut=362349328, Timeout(ms)=600000) ran for 600001 milliseconds before timing out.
+[rank23]:[E801 00:26:19.285506959 ProcessGroupNCCL.cpp:1664] [PG 2 Rank 23] Exception (either an error or timeout) detected by watchdog at work: 550427, last enqueued NCCL work: 550428, last completed NCCL work: 550426.
+[rank20]:[E801 00:26:19.300771160 ProcessGroupNCCL.cpp:607] [Rank 20] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=550427, OpType=ALLREDUCE, NumelIn=362349328, NumelOut=362349328, Timeout(ms)=600000) ran for 600009 milliseconds before timing out.
+[rank20]:[E801 00:26:19.300966649 ProcessGroupNCCL.cpp:1664] [PG 2 Rank 20] Exception (either an error or timeout) detected by watchdog at work: 550427, last enqueued NCCL work: 550428, last completed NCCL work: 550426.
+[rank21]:[E801 00:26:19.304620682 ProcessGroupNCCL.cpp:607] [Rank 21] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=550427, OpType=ALLREDUCE, NumelIn=362349328, NumelOut=362349328, Timeout(ms)=600000) ran for 600017 milliseconds before timing out.
+[rank21]:[E801 00:26:19.304781530 ProcessGroupNCCL.cpp:1664] [PG 2 Rank 21] Exception (either an error or timeout) detected by watchdog at work: 550427, last enqueued NCCL work: 550428, last completed NCCL work: 550426.
+[rank18]:[E801 00:26:19.320860656 ProcessGroupNCCL.cpp:607] [Rank 18] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=550427, OpType=ALLREDUCE, NumelIn=362349328, NumelOut=362349328, Timeout(ms)=600000) ran for 600024 milliseconds before timing out.
+[rank18]:[E801 00:26:19.321118725 ProcessGroupNCCL.cpp:1664] [PG 2 Rank 18] Exception (either an error or timeout) detected by watchdog at work: 550427, last enqueued NCCL work: 550428, last completed NCCL work: 550426.
+[rank16]:[E801 00:26:19.331800264 ProcessGroupNCCL.cpp:607] [Rank 16] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=550427, OpType=ALLREDUCE, NumelIn=362349328, NumelOut=362349328, Timeout(ms)=600000) ran for 600051 milliseconds before timing out.
+[rank16]:[E801 00:26:19.331981436 ProcessGroupNCCL.cpp:1664] [PG 2 Rank 16] Exception (either an error or timeout) detected by watchdog at work: 550427, last enqueued NCCL work: 550428, last completed NCCL work: 550426.
+[rank17]:[E801 00:26:19.344513250 ProcessGroupNCCL.cpp:607] [Rank 17] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=550427, OpType=ALLREDUCE, NumelIn=362349328, NumelOut=362349328, Timeout(ms)=600000) ran for 600047 milliseconds before timing out.
+[rank17]:[E801 00:26:19.344687019 ProcessGroupNCCL.cpp:1664] [PG 2 Rank 17] Exception (either an error or timeout) detected by watchdog at work: 550427, last enqueued NCCL work: 550428, last completed NCCL work: 550426.
+[rank19]:[E801 00:26:19.353660065 ProcessGroupNCCL.cpp:607] [Rank 19] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=550427, OpType=ALLREDUCE, NumelIn=362349328, NumelOut=362349328, Timeout(ms)=600000) ran for 600056 milliseconds before timing out.
+[rank19]:[E801 00:26:19.353874692 ProcessGroupNCCL.cpp:1664] [PG 2 Rank 19] Exception (either an error or timeout) detected by watchdog at work: 550427, last enqueued NCCL work: 550428, last completed NCCL work: 550426.
+[rank22]:[E801 00:26:19.366938427 ProcessGroupNCCL.cpp:607] [Rank 22] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=550427, OpType=ALLREDUCE, NumelIn=362349328, NumelOut=362349328, Timeout(ms)=600000) ran for 600083 milliseconds before timing out.
+[rank22]:[E801 00:26:19.367096272 ProcessGroupNCCL.cpp:1664] [PG 2 Rank 22] Exception (either an error or timeout) detected by watchdog at work: 550427, last enqueued NCCL work: 550428, last completed NCCL work: 550426.
+[rank22]:[E801 00:26:20.868498923 ProcessGroupNCCL.cpp:1709] [PG 2 Rank 22] Timeout at NCCL work: 550427, last enqueued NCCL work: 550428, last completed NCCL work: 550426.
+[rank22]:[E801 00:26:20.868517501 ProcessGroupNCCL.cpp:621] [Rank 22] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank22]:[E801 00:26:20.868521901 ProcessGroupNCCL.cpp:627] [Rank 22] To avoid data inconsistency, we are taking the entire process down.
+[rank22]:[E801 00:26:20.869947042 ProcessGroupNCCL.cpp:1515] [PG 2 Rank 22] Process group watchdog thread terminated with exception: [Rank 22] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=550427, OpType=ALLREDUCE, NumelIn=362349328, NumelOut=362349328, Timeout(ms)=600000) ran for 600083 milliseconds before timing out.
+Exception raised from checkTimeout at /opt/conda/conda-bld/pytorch_1720538440907/work/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:609 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x7fdb6e8d2f86 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x1d2 (0x7fdb0be30f02 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::watchdogHandler() + 0x233 (0x7fdb0be37943 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x10c (0x7fdb0be39d2c in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xdbbf4 (0x7fdb6e4c7bf4 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/../../../.././libstdc++.so.6)
+frame #5: <unknown function> + 0x94b43 (0x7fdb76a2fb43 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #6: <unknown function> + 0x126a00 (0x7fdb76ac1a00 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+[rank17]:[E801 00:26:20.871300105 ProcessGroupNCCL.cpp:1709] [PG 2 Rank 17] Timeout at NCCL work: 550427, last enqueued NCCL work: 550428, last completed NCCL work: 550426.
+[rank17]:[E801 00:26:20.871323712 ProcessGroupNCCL.cpp:621] [Rank 17] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank17]:[E801 00:26:20.871329439 ProcessGroupNCCL.cpp:627] [Rank 17] To avoid data inconsistency, we are taking the entire process down.
+[rank16]:[E801 00:26:20.871476808 ProcessGroupNCCL.cpp:1709] [PG 2 Rank 16] Timeout at NCCL work: 550427, last enqueued NCCL work: 550428, last completed NCCL work: 550426.
+[rank16]:[E801 00:26:20.871504535 ProcessGroupNCCL.cpp:621] [Rank 16] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank16]:[E801 00:26:20.871512008 ProcessGroupNCCL.cpp:627] [Rank 16] To avoid data inconsistency, we are taking the entire process down.
+[rank23]:[E801 00:26:20.871494478 ProcessGroupNCCL.cpp:1709] [PG 2 Rank 23] Timeout at NCCL work: 550427, last enqueued NCCL work: 550428, last completed NCCL work: 550426.
+[rank23]:[E801 00:26:20.871523532 ProcessGroupNCCL.cpp:621] [Rank 23] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank23]:[E801 00:26:20.871529399 ProcessGroupNCCL.cpp:627] [Rank 23] To avoid data inconsistency, we are taking the entire process down.
+[rank17]:[E801 00:26:20.872670490 ProcessGroupNCCL.cpp:1515] [PG 2 Rank 17] Process group watchdog thread terminated with exception: [Rank 17] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=550427, OpType=ALLREDUCE, NumelIn=362349328, NumelOut=362349328, Timeout(ms)=600000) ran for 600047 milliseconds before timing out.
+Exception raised from checkTimeout at /opt/conda/conda-bld/pytorch_1720538440907/work/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:609 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x7f61acde7f86 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x1d2 (0x7f61ae030f02 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::watchdogHandler() + 0x233 (0x7f61ae037943 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x10c (0x7f61ae039d2c in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xdbbf4 (0x7f62106c7bf4 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/../../../.././libstdc++.so.6)
+frame #5: <unknown function> + 0x94b43 (0x7f6218b81b43 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #6: <unknown function> + 0x126a00 (0x7f6218c13a00 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+[rank23]:[E801 00:26:20.872880437 ProcessGroupNCCL.cpp:1515] [PG 2 Rank 23] Process group watchdog thread terminated with exception: [Rank 23] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=550427, OpType=ALLREDUCE, NumelIn=362349328, NumelOut=362349328, Timeout(ms)=600000) ran for 600001 milliseconds before timing out.
+Exception raised from checkTimeout at /opt/conda/conda-bld/pytorch_1720538440907/work/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:609 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x7ff507fe7f86 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x1d2 (0x7ff509230f02 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::watchdogHandler() + 0x233 (0x7ff509237943 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x10c (0x7ff509239d2c in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xdbbf4 (0x7ff56b8c7bf4 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/../../../.././libstdc++.so.6)
+frame #5: <unknown function> + 0x94b43 (0x7ff573da4b43 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #6: <unknown function> + 0x126a00 (0x7ff573e36a00 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+[rank16]:[E801 00:26:20.872970185 ProcessGroupNCCL.cpp:1515] [PG 2 Rank 16] Process group watchdog thread terminated with exception: [Rank 16] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=550427, OpType=ALLREDUCE, NumelIn=362349328, NumelOut=362349328, Timeout(ms)=600000) ran for 600051 milliseconds before timing out.
+Exception raised from checkTimeout at /opt/conda/conda-bld/pytorch_1720538440907/work/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:609 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x7f1391d76f86 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x1d2 (0x7f132f230f02 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::watchdogHandler() + 0x233 (0x7f132f237943 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x10c (0x7f132f239d2c in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xdbbf4 (0x7f13918c7bf4 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/../../../.././libstdc++.so.6)
+frame #5: <unknown function> + 0x94b43 (0x7f1399f3cb43 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #6: <unknown function> + 0x126a00 (0x7f1399fcea00 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+

@@ -1,0 +1,50 @@
+FLOPs Test Results
+============================================================
+Configuration:
+  Batch size (B): 1
+  Sequence length (N): 5120
+  Dimension (D): 1536
+  Number of heads: 16
+  Device: cuda
+
+Results Summary:
+  LinearAttentionDecoder:
+    Total FLOPs: 5.00e+10
+    GFLOPs: 49.99
+  Attention:
+    Total FLOPs: 1.29e+11
+    GFLOPs: 128.85
+
+Ratio (LinearAttentionDecoder / Attention): 0.39x
+
+============================================================
+Detailed FLOPs Breakdown for LinearAttentionDecoder
+============================================================
+
+FLOPs by Operator Type:
+------------------------------------------------------------
+  linear                                  :     48318382080 FLOPs (   48.32 GFLOPs, 96.65%)
+  matmul                                  :      1517813760 FLOPs (    1.52 GFLOPs,  3.04%)
+  conv                                    :       157286400 FLOPs (    0.16 GFLOPs,  0.31%)
+
+FLOPs by Module:
+------------------------------------------------------------
+                                          :     49993482240 FLOPs (   49.99 GFLOPs, 100.00%)
+  qkv                                     :     36238786560 FLOPs (   36.24 GFLOPs, 72.49%)
+  proj                                    :     12079595520 FLOPs (   12.08 GFLOPs, 24.16%)
+  dw_conv                                 :       157286400 FLOPs (    0.16 GFLOPs,  0.31%)
+
+============================================================
+Detailed FLOPs Breakdown for Attention
+============================================================
+
+FLOPs by Operator Type:
+------------------------------------------------------------
+  matmul                                  :     80530636800 FLOPs (   80.53 GFLOPs, 62.50%)
+  linear                                  :     48318382080 FLOPs (   48.32 GFLOPs, 37.50%)
+
+FLOPs by Module:
+------------------------------------------------------------
+                                          :    128849018880 FLOPs (  128.85 GFLOPs, 100.00%)
+  qkv                                     :     36238786560 FLOPs (   36.24 GFLOPs, 28.12%)
+  proj                                    :     12079595520 FLOPs (   12.08 GFLOPs,  9.38%)

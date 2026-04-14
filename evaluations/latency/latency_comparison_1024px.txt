@@ -1,0 +1,38 @@
+Latency Test Results - Multiple Models
+======================================
+
+Number of prediction steps: 128
+Number of diffusion steps: 25
+Guidance scale: 7.0
+Batch size: 1
+Test batches per run: 10
+Number of runs: 3
+
+Model: Model_1_finetune_nova_d48w1536_1024px
+--------------------------------------------
+Latencies per run (seconds):
+  Run 1: 22.1096s
+  Run 2: 22.0706s
+  Run 3: 22.0481s
+
+Average latency: 22.0761s
+Min latency: 22.0481s
+Max latency: 22.1096s
+Std deviation: 0.03s
+
+Model: Model_2_scratch_full_attention_nova_d48w1536_1024px
+----------------------------------------------------------
+Latencies per run (seconds):
+  Run 1: 20.0038s
+  Run 2: 20.0047s
+  Run 3: 20.0521s
+
+Average latency: 20.0202s
+Min latency: 20.0038s
+Max latency: 20.0521s
+Std deviation: 0.02s
+
+Summary Comparison:
+==================
+Model_1_finetune_nova_d48w1536_1024px: 22.0761s per image, 0.05 images/second
+Model_2_scratch_full_attention_nova_d48w1536_1024px: 20.0202s per image, 0.05 images/second

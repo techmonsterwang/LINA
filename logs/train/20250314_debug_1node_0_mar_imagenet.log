@@ -1,0 +1,151 @@
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+INFO train_torchrun.py:60] Called with args:
+Namespace(cfg='/share/project/wangjiahao/LAR/diffnext/config/imagenet/mar_large_1k_nova_d48w768_256px_debug.yml', exp_dir='exp_dir', tensorboard=True, distributed=False, host='', deepspeed='/share/project/wangjiahao/NOVA/deepspeed/zero2_bf16.json', num_gpus='8', world_size='1', rank='0', master_ip='job-f585a39e-abc8-4c55-b7ef-b7012a677ae4-master-0')
+INFO train_torchrun.py:64] Using config:
+GPU_ID: 0
+MODEL:
+  CONFIG: {'image_dim': 16, 'image_size': [256, 256], 'image_stride': 16, 'rotary_pos_embed': True, 'video_base_size': [1, 8, 8], 'image_base_size': [16, 16], 'arch': ['vit_d16w768', 'vit_d32w768', 'mlp_d6w768']}
+  PRECISION: bfloat16
+  TYPE: transformer
+  WEIGHTS: /share/project/panting/diffnext-main/models.c2i/scratch_d48w768_256px_f16c16
+NUM_GPUS: 8
+PIPELINE:
+  MODULES: {'vae': '/share/project/panting/mm_ckpt/vae/mar', 'scheduler': '/share/project/panting/mm_ckpt/nova_shared/scheduler/flow', 'model_index': '/share/project/panting/mm_ckpt/nova_shared/model_index/flow_mar_cls_nova.json'}
+  TYPE: nova_train_c2i
+RNG_SEED: 3
+SOLVER:
+  ACCUM_STEPS: 1
+  ADAM_BETA2: 0.95
+  BASE_LR: 0.0008
+  DECAY_GAMMA: 0.5
+  DECAY_STEPS: []
+  DISPLAY: 20
+  EMA_EVERY: 100
+  LR_POLICY: 
+  MAX_STEPS: 2500000
+  MIN_LR: 0.0
+  OPTIMIZER: AdamW
+  SNAPSHOT_EVERY: 5000
+  SNAPSHOT_PREFIX: in1k_nova_d48w768_256px
+  WARM_UP_FACTOR: 0.001
+  WARM_UP_STEPS: 10000
+  WEIGHT_DECAY: 0.02
+TRAIN:
+  BATCH_SIZE: 64
+  CHECKPOINTING: 0
+  DATASET: /share/project/panting/share_datasets/in1k_collection/in1k_mar256
+  DATASET2: 
+  DEVICE_EMA: gpu
+  LOADER: vae_train
+  LOSS_REPEAT: 4
+  MODEL_EMA: 0.99
+  NUM_THREADS: 8
+W0314 11:53:46.591000 140190800504640 torch/distributed/run.py:779] 
+W0314 11:53:46.591000 140190800504640 torch/distributed/run.py:779] *****************************************
+W0314 11:53:46.591000 140190800504640 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0314 11:53:46.591000 140190800504640 torch/distributed/run.py:779] *****************************************
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+INFO train_torchrun.py:82] Dataset(/share/project/panting/share_datasets/in1k_collection/in1k_mar256): 1281167 examples for training.
+INFO train_torchrun.py:83] Checkpoints will be saved to `/share/project/wangjiahao/LAR/exp_dir/checkpoints`
+Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]An error occurred while trying to fetch /tmp/tmpe1xrhq9e/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpe1xrhq9e/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmp8112h2tl/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp8112h2tl/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]INFO flex_loaders.py:179] Prefetch batches...
+Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]An error occurred while trying to fetch /tmp/tmpg6d39kp1/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpg6d39kp1/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpsukog3bq/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpsukog3bq/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]An error occurred while trying to fetch /tmp/tmpq3k0l0nq/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpq3k0l0nq/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpmxahwwcw/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpmxahwwcw/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]An error occurred while trying to fetch /tmp/tmpfjdkwng8/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpfjdkwng8/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpupcfspze/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpupcfspze/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:01<00:02,  1.08s/it]An error occurred while trying to fetch /tmp/tmpe1xrhq9e/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpe1xrhq9e/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:01<00:00,  1.81it/s]An error occurred while trying to fetch /tmp/tmpg6d39kp1/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpg6d39kp1/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:01<00:02,  1.10s/it]An error occurred while trying to fetch /tmp/tmpq3k0l0nq/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpq3k0l0nq/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:01<00:00,  1.61it/s]An error occurred while trying to fetch /tmp/tmpsukog3bq/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpsukog3bq/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:01<00:02,  1.15s/it]An error occurred while trying to fetch /tmp/tmpupcfspze/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpupcfspze/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:01<00:00,  1.66it/s]An error occurred while trying to fetch /tmp/tmpmxahwwcw/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpmxahwwcw/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:01<00:02,  1.19s/it]An error occurred while trying to fetch /tmp/tmpfjdkwng8/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpfjdkwng8/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:01<00:03,  1.89s/it]An error occurred while trying to fetch /tmp/tmp8112h2tl/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp8112h2tl/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.57it/s]Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.31it/s]
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:02<00:01,  1.34s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.15it/s]
+[2025-03-14 11:54:09,810] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.14s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.02s/it]
+[2025-03-14 11:54:10,066] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:03<00:01,  1.76s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.11s/it]
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.27s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.14s/it]
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.32s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.18s/it]
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.14s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.15s/it]
+[2025-03-14 11:54:10,371] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.19s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.19s/it]
+[2025-03-14 11:54:10,801] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-14 11:54:10,923] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-14 11:54:10,968] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-14 11:54:10,987] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-14 11:54:11,117] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+INFO train_engine.py:182] #Params: 361.91M
+INFO train_engine.py:183] Start training...
+INFO train_engine.py:90] Iteration 0, lr = 0.00000088, time = 2.20s
+INFO train_engine.py:92]     Train net output(loss): 2.0269 (2.0269)
+INFO train_engine.py:90] Iteration 20, lr = 0.00000248, time = 0.34s
+INFO train_engine.py:92]     Train net output(loss): 2.0043 (2.0285)
+INFO train_engine.py:90] Iteration 40, lr = 0.00000408, time = 0.34s
+INFO train_engine.py:92]     Train net output(loss): 2.0142 (2.0220)
+INFO train_engine.py:90] Iteration 60, lr = 0.00000568, time = 0.33s
+INFO train_engine.py:92]     Train net output(loss): 1.9862 (2.0165)
+INFO train_engine.py:90] Iteration 80, lr = 0.00000727, time = 0.34s
+INFO train_engine.py:92]     Train net output(loss): 1.8986 (2.0057)
+INFO train_engine.py:90] Iteration 100, lr = 0.00000887, time = 0.34s
+INFO train_engine.py:92]     Train net output(loss): 1.8568 (1.9872)
+INFO train_engine.py:90] Iteration 120, lr = 0.00001047, time = 0.52s
+INFO train_engine.py:92]     Train net output(loss): 1.8337 (1.9656)
+INFO train_engine.py:90] Iteration 140, lr = 0.00001207, time = 0.34s
+INFO train_engine.py:92]     Train net output(loss): 1.7635 (1.9401)
+INFO train_engine.py:90] Iteration 160, lr = 0.00001367, time = 0.34s
+INFO train_engine.py:92]     Train net output(loss): 1.6558 (1.9128)
+INFO train_engine.py:90] Iteration 180, lr = 0.00001527, time = 0.34s
+INFO train_engine.py:92]     Train net output(loss): 1.6007 (1.8833)
+INFO train_engine.py:169] < PROGRESS: 0.01% | SPEED: 0.354s / iter | ETA: 10 days, 6:00:38 >
+INFO train_engine.py:90] Iteration 200, lr = 0.00001686, time = 0.34s
+INFO train_engine.py:92]     Train net output(loss): 1.5680 (1.8555)
+INFO train_engine.py:90] Iteration 220, lr = 0.00001846, time = 0.34s
+INFO train_engine.py:92]     Train net output(loss): 1.5865 (1.8301)
+INFO train_engine.py:90] Iteration 240, lr = 0.00002006, time = 0.35s
+INFO train_engine.py:92]     Train net output(loss): 1.5081 (1.8069)
+INFO train_engine.py:90] Iteration 260, lr = 0.00002166, time = 0.34s
+INFO train_engine.py:92]     Train net output(loss): 1.5205 (1.7865)
+INFO train_engine.py:90] Iteration 280, lr = 0.00002326, time = 0.34s
+INFO train_engine.py:92]     Train net output(loss): 1.4921 (1.7673)
+INFO train_engine.py:90] Iteration 300, lr = 0.00002486, time = 0.33s
+INFO train_engine.py:92]     Train net output(loss): 1.5178 (1.7486)
+INFO train_engine.py:90] Iteration 320, lr = 0.00002645, time = 0.34s
+INFO train_engine.py:92]     Train net output(loss): 1.4292 (1.7287)

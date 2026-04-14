@@ -1,0 +1,2202 @@
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+2025-03-28 08:29:56.274292: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-03-28 08:29:56.738513: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-03-28 08:29:59.897497: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:29:59.897842: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:29:59.897849: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+INFO train_torchrun.py:60] Called with args:
+Namespace(cfg='/share/project/wangjiahao/LAR/diffnext/config/imagenet/linear/linear5_mar1k_nova_d48w768_256px.yml', exp_dir='exp_dir/linear5', tensorboard=True, distributed=False, host='', deepspeed='/share/project/wangjiahao/LAR/configs/deepspeed/zero2_bf16.json', num_gpus='8', world_size='4', rank='0', master_ip='job-70ab8b73-3323-4283-981d-3eca451df53e-master-0')
+INFO train_torchrun.py:64] Using config:
+GPU_ID: 0
+MODEL:
+  CONFIG: {'image_dim': 16, 'image_size': [256, 256], 'image_stride': 16, 'rotary_pos_embed': True, 'video_base_size': [1, 8, 8], 'image_base_size': [16, 16], 'arch': ['vit_d16w768', 'vit_d32w768', 'mlp_d6w768']}
+  PRECISION: bfloat16
+  TYPE: transformer
+  WEIGHTS: /share/project/wangjiahao/LAR/pretrained/models.c2i/linear5/scratch_d48w768_256px_f16c16
+NUM_GPUS: 32
+PIPELINE:
+  MODULES: {'vae': '/share/project/panting/mm_ckpt/vae/mar', 'scheduler': '/share/project/panting/mm_ckpt/nova_shared/scheduler/flow', 'model_index': '/share/project/wangjiahao/LAR/diffnext/model_index/linear/linear5_flow_mar_cls_nova.json'}
+  TYPE: nova_train_c2i
+RNG_SEED: 3
+SOLVER:
+  ACCUM_STEPS: 1
+  ADAM_BETA2: 0.95
+  BASE_LR: 0.0008
+  DECAY_GAMMA: 0.5
+  DECAY_STEPS: []
+  DISPLAY: 20
+  EMA_EVERY: 100
+  LR_POLICY: 
+  MAX_STEPS: 2500000
+  MIN_LR: 0.0
+  OPTIMIZER: AdamW
+  SNAPSHOT_EVERY: 5000
+  SNAPSHOT_PREFIX: in1k_nova_d48w768_256px
+  WARM_UP_FACTOR: 0.001
+  WARM_UP_STEPS: 10000
+  WEIGHT_DECAY: 0.02
+TRAIN:
+  BATCH_SIZE: 64
+  CHECKPOINTING: 0
+  DATASET: /share/project/panting/share_datasets/in1k_collection/in1k_mar256
+  DATASET2: 
+  DEVICE_EMA: gpu
+  LOADER: vae_train
+  LOSS_REPEAT: 4
+  MODEL_EMA: 0.99
+  NUM_THREADS: 8
+W0328 08:30:18.930000 139938604058432 torch/distributed/run.py:779] 
+W0328 08:30:18.930000 139938604058432 torch/distributed/run.py:779] *****************************************
+W0328 08:30:18.930000 139938604058432 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0328 08:30:18.930000 139938604058432 torch/distributed/run.py:779] *****************************************
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+2025-03-28 08:32:07.158661: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-03-28 08:32:07.158802: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-03-28 08:32:07.162063: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-03-28 08:32:07.162195: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-03-28 08:32:07.164486: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-03-28 08:32:07.164714: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-03-28 08:32:07.167398: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-03-28 08:32:07.167716: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-03-28 08:32:07.417299: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-03-28 08:32:07.417632: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-03-28 08:32:07.417919: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-03-28 08:32:07.417925: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-03-28 08:32:07.418551: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-03-28 08:32:07.418580: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-03-28 08:32:07.424524: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-03-28 08:32:07.436650: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-03-28 08:32:13.592162: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:32:13.592232: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:32:13.592257: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:32:13.592296: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:32:13.592342: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:32:13.592620: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:32:13.592630: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:32:13.592638: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-03-28 08:32:13.592640: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:32:13.592644: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:32:13.592646: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-03-28 08:32:13.592648: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:32:13.592650: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-03-28 08:32:13.592652: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:32:13.592655: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-03-28 08:32:13.592658: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-03-28 08:32:13.592705: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:32:13.592712: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-03-28 08:32:13.606346: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:32:13.606429: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:32:13.606435: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-03-28 08:32:13.610982: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:32:13.611067: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-28 08:32:13.611073: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+INFO train_torchrun.py:82] Dataset(/share/project/panting/share_datasets/in1k_collection/in1k_mar256): 1281167 examples for training.
+INFO train_torchrun.py:83] Checkpoints will be saved to `/share/project/wangjiahao/LAR/exp_dir/linear5/checkpoints`
+Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]An error occurred while trying to fetch /tmp/tmply6cl40l/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmply6cl40l/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmp9nrees18/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp9nrees18/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+INFO flex_loaders.py:179] Prefetch batches...
+Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]An error occurred while trying to fetch /tmp/tmpz_xv7jis/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpz_xv7jis/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmprbx66je6/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmprbx66je6/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpa4_3hueu/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpa4_3hueu/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmphe35q12d/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmphe35q12d/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpwbtbth29/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpwbtbth29/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmp5l5mri18/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp5l5mri18/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:00<00:01,  1.48it/s]Loading pipeline components...:  33%|███▎      | 1/3 [00:00<00:01,  1.47it/s]Loading pipeline components...:  33%|███▎      | 1/3 [00:00<00:01,  1.48it/s]An error occurred while trying to fetch /tmp/tmpz_xv7jis/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpz_xv7jis/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpa4_3hueu/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpa4_3hueu/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmprbx66je6/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmprbx66je6/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:01<00:00,  1.25it/s]An error occurred while trying to fetch /tmp/tmp5l5mri18/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp5l5mri18/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...: 100%|██████████| 3/3 [00:01<00:00,  1.85it/s]Loading pipeline components...: 100%|██████████| 3/3 [00:01<00:00,  1.68it/s]
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:02<00:01,  1.05s/it]An error occurred while trying to fetch /tmp/tmp9nrees18/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp9nrees18/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:01<00:00,  1.01it/s]An error occurred while trying to fetch /tmp/tmpwbtbth29/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpwbtbth29/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.44it/s]Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.31it/s]
+Loading pipeline components...:  33%|███▎      | 1/3 [00:02<00:04,  2.28s/it]An error occurred while trying to fetch /tmp/tmply6cl40l/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmply6cl40l/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:02<00:04,  2.09s/it]An error occurred while trying to fetch /tmp/tmphe35q12d/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmphe35q12d/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.50it/s]Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.37it/s]
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:02<00:01,  1.04s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.25it/s]
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:02<00:01,  1.16s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.12it/s]
+Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.18it/s]Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.21it/s]
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:02<00:01,  1.35s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.19it/s]
+[2025-03-28 08:32:47,579] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.12it/s]Loading pipeline components...: 100%|██████████| 3/3 [00:02<00:00,  1.14it/s]
+[2025-03-28 08:32:47,890] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-28 08:32:48,060] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-28 08:32:48,254] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-28 08:32:48,401] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-28 08:32:48,504] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-28 08:32:48,506] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-28 08:32:48,668] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear5.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear5.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear5.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear5.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear5.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear5.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear5.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+2025-03-28 08:33:05.788301: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+INFO train_engine.py:182] #Params: 361.91M
+INFO train_engine.py:183] Start training...
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear5.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+INFO train_engine.py:90] Iteration 0, lr = 0.00000088, time = 3.66s
+INFO train_engine.py:92]     Train net output(loss): 2.0269 (2.0269)
+INFO train_engine.py:90] Iteration 20, lr = 0.00000248, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 2.0044 (2.0285)
+INFO train_engine.py:90] Iteration 40, lr = 0.00000408, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 2.0145 (2.0221)
+INFO train_engine.py:90] Iteration 60, lr = 0.00000568, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.9891 (2.0171)
+INFO train_engine.py:90] Iteration 80, lr = 0.00000727, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.9045 (2.0072)
+INFO train_engine.py:90] Iteration 100, lr = 0.00000887, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.8629 (1.9897)
+INFO train_engine.py:90] Iteration 120, lr = 0.00001047, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.8425 (1.9689)
+INFO train_engine.py:90] Iteration 140, lr = 0.00001207, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.7731 (1.9442)
+INFO train_engine.py:90] Iteration 160, lr = 0.00001367, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.6609 (1.9175)
+INFO train_engine.py:90] Iteration 180, lr = 0.00001527, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.6026 (1.8880)
+INFO train_engine.py:169] < PROGRESS: 0.01% | SPEED: 0.480s / iter | ETA: 13 days, 21:04:54 >
+INFO train_engine.py:90] Iteration 200, lr = 0.00001686, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.5816 (1.8599)
+INFO train_engine.py:90] Iteration 220, lr = 0.00001846, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.5940 (1.8349)
+INFO train_engine.py:90] Iteration 240, lr = 0.00002006, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.5222 (1.8117)
+INFO train_engine.py:90] Iteration 260, lr = 0.00002166, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.5249 (1.7907)
+INFO train_engine.py:90] Iteration 280, lr = 0.00002326, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4776 (1.7707)
+INFO train_engine.py:90] Iteration 300, lr = 0.00002486, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.5035 (1.7518)
+INFO train_engine.py:90] Iteration 320, lr = 0.00002645, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4604 (1.7333)
+INFO train_engine.py:90] Iteration 340, lr = 0.00002805, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4065 (1.7161)
+INFO train_engine.py:90] Iteration 360, lr = 0.00002965, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4375 (1.7001)
+INFO train_engine.py:90] Iteration 380, lr = 0.00003125, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4305 (1.6852)
+INFO train_engine.py:169] < PROGRESS: 0.02% | SPEED: 0.471s / iter | ETA: 13 days, 14:57:24 >
+INFO train_engine.py:90] Iteration 400, lr = 0.00003285, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4036 (1.6716)
+INFO train_engine.py:90] Iteration 420, lr = 0.00003445, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3889 (1.6594)
+INFO train_engine.py:90] Iteration 440, lr = 0.00003604, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4169 (1.6480)
+INFO train_engine.py:90] Iteration 460, lr = 0.00003764, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4087 (1.6377)
+INFO train_engine.py:90] Iteration 480, lr = 0.00003924, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3710 (1.6277)
+INFO train_engine.py:90] Iteration 500, lr = 0.00004084, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3672 (1.6184)
+INFO train_engine.py:90] Iteration 520, lr = 0.00004244, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4653 (1.6100)
+INFO train_engine.py:90] Iteration 540, lr = 0.00004404, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4169 (1.6037)
+INFO train_engine.py:90] Iteration 560, lr = 0.00004564, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4149 (1.5974)
+INFO train_engine.py:90] Iteration 580, lr = 0.00004723, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4252 (1.5917)
+INFO train_engine.py:169] < PROGRESS: 0.02% | SPEED: 0.470s / iter | ETA: 13 days, 14:20:01 >
+INFO train_engine.py:90] Iteration 600, lr = 0.00004883, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3984 (1.5855)
+INFO train_engine.py:90] Iteration 620, lr = 0.00005043, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3880 (1.5801)
+INFO train_engine.py:90] Iteration 640, lr = 0.00005203, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4030 (1.5743)
+INFO train_engine.py:90] Iteration 660, lr = 0.00005363, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3923 (1.5688)
+INFO train_engine.py:90] Iteration 680, lr = 0.00005523, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3776 (1.5638)
+INFO train_engine.py:90] Iteration 700, lr = 0.00005682, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3873 (1.5590)
+INFO train_engine.py:90] Iteration 720, lr = 0.00005842, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3913 (1.5546)
+INFO train_engine.py:90] Iteration 740, lr = 0.00006002, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3773 (1.5502)
+INFO train_engine.py:90] Iteration 760, lr = 0.00006162, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3979 (1.5460)
+INFO train_engine.py:90] Iteration 780, lr = 0.00006322, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3821 (1.5422)
+INFO train_engine.py:169] < PROGRESS: 0.03% | SPEED: 0.468s / iter | ETA: 13 days, 12:58:16 >
+INFO train_engine.py:90] Iteration 800, lr = 0.00006482, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3803 (1.5388)
+INFO train_engine.py:90] Iteration 820, lr = 0.00006641, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3899 (1.5352)
+INFO train_engine.py:90] Iteration 840, lr = 0.00006801, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3916 (1.5317)
+INFO train_engine.py:90] Iteration 860, lr = 0.00006961, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3472 (1.5283)
+INFO train_engine.py:90] Iteration 880, lr = 0.00007121, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4306 (1.5251)
+INFO train_engine.py:90] Iteration 900, lr = 0.00007281, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4016 (1.5223)
+INFO train_engine.py:90] Iteration 920, lr = 0.00007441, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4313 (1.5197)
+INFO train_engine.py:90] Iteration 940, lr = 0.00007600, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4375 (1.5178)
+INFO train_engine.py:90] Iteration 960, lr = 0.00007760, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4330 (1.5159)
+INFO train_engine.py:90] Iteration 980, lr = 0.00007920, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4273 (1.5140)
+INFO train_engine.py:169] < PROGRESS: 0.04% | SPEED: 0.467s / iter | ETA: 13 days, 12:01:33 >
+INFO train_engine.py:90] Iteration 1000, lr = 0.00008080, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4292 (1.5127)
+INFO train_engine.py:90] Iteration 1020, lr = 0.00008240, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4362 (1.5108)
+INFO train_engine.py:90] Iteration 1040, lr = 0.00008400, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4311 (1.5090)
+INFO train_engine.py:90] Iteration 1060, lr = 0.00008560, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4014 (1.5071)
+INFO train_engine.py:90] Iteration 1080, lr = 0.00008719, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3691 (1.5049)
+INFO train_engine.py:90] Iteration 1100, lr = 0.00008879, time = 0.71s
+INFO train_engine.py:92]     Train net output(loss): 1.4186 (1.5033)
+INFO train_engine.py:90] Iteration 1120, lr = 0.00009039, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4201 (1.5019)
+INFO train_engine.py:90] Iteration 1140, lr = 0.00009199, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4196 (1.5003)
+INFO train_engine.py:90] Iteration 1160, lr = 0.00009359, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4357 (1.4988)
+INFO train_engine.py:90] Iteration 1180, lr = 0.00009519, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4217 (1.4975)
+INFO train_engine.py:169] < PROGRESS: 0.05% | SPEED: 0.467s / iter | ETA: 13 days, 12:00:31 >
+INFO train_engine.py:90] Iteration 1200, lr = 0.00009678, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4096 (1.4961)
+INFO train_engine.py:90] Iteration 1220, lr = 0.00009838, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4189 (1.4947)
+INFO train_engine.py:90] Iteration 1240, lr = 0.00009998, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4129 (1.4932)
+INFO train_engine.py:90] Iteration 1260, lr = 0.00010158, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4154 (1.4926)
+INFO train_engine.py:90] Iteration 1280, lr = 0.00010318, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4016 (1.4914)
+INFO train_engine.py:90] Iteration 1300, lr = 0.00010478, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4325 (1.4901)
+INFO train_engine.py:90] Iteration 1320, lr = 0.00010637, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4230 (1.4890)
+INFO train_engine.py:90] Iteration 1340, lr = 0.00010797, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4161 (1.4881)
+INFO train_engine.py:90] Iteration 1360, lr = 0.00010957, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4241 (1.4870)
+INFO train_engine.py:90] Iteration 1380, lr = 0.00011117, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4104 (1.4859)
+INFO train_engine.py:169] < PROGRESS: 0.06% | SPEED: 0.466s / iter | ETA: 13 days, 11:31:27 >
+INFO train_engine.py:90] Iteration 1400, lr = 0.00011277, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3946 (1.4848)
+INFO train_engine.py:90] Iteration 1420, lr = 0.00011437, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3615 (1.4837)
+INFO train_engine.py:90] Iteration 1440, lr = 0.00011596, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4059 (1.4829)
+INFO train_engine.py:90] Iteration 1460, lr = 0.00011756, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3953 (1.4819)
+INFO train_engine.py:90] Iteration 1480, lr = 0.00011916, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4575 (1.4808)
+INFO train_engine.py:90] Iteration 1500, lr = 0.00012076, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4066 (1.4799)
+INFO train_engine.py:90] Iteration 1520, lr = 0.00012236, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4138 (1.4793)
+INFO train_engine.py:90] Iteration 1540, lr = 0.00012396, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4152 (1.4785)
+INFO train_engine.py:90] Iteration 1560, lr = 0.00012556, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4023 (1.4776)
+INFO train_engine.py:90] Iteration 1580, lr = 0.00012715, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3972 (1.4768)
+INFO train_engine.py:169] < PROGRESS: 0.06% | SPEED: 0.466s / iter | ETA: 13 days, 11:09:00 >
+INFO train_engine.py:90] Iteration 1600, lr = 0.00012875, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4241 (1.4759)
+INFO train_engine.py:90] Iteration 1620, lr = 0.00013035, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3972 (1.4751)
+INFO train_engine.py:90] Iteration 1640, lr = 0.00013195, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4027 (1.4743)
+INFO train_engine.py:90] Iteration 1660, lr = 0.00013355, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4108 (1.4735)
+INFO train_engine.py:90] Iteration 1680, lr = 0.00013515, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4148 (1.4727)
+INFO train_engine.py:90] Iteration 1700, lr = 0.00013674, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3870 (1.4719)
+INFO train_engine.py:90] Iteration 1720, lr = 0.00013834, time = 0.49s
+INFO train_engine.py:92]     Train net output(loss): 1.4162 (1.4712)
+INFO train_engine.py:90] Iteration 1740, lr = 0.00013994, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4112 (1.4705)
+INFO train_engine.py:90] Iteration 1760, lr = 0.00014154, time = 0.49s
+INFO train_engine.py:92]     Train net output(loss): 1.4248 (1.4701)
+INFO train_engine.py:90] Iteration 1780, lr = 0.00014314, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4258 (1.4693)
+INFO train_engine.py:169] < PROGRESS: 0.07% | SPEED: 0.466s / iter | ETA: 13 days, 11:10:35 >
+INFO train_engine.py:90] Iteration 1800, lr = 0.00014474, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4197 (1.4686)
+INFO train_engine.py:90] Iteration 1820, lr = 0.00014633, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4166 (1.4679)
+INFO train_engine.py:90] Iteration 1840, lr = 0.00014793, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4256 (1.4673)
+INFO train_engine.py:90] Iteration 1860, lr = 0.00014953, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4088 (1.4667)
+INFO train_engine.py:90] Iteration 1880, lr = 0.00015113, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4155 (1.4661)
+INFO train_engine.py:90] Iteration 1900, lr = 0.00015273, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4040 (1.4655)
+INFO train_engine.py:90] Iteration 1920, lr = 0.00015433, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4163 (1.4649)
+INFO train_engine.py:90] Iteration 1940, lr = 0.00015592, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4288 (1.4644)
+INFO train_engine.py:90] Iteration 1960, lr = 0.00015752, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4109 (1.4638)
+INFO train_engine.py:90] Iteration 1980, lr = 0.00015912, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4398 (1.4632)
+INFO train_engine.py:169] < PROGRESS: 0.08% | SPEED: 0.465s / iter | ETA: 13 days, 10:56:16 >
+INFO train_engine.py:90] Iteration 2000, lr = 0.00016072, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4714 (1.4628)
+INFO train_engine.py:90] Iteration 2020, lr = 0.00016232, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4203 (1.4626)
+INFO train_engine.py:90] Iteration 2040, lr = 0.00016392, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4317 (1.4621)
+INFO train_engine.py:90] Iteration 2060, lr = 0.00016552, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3924 (1.4615)
+INFO train_engine.py:90] Iteration 2080, lr = 0.00016711, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4053 (1.4610)
+INFO train_engine.py:90] Iteration 2100, lr = 0.00016871, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.5180 (1.4604)
+INFO train_engine.py:90] Iteration 2120, lr = 0.00017031, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4172 (1.4600)
+INFO train_engine.py:90] Iteration 2140, lr = 0.00017191, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4089 (1.4595)
+INFO train_engine.py:90] Iteration 2160, lr = 0.00017351, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3955 (1.4590)
+INFO train_engine.py:90] Iteration 2180, lr = 0.00017511, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4365 (1.4586)
+INFO train_engine.py:169] < PROGRESS: 0.09% | SPEED: 0.465s / iter | ETA: 13 days, 10:40:55 >
+INFO train_engine.py:90] Iteration 2200, lr = 0.00017670, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3998 (1.4581)
+INFO train_engine.py:90] Iteration 2220, lr = 0.00017830, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4073 (1.4575)
+INFO train_engine.py:90] Iteration 2240, lr = 0.00017990, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3722 (1.4570)
+INFO train_engine.py:90] Iteration 2260, lr = 0.00018150, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3956 (1.4565)
+INFO train_engine.py:90] Iteration 2280, lr = 0.00018310, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3937 (1.4563)
+INFO train_engine.py:90] Iteration 2300, lr = 0.00018470, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4072 (1.4559)
+INFO train_engine.py:90] Iteration 2320, lr = 0.00018629, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3909 (1.4555)
+INFO train_engine.py:90] Iteration 2340, lr = 0.00018789, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3929 (1.4551)
+INFO train_engine.py:90] Iteration 2360, lr = 0.00018949, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4205 (1.4546)
+INFO train_engine.py:90] Iteration 2380, lr = 0.00019109, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4135 (1.4543)
+INFO train_engine.py:169] < PROGRESS: 0.10% | SPEED: 0.465s / iter | ETA: 13 days, 10:28:45 >
+INFO train_engine.py:90] Iteration 2400, lr = 0.00019269, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4569 (1.4539)
+INFO train_engine.py:90] Iteration 2420, lr = 0.00019429, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4045 (1.4535)
+INFO train_engine.py:90] Iteration 2440, lr = 0.00019588, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3830 (1.4531)
+INFO train_engine.py:90] Iteration 2460, lr = 0.00019748, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4255 (1.4527)
+INFO train_engine.py:90] Iteration 2480, lr = 0.00019908, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4024 (1.4524)
+INFO train_engine.py:90] Iteration 2500, lr = 0.00020068, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3744 (1.4520)
+INFO train_engine.py:90] Iteration 2520, lr = 0.00020228, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3886 (1.4516)
+INFO train_engine.py:90] Iteration 2540, lr = 0.00020388, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4162 (1.4512)
+INFO train_engine.py:90] Iteration 2560, lr = 0.00020548, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4088 (1.4508)
+INFO train_engine.py:90] Iteration 2580, lr = 0.00020707, time = 0.50s
+INFO train_engine.py:92]     Train net output(loss): 1.4388 (1.4505)
+INFO train_engine.py:169] < PROGRESS: 0.10% | SPEED: 0.465s / iter | ETA: 13 days, 10:33:04 >
+INFO train_engine.py:90] Iteration 2600, lr = 0.00020867, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3926 (1.4502)
+INFO train_engine.py:90] Iteration 2620, lr = 0.00021027, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4053 (1.4498)
+INFO train_engine.py:90] Iteration 2640, lr = 0.00021187, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3965 (1.4495)
+INFO train_engine.py:90] Iteration 2660, lr = 0.00021347, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4216 (1.4491)
+INFO train_engine.py:90] Iteration 2680, lr = 0.00021507, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3858 (1.4487)
+INFO train_engine.py:90] Iteration 2700, lr = 0.00021666, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3972 (1.4484)
+INFO train_engine.py:90] Iteration 2720, lr = 0.00021826, time = 0.48s
+INFO train_engine.py:92]     Train net output(loss): 1.4069 (1.4481)
+INFO train_engine.py:90] Iteration 2740, lr = 0.00021986, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4220 (1.4478)
+INFO train_engine.py:90] Iteration 2760, lr = 0.00022146, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4039 (1.4475)
+INFO train_engine.py:90] Iteration 2780, lr = 0.00022306, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3813 (1.4472)
+INFO train_engine.py:169] < PROGRESS: 0.11% | SPEED: 0.465s / iter | ETA: 13 days, 10:20:28 >
+INFO train_engine.py:90] Iteration 2800, lr = 0.00022466, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4062 (1.4469)
+INFO train_engine.py:90] Iteration 2820, lr = 0.00022625, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3895 (1.4466)
+INFO train_engine.py:90] Iteration 2840, lr = 0.00022785, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4032 (1.4464)
+INFO train_engine.py:90] Iteration 2860, lr = 0.00022945, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3954 (1.4461)
+INFO train_engine.py:90] Iteration 2880, lr = 0.00023105, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3989 (1.4458)
+INFO train_engine.py:90] Iteration 2900, lr = 0.00023265, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4452 (1.4456)
+INFO train_engine.py:90] Iteration 2920, lr = 0.00023425, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4363 (1.4453)
+INFO train_engine.py:90] Iteration 2940, lr = 0.00023584, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4207 (1.4450)
+INFO train_engine.py:90] Iteration 2960, lr = 0.00023744, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4177 (1.4448)
+INFO train_engine.py:90] Iteration 2980, lr = 0.00023904, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4050 (1.4445)
+INFO train_engine.py:169] < PROGRESS: 0.12% | SPEED: 0.464s / iter | ETA: 13 days, 10:08:51 >
+INFO train_engine.py:90] Iteration 3000, lr = 0.00024064, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4103 (1.4442)
+INFO train_engine.py:90] Iteration 3020, lr = 0.00024224, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4036 (1.4439)
+INFO train_engine.py:90] Iteration 3040, lr = 0.00024384, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3998 (1.4436)
+INFO train_engine.py:90] Iteration 3060, lr = 0.00024544, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4044 (1.4434)
+INFO train_engine.py:90] Iteration 3080, lr = 0.00024703, time = 0.77s
+INFO train_engine.py:92]     Train net output(loss): 1.3780 (1.4431)
+INFO train_engine.py:90] Iteration 3100, lr = 0.00024863, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4169 (1.4429)
+INFO train_engine.py:90] Iteration 3120, lr = 0.00025023, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3957 (1.4426)
+INFO train_engine.py:90] Iteration 3140, lr = 0.00025183, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4133 (1.4423)
+INFO train_engine.py:90] Iteration 3160, lr = 0.00025343, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4245 (1.4420)
+INFO train_engine.py:90] Iteration 3180, lr = 0.00025503, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3806 (1.4418)
+INFO train_engine.py:169] < PROGRESS: 0.13% | SPEED: 0.465s / iter | ETA: 13 days, 10:09:48 >
+INFO train_engine.py:90] Iteration 3200, lr = 0.00025662, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4073 (1.4416)
+INFO train_engine.py:90] Iteration 3220, lr = 0.00025822, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3879 (1.4413)
+INFO train_engine.py:90] Iteration 3240, lr = 0.00025982, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4050 (1.4411)
+INFO train_engine.py:90] Iteration 3260, lr = 0.00026142, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4051 (1.4408)
+INFO train_engine.py:90] Iteration 3280, lr = 0.00026302, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3870 (1.4405)
+INFO train_engine.py:90] Iteration 3300, lr = 0.00026462, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3754 (1.4402)
+INFO train_engine.py:90] Iteration 3320, lr = 0.00026621, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4132 (1.4400)
+INFO train_engine.py:90] Iteration 3340, lr = 0.00026781, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4080 (1.4398)
+INFO train_engine.py:90] Iteration 3360, lr = 0.00026941, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3911 (1.4395)
+INFO train_engine.py:90] Iteration 3380, lr = 0.00027101, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4193 (1.4394)
+INFO train_engine.py:169] < PROGRESS: 0.14% | SPEED: 0.464s / iter | ETA: 13 days, 10:02:30 >
+INFO train_engine.py:90] Iteration 3400, lr = 0.00027261, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4261 (1.4392)
+INFO train_engine.py:90] Iteration 3420, lr = 0.00027421, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3855 (1.4390)
+INFO train_engine.py:90] Iteration 3440, lr = 0.00027580, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4092 (1.4388)
+INFO train_engine.py:90] Iteration 3460, lr = 0.00027740, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4095 (1.4386)
+INFO train_engine.py:90] Iteration 3480, lr = 0.00027900, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4101 (1.4384)
+INFO train_engine.py:90] Iteration 3500, lr = 0.00028060, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3991 (1.4382)
+INFO train_engine.py:90] Iteration 3520, lr = 0.00028220, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4094 (1.4380)
+INFO train_engine.py:90] Iteration 3540, lr = 0.00028380, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3955 (1.4378)
+INFO train_engine.py:90] Iteration 3560, lr = 0.00028540, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4002 (1.4376)
+INFO train_engine.py:90] Iteration 3580, lr = 0.00028699, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3925 (1.4373)
+INFO train_engine.py:169] < PROGRESS: 0.14% | SPEED: 0.464s / iter | ETA: 13 days, 9:54:24 >
+INFO train_engine.py:90] Iteration 3600, lr = 0.00028859, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4214 (1.4371)
+INFO train_engine.py:90] Iteration 3620, lr = 0.00029019, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4417 (1.4370)
+INFO train_engine.py:90] Iteration 3640, lr = 0.00029179, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3922 (1.4368)
+INFO train_engine.py:90] Iteration 3660, lr = 0.00029339, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3935 (1.4367)
+INFO train_engine.py:90] Iteration 3680, lr = 0.00029499, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4189 (1.4365)
+INFO train_engine.py:90] Iteration 3700, lr = 0.00029658, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3864 (1.4363)
+INFO train_engine.py:90] Iteration 3720, lr = 0.00029818, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3985 (1.4361)
+INFO train_engine.py:90] Iteration 3740, lr = 0.00029978, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3809 (1.4360)
+INFO train_engine.py:90] Iteration 3760, lr = 0.00030138, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4060 (1.4358)
+INFO train_engine.py:90] Iteration 3780, lr = 0.00030298, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4137 (1.4357)
+INFO train_engine.py:169] < PROGRESS: 0.15% | SPEED: 0.464s / iter | ETA: 13 days, 9:57:04 >
+INFO train_engine.py:90] Iteration 3800, lr = 0.00030458, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4138 (1.4355)
+INFO train_engine.py:90] Iteration 3820, lr = 0.00030617, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4036 (1.4354)
+INFO train_engine.py:90] Iteration 3840, lr = 0.00030777, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4312 (1.4352)
+INFO train_engine.py:90] Iteration 3860, lr = 0.00030937, time = 0.50s
+INFO train_engine.py:92]     Train net output(loss): 1.3859 (1.4351)
+INFO train_engine.py:90] Iteration 3880, lr = 0.00031097, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3906 (1.4349)
+INFO train_engine.py:90] Iteration 3900, lr = 0.00031257, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3967 (1.4348)
+INFO train_engine.py:90] Iteration 3920, lr = 0.00031417, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4083 (1.4346)
+INFO train_engine.py:90] Iteration 3940, lr = 0.00031576, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3982 (1.4345)
+INFO train_engine.py:90] Iteration 3960, lr = 0.00031736, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4205 (1.4344)
+INFO train_engine.py:90] Iteration 3980, lr = 0.00031896, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3920 (1.4342)
+INFO train_engine.py:169] < PROGRESS: 0.16% | SPEED: 0.464s / iter | ETA: 13 days, 9:50:50 >
+INFO train_engine.py:90] Iteration 4000, lr = 0.00032056, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4094 (1.4341)
+INFO train_engine.py:90] Iteration 4020, lr = 0.00032216, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3936 (1.4339)
+INFO train_engine.py:90] Iteration 4040, lr = 0.00032376, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4092 (1.4338)
+INFO train_engine.py:90] Iteration 4060, lr = 0.00032536, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3964 (1.4337)
+INFO train_engine.py:90] Iteration 4080, lr = 0.00032695, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4034 (1.4336)
+INFO train_engine.py:90] Iteration 4100, lr = 0.00032855, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4033 (1.4335)
+INFO train_engine.py:90] Iteration 4120, lr = 0.00033015, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3919 (1.4333)
+INFO train_engine.py:90] Iteration 4140, lr = 0.00033175, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3863 (1.4332)
+INFO train_engine.py:90] Iteration 4160, lr = 0.00033335, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3861 (1.4330)
+INFO train_engine.py:90] Iteration 4180, lr = 0.00033495, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4036 (1.4329)
+INFO train_engine.py:169] < PROGRESS: 0.17% | SPEED: 0.464s / iter | ETA: 13 days, 9:44:13 >
+INFO train_engine.py:90] Iteration 4200, lr = 0.00033654, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4055 (1.4327)
+INFO train_engine.py:90] Iteration 4220, lr = 0.00033814, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4038 (1.4326)
+INFO train_engine.py:90] Iteration 4240, lr = 0.00033974, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4158 (1.4325)
+INFO train_engine.py:90] Iteration 4260, lr = 0.00034134, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4047 (1.4323)
+INFO train_engine.py:90] Iteration 4280, lr = 0.00034294, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4043 (1.4322)
+INFO train_engine.py:90] Iteration 4300, lr = 0.00034454, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4007 (1.4321)
+INFO train_engine.py:90] Iteration 4320, lr = 0.00034613, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4181 (1.4319)
+INFO train_engine.py:90] Iteration 4340, lr = 0.00034773, time = 0.63s
+INFO train_engine.py:92]     Train net output(loss): 1.3797 (1.4318)
+INFO train_engine.py:90] Iteration 4360, lr = 0.00034933, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3852 (1.4316)
+INFO train_engine.py:90] Iteration 4380, lr = 0.00035093, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3922 (1.4315)
+INFO train_engine.py:169] < PROGRESS: 0.18% | SPEED: 0.464s / iter | ETA: 13 days, 9:48:15 >
+INFO train_engine.py:90] Iteration 4400, lr = 0.00035253, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4244 (1.4313)
+INFO train_engine.py:90] Iteration 4420, lr = 0.00035413, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3821 (1.4311)
+INFO train_engine.py:90] Iteration 4440, lr = 0.00035572, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4035 (1.4310)
+INFO train_engine.py:90] Iteration 4460, lr = 0.00035732, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3977 (1.4309)
+INFO train_engine.py:90] Iteration 4480, lr = 0.00035892, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3915 (1.4308)
+INFO train_engine.py:90] Iteration 4500, lr = 0.00036052, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4008 (1.4307)
+INFO train_engine.py:90] Iteration 4520, lr = 0.00036212, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4177 (1.4306)
+INFO train_engine.py:90] Iteration 4540, lr = 0.00036372, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4028 (1.4305)
+INFO train_engine.py:90] Iteration 4560, lr = 0.00036532, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3975 (1.4303)
+INFO train_engine.py:90] Iteration 4580, lr = 0.00036691, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3817 (1.4302)
+INFO train_engine.py:169] < PROGRESS: 0.18% | SPEED: 0.464s / iter | ETA: 13 days, 9:41:25 >
+INFO train_engine.py:90] Iteration 4600, lr = 0.00036851, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4026 (1.4301)
+INFO train_engine.py:90] Iteration 4620, lr = 0.00037011, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4137 (1.4300)
+INFO train_engine.py:90] Iteration 4640, lr = 0.00037171, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4136 (1.4299)
+INFO train_engine.py:90] Iteration 4660, lr = 0.00037331, time = 0.48s
+INFO train_engine.py:92]     Train net output(loss): 1.4071 (1.4298)
+INFO train_engine.py:90] Iteration 4680, lr = 0.00037491, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4043 (1.4297)
+INFO train_engine.py:90] Iteration 4700, lr = 0.00037650, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4091 (1.4296)
+INFO train_engine.py:90] Iteration 4720, lr = 0.00037810, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4202 (1.4295)
+INFO train_engine.py:90] Iteration 4740, lr = 0.00037970, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3859 (1.4293)
+INFO train_engine.py:90] Iteration 4760, lr = 0.00038130, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4051 (1.4292)
+INFO train_engine.py:90] Iteration 4780, lr = 0.00038290, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4148 (1.4291)
+INFO train_engine.py:169] < PROGRESS: 0.19% | SPEED: 0.464s / iter | ETA: 13 days, 9:34:11 >
+INFO train_engine.py:90] Iteration 4800, lr = 0.00038450, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3971 (1.4290)
+INFO train_engine.py:90] Iteration 4820, lr = 0.00038609, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3892 (1.4289)
+INFO train_engine.py:90] Iteration 4840, lr = 0.00038769, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3889 (1.4288)
+INFO train_engine.py:90] Iteration 4860, lr = 0.00038929, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4055 (1.4286)
+INFO train_engine.py:90] Iteration 4880, lr = 0.00039089, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4222 (1.4285)
+INFO train_engine.py:90] Iteration 4900, lr = 0.00039249, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3998 (1.4285)
+INFO train_engine.py:90] Iteration 4920, lr = 0.00039409, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3986 (1.4284)
+INFO train_engine.py:90] Iteration 4940, lr = 0.00039568, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4222 (1.4283)
+INFO train_engine.py:90] Iteration 4960, lr = 0.00039728, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4084 (1.4282)
+INFO train_engine.py:90] Iteration 4980, lr = 0.00039888, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3968 (1.4281)
+INFO train_engine.py:169] < PROGRESS: 0.20% | SPEED: 0.464s / iter | ETA: 13 days, 9:31:42 >
+INFO train_engine.py:71] Wrote snapshot to: /share/project/wangjiahao/LAR/exp_dir/linear5/checkpoints/in1k_nova_d48w768_256px_iter_5000/transformer
+INFO train_engine.py:90] Iteration 5000, lr = 0.00040048, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4025 (1.4025)
+INFO train_engine.py:90] Iteration 5020, lr = 0.00040208, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3955 (1.4022)
+INFO train_engine.py:90] Iteration 5040, lr = 0.00040368, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3866 (1.4027)
+INFO train_engine.py:90] Iteration 5060, lr = 0.00040528, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3788 (1.4018)
+INFO train_engine.py:90] Iteration 5080, lr = 0.00040687, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4087 (1.4022)
+INFO train_engine.py:90] Iteration 5100, lr = 0.00040847, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4172 (1.4034)
+INFO train_engine.py:90] Iteration 5120, lr = 0.00041007, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4068 (1.4031)
+INFO train_engine.py:90] Iteration 5140, lr = 0.00041167, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4305 (1.4033)
+INFO train_engine.py:90] Iteration 5160, lr = 0.00041327, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3786 (1.4031)
+INFO train_engine.py:90] Iteration 5180, lr = 0.00041487, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4053 (1.4034)
+INFO train_engine.py:169] < PROGRESS: 0.21% | SPEED: 0.464s / iter | ETA: 13 days, 9:31:29 >
+INFO train_engine.py:90] Iteration 5200, lr = 0.00041646, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4382 (1.4032)
+INFO train_engine.py:90] Iteration 5220, lr = 0.00041806, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4372 (1.4040)
+INFO train_engine.py:90] Iteration 5240, lr = 0.00041966, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4007 (1.4034)
+INFO train_engine.py:90] Iteration 5260, lr = 0.00042126, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4178 (1.4034)
+INFO train_engine.py:90] Iteration 5280, lr = 0.00042286, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3921 (1.4033)
+INFO train_engine.py:90] Iteration 5300, lr = 0.00042446, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3935 (1.4031)
+INFO train_engine.py:90] Iteration 5320, lr = 0.00042605, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4127 (1.4031)
+INFO train_engine.py:90] Iteration 5340, lr = 0.00042765, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3959 (1.4032)
+INFO train_engine.py:90] Iteration 5360, lr = 0.00042925, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4060 (1.4034)
+INFO train_engine.py:90] Iteration 5380, lr = 0.00043085, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4064 (1.4033)
+INFO train_engine.py:169] < PROGRESS: 0.22% | SPEED: 0.464s / iter | ETA: 13 days, 9:27:10 >
+INFO train_engine.py:90] Iteration 5400, lr = 0.00043245, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4069 (1.4034)
+INFO train_engine.py:90] Iteration 5420, lr = 0.00043405, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4069 (1.4037)
+INFO train_engine.py:90] Iteration 5440, lr = 0.00043564, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3829 (1.4037)
+INFO train_engine.py:90] Iteration 5460, lr = 0.00043724, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4028 (1.4036)
+INFO train_engine.py:90] Iteration 5480, lr = 0.00043884, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4217 (1.4036)
+INFO train_engine.py:90] Iteration 5500, lr = 0.00044044, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3915 (1.4038)
+INFO train_engine.py:90] Iteration 5520, lr = 0.00044204, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4169 (1.4038)
+INFO train_engine.py:90] Iteration 5540, lr = 0.00044364, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4067 (1.4035)
+INFO train_engine.py:90] Iteration 5560, lr = 0.00044524, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3975 (1.4036)
+INFO train_engine.py:90] Iteration 5580, lr = 0.00044683, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4044 (1.4036)
+INFO train_engine.py:169] < PROGRESS: 0.22% | SPEED: 0.464s / iter | ETA: 13 days, 9:21:01 >
+INFO train_engine.py:90] Iteration 5600, lr = 0.00044843, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3913 (1.4036)
+INFO train_engine.py:90] Iteration 5620, lr = 0.00045003, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3996 (1.4035)
+INFO train_engine.py:90] Iteration 5640, lr = 0.00045163, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3848 (1.4033)
+INFO train_engine.py:90] Iteration 5660, lr = 0.00045323, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4223 (1.4033)
+INFO train_engine.py:90] Iteration 5680, lr = 0.00045483, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4059 (1.4035)
+INFO train_engine.py:90] Iteration 5700, lr = 0.00045642, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3974 (1.4034)
+INFO train_engine.py:90] Iteration 5720, lr = 0.00045802, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4209 (1.4033)
+INFO train_engine.py:90] Iteration 5740, lr = 0.00045962, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3992 (1.4035)
+INFO train_engine.py:90] Iteration 5760, lr = 0.00046122, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4011 (1.4036)
+INFO train_engine.py:90] Iteration 5780, lr = 0.00046282, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4020 (1.4035)
+INFO train_engine.py:169] < PROGRESS: 0.23% | SPEED: 0.464s / iter | ETA: 13 days, 9:24:32 >
+INFO train_engine.py:90] Iteration 5800, lr = 0.00046442, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4143 (1.4033)
+INFO train_engine.py:90] Iteration 5820, lr = 0.00046601, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4215 (1.4034)
+INFO train_engine.py:90] Iteration 5840, lr = 0.00046761, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3676 (1.4035)
+INFO train_engine.py:90] Iteration 5860, lr = 0.00046921, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3895 (1.4036)
+INFO train_engine.py:90] Iteration 5880, lr = 0.00047081, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4343 (1.4035)
+INFO train_engine.py:90] Iteration 5900, lr = 0.00047241, time = 0.48s
+INFO train_engine.py:92]     Train net output(loss): 1.3954 (1.4037)
+INFO train_engine.py:90] Iteration 5920, lr = 0.00047401, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4024 (1.4036)
+INFO train_engine.py:90] Iteration 5940, lr = 0.00047560, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3862 (1.4037)
+INFO train_engine.py:90] Iteration 5960, lr = 0.00047720, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4098 (1.4036)
+INFO train_engine.py:90] Iteration 5980, lr = 0.00047880, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3782 (1.4036)
+INFO train_engine.py:169] < PROGRESS: 0.24% | SPEED: 0.464s / iter | ETA: 13 days, 9:29:32 >
+INFO train_engine.py:90] Iteration 6000, lr = 0.00048040, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4130 (1.4036)
+INFO train_engine.py:90] Iteration 6020, lr = 0.00048200, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3962 (1.4037)
+INFO train_engine.py:90] Iteration 6040, lr = 0.00048360, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4239 (1.4037)
+INFO train_engine.py:90] Iteration 6060, lr = 0.00048520, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3905 (1.4037)
+INFO train_engine.py:90] Iteration 6080, lr = 0.00048679, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3915 (1.4035)
+INFO train_engine.py:90] Iteration 6100, lr = 0.00048839, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4313 (1.4034)
+INFO train_engine.py:90] Iteration 6120, lr = 0.00048999, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3968 (1.4035)
+INFO train_engine.py:90] Iteration 6140, lr = 0.00049159, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3814 (1.4034)
+INFO train_engine.py:90] Iteration 6160, lr = 0.00049319, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3987 (1.4034)
+INFO train_engine.py:90] Iteration 6180, lr = 0.00049479, time = 0.49s
+INFO train_engine.py:92]     Train net output(loss): 1.4128 (1.4033)
+INFO train_engine.py:169] < PROGRESS: 0.25% | SPEED: 0.464s / iter | ETA: 13 days, 9:23:21 >
+INFO train_engine.py:90] Iteration 6200, lr = 0.00049638, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4097 (1.4032)
+INFO train_engine.py:90] Iteration 6220, lr = 0.00049798, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3866 (1.4032)
+INFO train_engine.py:90] Iteration 6240, lr = 0.00049958, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4066 (1.4031)
+INFO train_engine.py:90] Iteration 6260, lr = 0.00050118, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4107 (1.4030)
+INFO train_engine.py:90] Iteration 6280, lr = 0.00050278, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4050 (1.4029)
+INFO train_engine.py:90] Iteration 6300, lr = 0.00050438, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3787 (1.4028)
+INFO train_engine.py:90] Iteration 6320, lr = 0.00050597, time = 0.72s
+INFO train_engine.py:92]     Train net output(loss): 1.4001 (1.4028)
+INFO train_engine.py:90] Iteration 6340, lr = 0.00050757, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4343 (1.4027)
+INFO train_engine.py:90] Iteration 6360, lr = 0.00050917, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4133 (1.4028)
+INFO train_engine.py:90] Iteration 6380, lr = 0.00051077, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4034 (1.4028)
+INFO train_engine.py:169] < PROGRESS: 0.26% | SPEED: 0.464s / iter | ETA: 13 days, 9:23:33 >
+INFO train_engine.py:90] Iteration 6400, lr = 0.00051237, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4171 (1.4028)
+INFO train_engine.py:90] Iteration 6420, lr = 0.00051397, time = 0.49s
+INFO train_engine.py:92]     Train net output(loss): 1.3884 (1.4028)
+INFO train_engine.py:90] Iteration 6440, lr = 0.00051556, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3997 (1.4028)
+INFO train_engine.py:90] Iteration 6460, lr = 0.00051716, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4061 (1.4029)
+INFO train_engine.py:90] Iteration 6480, lr = 0.00051876, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3875 (1.4028)
+INFO train_engine.py:90] Iteration 6500, lr = 0.00052036, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4234 (1.4028)
+INFO train_engine.py:90] Iteration 6520, lr = 0.00052196, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4097 (1.4028)
+INFO train_engine.py:90] Iteration 6540, lr = 0.00052356, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3954 (1.4029)
+INFO train_engine.py:90] Iteration 6560, lr = 0.00052516, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3950 (1.4030)
+INFO train_engine.py:90] Iteration 6580, lr = 0.00052675, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4016 (1.4030)
+INFO train_engine.py:169] < PROGRESS: 0.26% | SPEED: 0.464s / iter | ETA: 13 days, 9:18:58 >
+INFO train_engine.py:90] Iteration 6600, lr = 0.00052835, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4032 (1.4030)
+INFO train_engine.py:90] Iteration 6620, lr = 0.00052995, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4062 (1.4029)
+INFO train_engine.py:90] Iteration 6640, lr = 0.00053155, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3997 (1.4029)
+INFO train_engine.py:90] Iteration 6660, lr = 0.00053315, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4105 (1.4029)
+INFO train_engine.py:90] Iteration 6680, lr = 0.00053475, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3817 (1.4027)
+INFO train_engine.py:90] Iteration 6700, lr = 0.00053634, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4012 (1.4027)
+INFO train_engine.py:90] Iteration 6720, lr = 0.00053794, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4367 (1.4026)
+INFO train_engine.py:90] Iteration 6740, lr = 0.00053954, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3978 (1.4025)
+INFO train_engine.py:90] Iteration 6760, lr = 0.00054114, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4158 (1.4025)
+INFO train_engine.py:90] Iteration 6780, lr = 0.00054274, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4034 (1.4025)
+INFO train_engine.py:169] < PROGRESS: 0.27% | SPEED: 0.464s / iter | ETA: 13 days, 9:13:49 >
+INFO train_engine.py:90] Iteration 6800, lr = 0.00054434, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3983 (1.4025)
+INFO train_engine.py:90] Iteration 6820, lr = 0.00054593, time = 0.48s
+INFO train_engine.py:92]     Train net output(loss): 1.3932 (1.4025)
+INFO train_engine.py:90] Iteration 6840, lr = 0.00054753, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4009 (1.4024)
+INFO train_engine.py:90] Iteration 6860, lr = 0.00054913, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3832 (1.4023)
+INFO train_engine.py:90] Iteration 6880, lr = 0.00055073, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3968 (1.4023)
+INFO train_engine.py:90] Iteration 6900, lr = 0.00055233, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3775 (1.4022)
+INFO train_engine.py:90] Iteration 6920, lr = 0.00055393, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4040 (1.4022)
+INFO train_engine.py:90] Iteration 6940, lr = 0.00055552, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4122 (1.4023)
+INFO train_engine.py:90] Iteration 6960, lr = 0.00055712, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3965 (1.4023)
+INFO train_engine.py:90] Iteration 6980, lr = 0.00055872, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3959 (1.4023)
+INFO train_engine.py:169] < PROGRESS: 0.28% | SPEED: 0.464s / iter | ETA: 13 days, 9:15:56 >
+INFO train_engine.py:90] Iteration 7000, lr = 0.00056032, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4136 (1.4023)
+INFO train_engine.py:90] Iteration 7020, lr = 0.00056192, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4270 (1.4023)
+INFO train_engine.py:90] Iteration 7040, lr = 0.00056352, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3781 (1.4022)
+INFO train_engine.py:90] Iteration 7060, lr = 0.00056512, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4105 (1.4022)
+INFO train_engine.py:90] Iteration 7080, lr = 0.00056671, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4100 (1.4022)
+INFO train_engine.py:90] Iteration 7100, lr = 0.00056831, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3979 (1.4022)
+INFO train_engine.py:90] Iteration 7120, lr = 0.00056991, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4060 (1.4021)
+INFO train_engine.py:90] Iteration 7140, lr = 0.00057151, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3875 (1.4020)
+INFO train_engine.py:90] Iteration 7160, lr = 0.00057311, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3858 (1.4019)
+INFO train_engine.py:90] Iteration 7180, lr = 0.00057471, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3824 (1.4018)
+INFO train_engine.py:169] < PROGRESS: 0.29% | SPEED: 0.464s / iter | ETA: 13 days, 9:12:22 >
+INFO train_engine.py:90] Iteration 7200, lr = 0.00057630, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3904 (1.4018)
+INFO train_engine.py:90] Iteration 7220, lr = 0.00057790, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3926 (1.4016)
+INFO train_engine.py:90] Iteration 7240, lr = 0.00057950, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3898 (1.4015)
+INFO train_engine.py:90] Iteration 7260, lr = 0.00058110, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4140 (1.4016)
+INFO train_engine.py:90] Iteration 7280, lr = 0.00058270, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3959 (1.4017)
+INFO train_engine.py:90] Iteration 7300, lr = 0.00058430, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4095 (1.4017)
+INFO train_engine.py:90] Iteration 7320, lr = 0.00058589, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4035 (1.4017)
+INFO train_engine.py:90] Iteration 7340, lr = 0.00058749, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4168 (1.4016)
+INFO train_engine.py:90] Iteration 7360, lr = 0.00058909, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4356 (1.4016)
+INFO train_engine.py:90] Iteration 7380, lr = 0.00059069, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3945 (1.4016)
+INFO train_engine.py:169] < PROGRESS: 0.30% | SPEED: 0.464s / iter | ETA: 13 days, 9:07:08 >
+INFO train_engine.py:90] Iteration 7400, lr = 0.00059229, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3845 (1.4017)
+INFO train_engine.py:90] Iteration 7420, lr = 0.00059389, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3712 (1.4017)
+INFO train_engine.py:90] Iteration 7440, lr = 0.00059548, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4152 (1.4016)
+INFO train_engine.py:90] Iteration 7460, lr = 0.00059708, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3798 (1.4015)
+INFO train_engine.py:90] Iteration 7480, lr = 0.00059868, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3818 (1.4015)
+INFO train_engine.py:90] Iteration 7500, lr = 0.00060028, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3978 (1.4015)
+INFO train_engine.py:90] Iteration 7520, lr = 0.00060188, time = 0.52s
+INFO train_engine.py:92]     Train net output(loss): 1.4038 (1.4015)
+INFO train_engine.py:90] Iteration 7540, lr = 0.00060348, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4091 (1.4015)
+INFO train_engine.py:90] Iteration 7560, lr = 0.00060508, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4066 (1.4015)
+INFO train_engine.py:90] Iteration 7580, lr = 0.00060667, time = 0.64s
+INFO train_engine.py:92]     Train net output(loss): 1.4079 (1.4016)
+INFO train_engine.py:169] < PROGRESS: 0.30% | SPEED: 0.464s / iter | ETA: 13 days, 9:03:36 >
+INFO train_engine.py:90] Iteration 7600, lr = 0.00060827, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4155 (1.4016)
+INFO train_engine.py:90] Iteration 7620, lr = 0.00060987, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3810 (1.4016)
+INFO train_engine.py:90] Iteration 7640, lr = 0.00061147, time = 0.51s
+INFO train_engine.py:92]     Train net output(loss): 1.4229 (1.4016)
+INFO train_engine.py:90] Iteration 7660, lr = 0.00061307, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4169 (1.4017)
+INFO train_engine.py:90] Iteration 7680, lr = 0.00061467, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3932 (1.4016)
+INFO train_engine.py:90] Iteration 7700, lr = 0.00061626, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4033 (1.4016)
+INFO train_engine.py:90] Iteration 7720, lr = 0.00061786, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4137 (1.4017)
+INFO train_engine.py:90] Iteration 7740, lr = 0.00061946, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4028 (1.4017)
+INFO train_engine.py:90] Iteration 7760, lr = 0.00062106, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4321 (1.4017)
+INFO train_engine.py:90] Iteration 7780, lr = 0.00062266, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4159 (1.4018)
+INFO train_engine.py:169] < PROGRESS: 0.31% | SPEED: 0.464s / iter | ETA: 13 days, 9:02:25 >
+INFO train_engine.py:90] Iteration 7800, lr = 0.00062426, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3860 (1.4018)
+INFO train_engine.py:90] Iteration 7820, lr = 0.00062585, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4096 (1.4019)
+INFO train_engine.py:90] Iteration 7840, lr = 0.00062745, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4066 (1.4019)
+INFO train_engine.py:90] Iteration 7860, lr = 0.00062905, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4110 (1.4018)
+INFO train_engine.py:90] Iteration 7880, lr = 0.00063065, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3937 (1.4018)
+INFO train_engine.py:90] Iteration 7900, lr = 0.00063225, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4021 (1.4018)
+INFO train_engine.py:90] Iteration 7920, lr = 0.00063385, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3982 (1.4019)
+INFO train_engine.py:90] Iteration 7940, lr = 0.00063544, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4026 (1.4019)
+INFO train_engine.py:90] Iteration 7960, lr = 0.00063704, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3856 (1.4019)
+INFO train_engine.py:90] Iteration 7980, lr = 0.00063864, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4024 (1.4019)
+INFO train_engine.py:169] < PROGRESS: 0.32% | SPEED: 0.464s / iter | ETA: 13 days, 8:57:23 >
+INFO train_engine.py:90] Iteration 8000, lr = 0.00064024, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4061 (1.4019)
+INFO train_engine.py:90] Iteration 8020, lr = 0.00064184, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4200 (1.4019)
+INFO train_engine.py:90] Iteration 8040, lr = 0.00064344, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3900 (1.4019)
+INFO train_engine.py:90] Iteration 8060, lr = 0.00064504, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4186 (1.4019)
+INFO train_engine.py:90] Iteration 8080, lr = 0.00064663, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3944 (1.4019)
+INFO train_engine.py:90] Iteration 8100, lr = 0.00064823, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3876 (1.4020)
+INFO train_engine.py:90] Iteration 8120, lr = 0.00064983, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3597 (1.4019)
+INFO train_engine.py:90] Iteration 8140, lr = 0.00065143, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3868 (1.4019)
+INFO train_engine.py:90] Iteration 8160, lr = 0.00065303, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4048 (1.4018)
+INFO train_engine.py:90] Iteration 8180, lr = 0.00065463, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4235 (1.4018)
+INFO train_engine.py:169] < PROGRESS: 0.33% | SPEED: 0.464s / iter | ETA: 13 days, 8:52:32 >
+INFO train_engine.py:90] Iteration 8200, lr = 0.00065622, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4023 (1.4019)
+INFO train_engine.py:90] Iteration 8220, lr = 0.00065782, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4050 (1.4019)
+INFO train_engine.py:90] Iteration 8240, lr = 0.00065942, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4146 (1.4019)
+INFO train_engine.py:90] Iteration 8260, lr = 0.00066102, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3985 (1.4019)
+INFO train_engine.py:90] Iteration 8280, lr = 0.00066262, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4177 (1.4019)
+INFO train_engine.py:90] Iteration 8300, lr = 0.00066422, time = 0.49s
+INFO train_engine.py:92]     Train net output(loss): 1.3834 (1.4018)
+INFO train_engine.py:90] Iteration 8320, lr = 0.00066581, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4018 (1.4018)
+INFO train_engine.py:90] Iteration 8340, lr = 0.00066741, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4033 (1.4018)
+INFO train_engine.py:90] Iteration 8360, lr = 0.00066901, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4035 (1.4017)
+INFO train_engine.py:90] Iteration 8380, lr = 0.00067061, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3945 (1.4017)
+INFO train_engine.py:169] < PROGRESS: 0.34% | SPEED: 0.464s / iter | ETA: 13 days, 8:55:43 >
+INFO train_engine.py:90] Iteration 8400, lr = 0.00067221, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3949 (1.4017)
+INFO train_engine.py:90] Iteration 8420, lr = 0.00067381, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3960 (1.4016)
+INFO train_engine.py:90] Iteration 8440, lr = 0.00067540, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3894 (1.4016)
+INFO train_engine.py:90] Iteration 8460, lr = 0.00067700, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3977 (1.4015)
+INFO train_engine.py:90] Iteration 8480, lr = 0.00067860, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3941 (1.4015)
+INFO train_engine.py:90] Iteration 8500, lr = 0.00068020, time = 0.50s
+INFO train_engine.py:92]     Train net output(loss): 1.4148 (1.4015)
+INFO train_engine.py:90] Iteration 8520, lr = 0.00068180, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4157 (1.4015)
+INFO train_engine.py:90] Iteration 8540, lr = 0.00068340, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4104 (1.4015)
+INFO train_engine.py:90] Iteration 8560, lr = 0.00068500, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3972 (1.4016)
+INFO train_engine.py:90] Iteration 8580, lr = 0.00068659, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4074 (1.4016)
+INFO train_engine.py:169] < PROGRESS: 0.34% | SPEED: 0.464s / iter | ETA: 13 days, 8:50:51 >
+INFO train_engine.py:90] Iteration 8600, lr = 0.00068819, time = 0.43s
+INFO train_engine.py:92]     Train net output(loss): 1.3711 (1.4015)
+INFO train_engine.py:90] Iteration 8620, lr = 0.00068979, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3778 (1.4015)
+INFO train_engine.py:90] Iteration 8640, lr = 0.00069139, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3899 (1.4014)
+INFO train_engine.py:90] Iteration 8660, lr = 0.00069299, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4026 (1.4014)
+INFO train_engine.py:90] Iteration 8680, lr = 0.00069459, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4146 (1.4014)
+INFO train_engine.py:90] Iteration 8700, lr = 0.00069618, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4028 (1.4014)
+INFO train_engine.py:90] Iteration 8720, lr = 0.00069778, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4188 (1.4015)
+INFO train_engine.py:90] Iteration 8740, lr = 0.00069938, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4081 (1.4014)
+INFO train_engine.py:90] Iteration 8760, lr = 0.00070098, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3999 (1.4014)
+INFO train_engine.py:90] Iteration 8780, lr = 0.00070258, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4002 (1.4014)
+INFO train_engine.py:169] < PROGRESS: 0.35% | SPEED: 0.464s / iter | ETA: 13 days, 8:45:54 >
+INFO train_engine.py:90] Iteration 8800, lr = 0.00070418, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4030 (1.4014)
+INFO train_engine.py:90] Iteration 8820, lr = 0.00070577, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4382 (1.4014)
+INFO train_engine.py:90] Iteration 8840, lr = 0.00070737, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4153 (1.4014)
+INFO train_engine.py:90] Iteration 8860, lr = 0.00070897, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4075 (1.4014)
+INFO train_engine.py:90] Iteration 8880, lr = 0.00071057, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4191 (1.4014)
+INFO train_engine.py:90] Iteration 8900, lr = 0.00071217, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3910 (1.4014)
+INFO train_engine.py:90] Iteration 8920, lr = 0.00071377, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3922 (1.4014)
+INFO train_engine.py:90] Iteration 8940, lr = 0.00071536, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3874 (1.4014)
+INFO train_engine.py:90] Iteration 8960, lr = 0.00071696, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3993 (1.4014)
+INFO train_engine.py:90] Iteration 8980, lr = 0.00071856, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3991 (1.4015)
+INFO train_engine.py:169] < PROGRESS: 0.36% | SPEED: 0.464s / iter | ETA: 13 days, 8:44:02 >
+INFO train_engine.py:90] Iteration 9000, lr = 0.00072016, time = 0.48s
+INFO train_engine.py:92]     Train net output(loss): 1.4242 (1.4015)
+INFO train_engine.py:90] Iteration 9020, lr = 0.00072176, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4136 (1.4015)
+INFO train_engine.py:90] Iteration 9040, lr = 0.00072336, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4018 (1.4015)
+INFO train_engine.py:90] Iteration 9060, lr = 0.00072496, time = 0.51s
+INFO train_engine.py:92]     Train net output(loss): 1.3940 (1.4015)
+INFO train_engine.py:90] Iteration 9080, lr = 0.00072655, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4023 (1.4015)
+INFO train_engine.py:90] Iteration 9100, lr = 0.00072815, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4036 (1.4016)
+INFO train_engine.py:90] Iteration 9120, lr = 0.00072975, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4300 (1.4016)
+INFO train_engine.py:90] Iteration 9140, lr = 0.00073135, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3580 (1.4016)
+INFO train_engine.py:90] Iteration 9160, lr = 0.00073295, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4299 (1.4017)
+INFO train_engine.py:90] Iteration 9180, lr = 0.00073455, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4129 (1.4017)
+INFO train_engine.py:169] < PROGRESS: 0.37% | SPEED: 0.463s / iter | ETA: 13 days, 8:38:54 >
+INFO train_engine.py:90] Iteration 9200, lr = 0.00073614, time = 0.44s
+INFO train_engine.py:92]     Train net output(loss): 1.4011 (1.4017)
+INFO train_engine.py:90] Iteration 9220, lr = 0.00073774, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3890 (1.4017)
+INFO train_engine.py:90] Iteration 9240, lr = 0.00073934, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3919 (1.4017)
+INFO train_engine.py:90] Iteration 9260, lr = 0.00074094, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4208 (1.4018)
+INFO train_engine.py:90] Iteration 9280, lr = 0.00074254, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3991 (1.4018)
+INFO train_engine.py:90] Iteration 9300, lr = 0.00074414, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3920 (1.4018)
+INFO train_engine.py:90] Iteration 9320, lr = 0.00074573, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3969 (1.4018)
+INFO train_engine.py:90] Iteration 9340, lr = 0.00074733, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3919 (1.4018)
+INFO train_engine.py:90] Iteration 9360, lr = 0.00074893, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4159 (1.4018)
+INFO train_engine.py:90] Iteration 9380, lr = 0.00075053, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3942 (1.4018)
+INFO train_engine.py:169] < PROGRESS: 0.38% | SPEED: 0.463s / iter | ETA: 13 days, 8:34:49 >
+INFO train_engine.py:90] Iteration 9400, lr = 0.00075213, time = 0.43s
+INFO train_engine.py:92]     Train net output(loss): 1.3857 (1.4018)
+INFO train_engine.py:90] Iteration 9420, lr = 0.00075373, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3969 (1.4018)
+INFO train_engine.py:90] Iteration 9440, lr = 0.00075532, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3929 (1.4018)
+INFO train_engine.py:90] Iteration 9460, lr = 0.00075692, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3747 (1.4018)
+INFO train_engine.py:90] Iteration 9480, lr = 0.00075852, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3941 (1.4018)
+INFO train_engine.py:90] Iteration 9500, lr = 0.00076012, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4235 (1.4018)
+INFO train_engine.py:90] Iteration 9520, lr = 0.00076172, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3862 (1.4018)
+INFO train_engine.py:90] Iteration 9540, lr = 0.00076332, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4004 (1.4018)
+INFO train_engine.py:90] Iteration 9560, lr = 0.00076492, time = 0.67s
+INFO train_engine.py:92]     Train net output(loss): 1.3849 (1.4018)
+INFO train_engine.py:90] Iteration 9580, lr = 0.00076651, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3788 (1.4018)
+INFO train_engine.py:169] < PROGRESS: 0.38% | SPEED: 0.463s / iter | ETA: 13 days, 8:33:22 >
+INFO train_engine.py:90] Iteration 9600, lr = 0.00076811, time = 0.43s
+INFO train_engine.py:92]     Train net output(loss): 1.4179 (1.4018)
+INFO train_engine.py:90] Iteration 9620, lr = 0.00076971, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3923 (1.4018)
+INFO train_engine.py:90] Iteration 9640, lr = 0.00077131, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4146 (1.4019)
+INFO train_engine.py:90] Iteration 9660, lr = 0.00077291, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4063 (1.4019)
+INFO train_engine.py:90] Iteration 9680, lr = 0.00077451, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4053 (1.4019)
+INFO train_engine.py:90] Iteration 9700, lr = 0.00077610, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4086 (1.4020)
+INFO train_engine.py:90] Iteration 9720, lr = 0.00077770, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4150 (1.4020)
+INFO train_engine.py:90] Iteration 9740, lr = 0.00077930, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4066 (1.4020)
+INFO train_engine.py:90] Iteration 9760, lr = 0.00078090, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3961 (1.4020)
+INFO train_engine.py:90] Iteration 9780, lr = 0.00078250, time = 0.48s
+INFO train_engine.py:92]     Train net output(loss): 1.4014 (1.4020)
+INFO train_engine.py:169] < PROGRESS: 0.39% | SPEED: 0.463s / iter | ETA: 13 days, 8:29:04 >
+INFO train_engine.py:90] Iteration 9800, lr = 0.00078410, time = 0.44s
+INFO train_engine.py:92]     Train net output(loss): 1.4071 (1.4020)
+INFO train_engine.py:90] Iteration 9820, lr = 0.00078569, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3952 (1.4020)
+INFO train_engine.py:90] Iteration 9840, lr = 0.00078729, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3940 (1.4020)
+INFO train_engine.py:90] Iteration 9860, lr = 0.00078889, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4114 (1.4020)
+INFO train_engine.py:90] Iteration 9880, lr = 0.00079049, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4204 (1.4020)
+INFO train_engine.py:90] Iteration 9900, lr = 0.00079209, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3985 (1.4020)
+INFO train_engine.py:90] Iteration 9920, lr = 0.00079369, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4230 (1.4020)
+INFO train_engine.py:90] Iteration 9940, lr = 0.00079528, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4172 (1.4020)
+INFO train_engine.py:90] Iteration 9960, lr = 0.00079688, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3946 (1.4020)
+INFO train_engine.py:90] Iteration 9980, lr = 0.00079848, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4092 (1.4020)
+INFO train_engine.py:169] < PROGRESS: 0.40% | SPEED: 0.463s / iter | ETA: 13 days, 8:24:36 >
+INFO train_engine.py:71] Wrote snapshot to: /share/project/wangjiahao/LAR/exp_dir/linear5/checkpoints/in1k_nova_d48w768_256px_iter_10000/transformer
+INFO train_engine.py:90] Iteration 10000, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3960 (1.3960)
+INFO train_engine.py:90] Iteration 10020, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4148 (1.3940)
+INFO train_engine.py:90] Iteration 10040, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4011 (1.3941)
+INFO train_engine.py:90] Iteration 10060, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3657 (1.3960)
+INFO train_engine.py:90] Iteration 10080, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4542 (1.3949)
+INFO train_engine.py:90] Iteration 10100, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4159 (1.3966)
+INFO train_engine.py:90] Iteration 10120, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3703 (1.3968)
+INFO train_engine.py:90] Iteration 10140, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4069 (1.3989)
+INFO train_engine.py:90] Iteration 10160, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3989 (1.3994)
+INFO train_engine.py:90] Iteration 10180, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4069 (1.3996)
+INFO train_engine.py:169] < PROGRESS: 0.41% | SPEED: 0.463s / iter | ETA: 13 days, 8:21:22 >
+INFO train_engine.py:90] Iteration 10200, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3962 (1.3999)
+INFO train_engine.py:90] Iteration 10220, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3954 (1.4008)
+INFO train_engine.py:90] Iteration 10240, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4031 (1.4009)
+INFO train_engine.py:90] Iteration 10260, lr = 0.00080000, time = 0.50s
+INFO train_engine.py:92]     Train net output(loss): 1.3838 (1.4010)
+INFO train_engine.py:90] Iteration 10280, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4252 (1.4013)
+INFO train_engine.py:90] Iteration 10300, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4394 (1.4017)
+INFO train_engine.py:90] Iteration 10320, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4195 (1.4018)
+INFO train_engine.py:90] Iteration 10340, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3972 (1.4019)
+INFO train_engine.py:90] Iteration 10360, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4115 (1.4019)
+INFO train_engine.py:90] Iteration 10380, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3981 (1.4020)
+INFO train_engine.py:169] < PROGRESS: 0.42% | SPEED: 0.463s / iter | ETA: 13 days, 8:20:24 >
+INFO train_engine.py:90] Iteration 10400, lr = 0.00080000, time = 0.44s
+INFO train_engine.py:92]     Train net output(loss): 1.4071 (1.4019)
+INFO train_engine.py:90] Iteration 10420, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4037 (1.4021)
+INFO train_engine.py:90] Iteration 10440, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4026 (1.4021)
+INFO train_engine.py:90] Iteration 10460, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4037 (1.4020)
+INFO train_engine.py:90] Iteration 10480, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3866 (1.4020)
+INFO train_engine.py:90] Iteration 10500, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3792 (1.4019)
+INFO train_engine.py:90] Iteration 10520, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3976 (1.4017)
+INFO train_engine.py:90] Iteration 10540, lr = 0.00080000, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3965 (1.4016)
+INFO train_engine.py:90] Iteration 10560, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3763 (1.4015)
+INFO train_engine.py:90] Iteration 10580, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4066 (1.4014)
+INFO train_engine.py:169] < PROGRESS: 0.42% | SPEED: 0.463s / iter | ETA: 13 days, 8:20:38 >
+INFO train_engine.py:90] Iteration 10600, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4301 (1.4011)
+INFO train_engine.py:90] Iteration 10620, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3770 (1.4009)
+INFO train_engine.py:90] Iteration 10640, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3796 (1.4007)
+INFO train_engine.py:90] Iteration 10660, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3664 (1.4005)
+INFO train_engine.py:90] Iteration 10680, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4167 (1.4005)
+INFO train_engine.py:90] Iteration 10700, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4075 (1.4007)
+INFO train_engine.py:90] Iteration 10720, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3971 (1.4006)
+INFO train_engine.py:90] Iteration 10740, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3838 (1.4005)
+INFO train_engine.py:90] Iteration 10760, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3908 (1.4003)
+INFO train_engine.py:90] Iteration 10780, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3839 (1.4000)
+INFO train_engine.py:169] < PROGRESS: 0.43% | SPEED: 0.463s / iter | ETA: 13 days, 8:16:41 >
+INFO train_engine.py:90] Iteration 10800, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3527 (1.3998)
+INFO train_engine.py:90] Iteration 10820, lr = 0.00080000, time = 0.63s
+INFO train_engine.py:92]     Train net output(loss): 1.3624 (1.3991)
+INFO train_engine.py:90] Iteration 10840, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3697 (1.3985)
+INFO train_engine.py:90] Iteration 10860, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4048 (1.3982)
+INFO train_engine.py:90] Iteration 10880, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3908 (1.3981)
+INFO train_engine.py:90] Iteration 10900, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3694 (1.3979)
+INFO train_engine.py:90] Iteration 10920, lr = 0.00080000, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3791 (1.3978)
+INFO train_engine.py:90] Iteration 10940, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3818 (1.3977)
+INFO train_engine.py:90] Iteration 10960, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3964 (1.3976)
+INFO train_engine.py:90] Iteration 10980, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3845 (1.3971)
+INFO train_engine.py:169] < PROGRESS: 0.44% | SPEED: 0.463s / iter | ETA: 13 days, 8:16:29 >
+INFO train_engine.py:90] Iteration 11000, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3584 (1.3969)
+INFO train_engine.py:90] Iteration 11020, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3617 (1.3968)
+INFO train_engine.py:90] Iteration 11040, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4011 (1.3967)
+INFO train_engine.py:90] Iteration 11060, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3621 (1.3963)
+INFO train_engine.py:90] Iteration 11080, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3781 (1.3958)
+INFO train_engine.py:90] Iteration 11100, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3718 (1.3954)
+INFO train_engine.py:90] Iteration 11120, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3796 (1.3951)
+INFO train_engine.py:90] Iteration 11140, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3993 (1.3950)
+INFO train_engine.py:90] Iteration 11160, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3879 (1.3951)
+INFO train_engine.py:90] Iteration 11180, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3818 (1.3950)
+INFO train_engine.py:169] < PROGRESS: 0.45% | SPEED: 0.463s / iter | ETA: 13 days, 8:12:27 >
+INFO train_engine.py:90] Iteration 11200, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3811 (1.3950)
+INFO train_engine.py:90] Iteration 11220, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3730 (1.3948)
+INFO train_engine.py:90] Iteration 11240, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3878 (1.3947)
+INFO train_engine.py:90] Iteration 11260, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3772 (1.3944)
+INFO train_engine.py:90] Iteration 11280, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3794 (1.3941)
+INFO train_engine.py:90] Iteration 11300, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3683 (1.3939)
+INFO train_engine.py:90] Iteration 11320, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3817 (1.3936)
+INFO train_engine.py:90] Iteration 11340, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3758 (1.3933)
+INFO train_engine.py:90] Iteration 11360, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3754 (1.3931)
+INFO train_engine.py:90] Iteration 11380, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3695 (1.3930)
+INFO train_engine.py:169] < PROGRESS: 0.46% | SPEED: 0.463s / iter | ETA: 13 days, 8:08:58 >
+INFO train_engine.py:90] Iteration 11400, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3999 (1.3932)
+INFO train_engine.py:90] Iteration 11420, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3754 (1.3932)
+INFO train_engine.py:90] Iteration 11440, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3970 (1.3931)
+INFO train_engine.py:90] Iteration 11460, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3926 (1.3929)
+INFO train_engine.py:90] Iteration 11480, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3787 (1.3928)
+INFO train_engine.py:90] Iteration 11500, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4303 (1.3926)
+INFO train_engine.py:90] Iteration 11520, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3580 (1.3923)
+INFO train_engine.py:90] Iteration 11540, lr = 0.00080000, time = 0.49s
+INFO train_engine.py:92]     Train net output(loss): 1.3981 (1.3921)
+INFO train_engine.py:90] Iteration 11560, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3715 (1.3919)
+INFO train_engine.py:90] Iteration 11580, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3824 (1.3920)
+INFO train_engine.py:169] < PROGRESS: 0.46% | SPEED: 0.463s / iter | ETA: 13 days, 8:07:37 >
+INFO train_engine.py:90] Iteration 11600, lr = 0.00080000, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3616 (1.3918)
+INFO train_engine.py:90] Iteration 11620, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3494 (1.3916)
+INFO train_engine.py:90] Iteration 11640, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3389 (1.3914)
+INFO train_engine.py:90] Iteration 11660, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3746 (1.3911)
+INFO train_engine.py:90] Iteration 11680, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3756 (1.3908)
+INFO train_engine.py:90] Iteration 11700, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3555 (1.3905)
+INFO train_engine.py:90] Iteration 11720, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3933 (1.3904)
+INFO train_engine.py:90] Iteration 11740, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4188 (1.3904)
+INFO train_engine.py:90] Iteration 11760, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4188 (1.3904)
+INFO train_engine.py:90] Iteration 11780, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3744 (1.3904)
+INFO train_engine.py:169] < PROGRESS: 0.47% | SPEED: 0.463s / iter | ETA: 13 days, 8:04:44 >
+INFO train_engine.py:90] Iteration 11800, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3875 (1.3903)
+INFO train_engine.py:90] Iteration 11820, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3698 (1.3903)
+INFO train_engine.py:90] Iteration 11840, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3734 (1.3904)
+INFO train_engine.py:90] Iteration 11860, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3694 (1.3904)
+INFO train_engine.py:90] Iteration 11880, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3700 (1.3902)
+INFO train_engine.py:90] Iteration 11900, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3762 (1.3901)
+INFO train_engine.py:90] Iteration 11920, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3717 (1.3900)
+INFO train_engine.py:90] Iteration 11940, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3518 (1.3899)
+INFO train_engine.py:90] Iteration 11960, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3759 (1.3899)
+INFO train_engine.py:90] Iteration 11980, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3893 (1.3899)
+INFO train_engine.py:169] < PROGRESS: 0.48% | SPEED: 0.463s / iter | ETA: 13 days, 8:01:41 >
+INFO train_engine.py:90] Iteration 12000, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3898 (1.3898)
+INFO train_engine.py:90] Iteration 12020, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3822 (1.3897)
+INFO train_engine.py:90] Iteration 12040, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3697 (1.3895)
+INFO train_engine.py:90] Iteration 12060, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3423 (1.3895)
+INFO train_engine.py:90] Iteration 12080, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3907 (1.3894)
+INFO train_engine.py:90] Iteration 12100, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3893 (1.3894)
+INFO train_engine.py:90] Iteration 12120, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3769 (1.3895)
+INFO train_engine.py:90] Iteration 12140, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4039 (1.3895)
+INFO train_engine.py:90] Iteration 12160, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4071 (1.3896)
+INFO train_engine.py:90] Iteration 12180, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4114 (1.3898)
+INFO train_engine.py:169] < PROGRESS: 0.49% | SPEED: 0.463s / iter | ETA: 13 days, 8:00:39 >
+INFO train_engine.py:90] Iteration 12200, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3875 (1.3899)
+INFO train_engine.py:90] Iteration 12220, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3965 (1.3900)
+INFO train_engine.py:90] Iteration 12240, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3914 (1.3901)
+INFO train_engine.py:90] Iteration 12260, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4105 (1.3901)
+INFO train_engine.py:90] Iteration 12280, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3964 (1.3902)
+INFO train_engine.py:90] Iteration 12300, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3721 (1.3901)
+INFO train_engine.py:90] Iteration 12320, lr = 0.00080000, time = 0.50s
+INFO train_engine.py:92]     Train net output(loss): 1.3962 (1.3901)
+INFO train_engine.py:90] Iteration 12340, lr = 0.00080000, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4045 (1.3901)
+INFO train_engine.py:90] Iteration 12360, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4108 (1.3902)
+INFO train_engine.py:90] Iteration 12380, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3992 (1.3903)
+INFO train_engine.py:169] < PROGRESS: 0.50% | SPEED: 0.463s / iter | ETA: 13 days, 7:57:40 >
+INFO train_engine.py:90] Iteration 12400, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3973 (1.3904)
+INFO train_engine.py:90] Iteration 12420, lr = 0.00080000, time = 0.48s
+INFO train_engine.py:92]     Train net output(loss): 1.4239 (1.3905)
+INFO train_engine.py:90] Iteration 12440, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4088 (1.3906)
+INFO train_engine.py:90] Iteration 12460, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4185 (1.3907)
+INFO train_engine.py:90] Iteration 12480, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3922 (1.3908)
+INFO train_engine.py:90] Iteration 12500, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3625 (1.3908)
+INFO train_engine.py:90] Iteration 12520, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3784 (1.3909)
+INFO train_engine.py:90] Iteration 12540, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3971 (1.3909)
+INFO train_engine.py:90] Iteration 12560, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3971 (1.3910)
+INFO train_engine.py:90] Iteration 12580, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4039 (1.3910)
+INFO train_engine.py:169] < PROGRESS: 0.50% | SPEED: 0.463s / iter | ETA: 13 days, 7:57:01 >
+INFO train_engine.py:90] Iteration 12600, lr = 0.00080000, time = 0.42s
+INFO train_engine.py:92]     Train net output(loss): 1.4015 (1.3910)
+INFO train_engine.py:90] Iteration 12620, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3914 (1.3910)
+INFO train_engine.py:90] Iteration 12640, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4179 (1.3910)
+INFO train_engine.py:90] Iteration 12660, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3807 (1.3910)
+INFO train_engine.py:90] Iteration 12680, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4004 (1.3910)
+INFO train_engine.py:90] Iteration 12700, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4008 (1.3910)
+INFO train_engine.py:90] Iteration 12720, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3963 (1.3910)
+INFO train_engine.py:90] Iteration 12740, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3914 (1.3911)
+INFO train_engine.py:90] Iteration 12760, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4185 (1.3912)
+INFO train_engine.py:90] Iteration 12780, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4318 (1.3912)
+INFO train_engine.py:169] < PROGRESS: 0.51% | SPEED: 0.463s / iter | ETA: 13 days, 7:54:16 >
+INFO train_engine.py:90] Iteration 12800, lr = 0.00080000, time = 0.65s
+INFO train_engine.py:92]     Train net output(loss): 1.3743 (1.3912)
+INFO train_engine.py:90] Iteration 12820, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3916 (1.3912)
+INFO train_engine.py:90] Iteration 12840, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3834 (1.3912)
+INFO train_engine.py:90] Iteration 12860, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4195 (1.3912)
+INFO train_engine.py:90] Iteration 12880, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3797 (1.3913)
+INFO train_engine.py:90] Iteration 12900, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3935 (1.3914)
+INFO train_engine.py:90] Iteration 12920, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4089 (1.3914)
+INFO train_engine.py:90] Iteration 12940, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3878 (1.3915)
+INFO train_engine.py:90] Iteration 12960, lr = 0.00080000, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4174 (1.3916)
+INFO train_engine.py:90] Iteration 12980, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4387 (1.3917)
+INFO train_engine.py:169] < PROGRESS: 0.52% | SPEED: 0.463s / iter | ETA: 13 days, 7:53:07 >
+INFO train_engine.py:90] Iteration 13000, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3889 (1.3918)
+INFO train_engine.py:90] Iteration 13020, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4002 (1.3919)
+INFO train_engine.py:90] Iteration 13040, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3815 (1.3920)
+INFO train_engine.py:90] Iteration 13060, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4091 (1.3920)
+INFO train_engine.py:90] Iteration 13080, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4029 (1.3920)
+INFO train_engine.py:90] Iteration 13100, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4017 (1.3920)
+INFO train_engine.py:90] Iteration 13120, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4076 (1.3921)
+INFO train_engine.py:90] Iteration 13140, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4049 (1.3921)
+INFO train_engine.py:90] Iteration 13160, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3680 (1.3921)
+INFO train_engine.py:90] Iteration 13180, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4157 (1.3922)
+INFO train_engine.py:169] < PROGRESS: 0.53% | SPEED: 0.463s / iter | ETA: 13 days, 7:49:21 >
+INFO train_engine.py:90] Iteration 13200, lr = 0.00080000, time = 0.48s
+INFO train_engine.py:92]     Train net output(loss): 1.4009 (1.3923)
+INFO train_engine.py:90] Iteration 13220, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4174 (1.3924)
+INFO train_engine.py:90] Iteration 13240, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3970 (1.3924)
+INFO train_engine.py:90] Iteration 13260, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4142 (1.3925)
+INFO train_engine.py:90] Iteration 13280, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4117 (1.3926)
+INFO train_engine.py:90] Iteration 13300, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3995 (1.3926)
+INFO train_engine.py:90] Iteration 13320, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3979 (1.3926)
+INFO train_engine.py:90] Iteration 13340, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4181 (1.3927)
+INFO train_engine.py:90] Iteration 13360, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4301 (1.3928)
+INFO train_engine.py:90] Iteration 13380, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4185 (1.3928)
+INFO train_engine.py:169] < PROGRESS: 0.54% | SPEED: 0.463s / iter | ETA: 13 days, 7:47:15 >
+INFO train_engine.py:90] Iteration 13400, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4291 (1.3929)
+INFO train_engine.py:90] Iteration 13420, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4014 (1.3929)
+INFO train_engine.py:90] Iteration 13440, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3977 (1.3930)
+INFO train_engine.py:90] Iteration 13460, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3998 (1.3930)
+INFO train_engine.py:90] Iteration 13480, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4148 (1.3930)
+INFO train_engine.py:90] Iteration 13500, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3876 (1.3930)
+INFO train_engine.py:90] Iteration 13520, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3831 (1.3930)
+INFO train_engine.py:90] Iteration 13540, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3774 (1.3931)
+INFO train_engine.py:90] Iteration 13560, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4205 (1.3931)
+INFO train_engine.py:90] Iteration 13580, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3973 (1.3931)
+INFO train_engine.py:169] < PROGRESS: 0.54% | SPEED: 0.463s / iter | ETA: 13 days, 7:46:35 >
+INFO train_engine.py:90] Iteration 13600, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3868 (1.3931)
+INFO train_engine.py:90] Iteration 13620, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3868 (1.3931)
+INFO train_engine.py:90] Iteration 13640, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3740 (1.3931)
+INFO train_engine.py:90] Iteration 13660, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3747 (1.3930)
+INFO train_engine.py:90] Iteration 13680, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4038 (1.3930)
+INFO train_engine.py:90] Iteration 13700, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3946 (1.3931)
+INFO train_engine.py:90] Iteration 13720, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3991 (1.3931)
+INFO train_engine.py:90] Iteration 13740, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3718 (1.3931)
+INFO train_engine.py:90] Iteration 13760, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3837 (1.3931)
+INFO train_engine.py:90] Iteration 13780, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3890 (1.3931)
+INFO train_engine.py:169] < PROGRESS: 0.55% | SPEED: 0.463s / iter | ETA: 13 days, 7:43:31 >
+INFO train_engine.py:90] Iteration 13800, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3833 (1.3930)
+INFO train_engine.py:90] Iteration 13820, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3931 (1.3930)
+INFO train_engine.py:90] Iteration 13840, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3818 (1.3930)
+INFO train_engine.py:90] Iteration 13860, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3846 (1.3930)
+INFO train_engine.py:90] Iteration 13880, lr = 0.00080000, time = 0.49s
+INFO train_engine.py:92]     Train net output(loss): 1.4045 (1.3930)
+INFO train_engine.py:90] Iteration 13900, lr = 0.00080000, time = 0.48s
+INFO train_engine.py:92]     Train net output(loss): 1.4072 (1.3930)
+INFO train_engine.py:90] Iteration 13920, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4142 (1.3931)
+INFO train_engine.py:90] Iteration 13940, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4152 (1.3931)
+INFO train_engine.py:90] Iteration 13960, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3990 (1.3931)
+INFO train_engine.py:90] Iteration 13980, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4018 (1.3931)
+INFO train_engine.py:169] < PROGRESS: 0.56% | SPEED: 0.463s / iter | ETA: 13 days, 7:40:16 >
+INFO train_engine.py:90] Iteration 14000, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4139 (1.3931)
+INFO train_engine.py:90] Iteration 14020, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4104 (1.3931)
+INFO train_engine.py:90] Iteration 14040, lr = 0.00080000, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4153 (1.3931)
+INFO train_engine.py:90] Iteration 14060, lr = 0.00080000, time = 0.64s
+INFO train_engine.py:92]     Train net output(loss): 1.3936 (1.3932)
+INFO train_engine.py:90] Iteration 14080, lr = 0.00080000, time = 0.49s
+INFO train_engine.py:92]     Train net output(loss): 1.3829 (1.3932)
+INFO train_engine.py:90] Iteration 14100, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3834 (1.3932)
+INFO train_engine.py:90] Iteration 14120, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4190 (1.3933)
+INFO train_engine.py:90] Iteration 14140, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3982 (1.3932)
+INFO train_engine.py:90] Iteration 14160, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3791 (1.3932)
+INFO train_engine.py:90] Iteration 14180, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3489 (1.3932)
+INFO train_engine.py:169] < PROGRESS: 0.57% | SPEED: 0.463s / iter | ETA: 13 days, 7:39:34 >
+INFO train_engine.py:90] Iteration 14200, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3975 (1.3932)
+INFO train_engine.py:90] Iteration 14220, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3800 (1.3932)
+INFO train_engine.py:90] Iteration 14240, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3971 (1.3933)
+INFO train_engine.py:90] Iteration 14260, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3869 (1.3933)
+INFO train_engine.py:90] Iteration 14280, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3990 (1.3933)
+INFO train_engine.py:90] Iteration 14300, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3874 (1.3934)
+INFO train_engine.py:90] Iteration 14320, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3997 (1.3934)
+INFO train_engine.py:90] Iteration 14340, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4105 (1.3934)
+INFO train_engine.py:90] Iteration 14360, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3811 (1.3934)
+INFO train_engine.py:90] Iteration 14380, lr = 0.00080000, time = 0.49s
+INFO train_engine.py:92]     Train net output(loss): 1.4078 (1.3934)
+INFO train_engine.py:169] < PROGRESS: 0.58% | SPEED: 0.463s / iter | ETA: 13 days, 7:37:06 >
+INFO train_engine.py:90] Iteration 14400, lr = 0.00080000, time = 0.42s
+INFO train_engine.py:92]     Train net output(loss): 1.3806 (1.3934)
+INFO train_engine.py:90] Iteration 14420, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3814 (1.3934)
+INFO train_engine.py:90] Iteration 14440, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3908 (1.3934)
+INFO train_engine.py:90] Iteration 14460, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4137 (1.3934)
+INFO train_engine.py:90] Iteration 14480, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3861 (1.3934)
+INFO train_engine.py:90] Iteration 14500, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3949 (1.3935)
+INFO train_engine.py:90] Iteration 14520, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4083 (1.3935)
+INFO train_engine.py:90] Iteration 14540, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4288 (1.3935)
+INFO train_engine.py:90] Iteration 14560, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3830 (1.3935)
+INFO train_engine.py:90] Iteration 14580, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3999 (1.3936)
+INFO train_engine.py:169] < PROGRESS: 0.58% | SPEED: 0.463s / iter | ETA: 13 days, 7:33:51 >
+INFO train_engine.py:90] Iteration 14600, lr = 0.00080000, time = 0.44s
+INFO train_engine.py:92]     Train net output(loss): 1.3975 (1.3936)
+INFO train_engine.py:90] Iteration 14620, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3922 (1.3936)
+INFO train_engine.py:90] Iteration 14640, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3893 (1.3936)
+INFO train_engine.py:90] Iteration 14660, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3941 (1.3936)
+INFO train_engine.py:90] Iteration 14680, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3813 (1.3937)
+INFO train_engine.py:90] Iteration 14700, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4290 (1.3937)
+INFO train_engine.py:90] Iteration 14720, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3983 (1.3937)
+INFO train_engine.py:90] Iteration 14740, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4176 (1.3937)
+INFO train_engine.py:90] Iteration 14760, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4023 (1.3938)
+INFO train_engine.py:90] Iteration 14780, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4093 (1.3938)
+INFO train_engine.py:169] < PROGRESS: 0.59% | SPEED: 0.463s / iter | ETA: 13 days, 7:33:21 >
+INFO train_engine.py:90] Iteration 14800, lr = 0.00080000, time = 0.43s
+INFO train_engine.py:92]     Train net output(loss): 1.4164 (1.3938)
+INFO train_engine.py:90] Iteration 14820, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4091 (1.3938)
+INFO train_engine.py:90] Iteration 14840, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4150 (1.3938)
+INFO train_engine.py:90] Iteration 14860, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3977 (1.3938)
+INFO train_engine.py:90] Iteration 14880, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3838 (1.3939)
+INFO train_engine.py:90] Iteration 14900, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4160 (1.3939)
+INFO train_engine.py:90] Iteration 14920, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4239 (1.3939)
+INFO train_engine.py:90] Iteration 14940, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4105 (1.3939)
+INFO train_engine.py:90] Iteration 14960, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4061 (1.3939)
+INFO train_engine.py:90] Iteration 14980, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3917 (1.3939)
+INFO train_engine.py:169] < PROGRESS: 0.60% | SPEED: 0.463s / iter | ETA: 13 days, 7:29:53 >
+INFO train_engine.py:71] Wrote snapshot to: /share/project/wangjiahao/LAR/exp_dir/linear5/checkpoints/in1k_nova_d48w768_256px_iter_15000/transformer
+INFO train_engine.py:90] Iteration 15000, lr = 0.00080000, time = 0.44s
+INFO train_engine.py:92]     Train net output(loss): 1.3810 (1.3810)
+INFO train_engine.py:90] Iteration 15020, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3974 (1.3978)
+INFO train_engine.py:90] Iteration 15040, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3863 (1.3971)
+INFO train_engine.py:90] Iteration 15060, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3949 (1.3977)
+INFO train_engine.py:90] Iteration 15080, lr = 0.00080000, time = 0.51s
+INFO train_engine.py:92]     Train net output(loss): 1.4203 (1.3993)
+INFO train_engine.py:90] Iteration 15100, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4201 (1.4015)
+INFO train_engine.py:90] Iteration 15120, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4067 (1.4015)
+INFO train_engine.py:90] Iteration 15140, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4082 (1.4009)
+INFO train_engine.py:90] Iteration 15160, lr = 0.00080000, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3979 (1.3997)
+INFO train_engine.py:90] Iteration 15180, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3702 (1.3983)
+INFO train_engine.py:169] < PROGRESS: 0.61% | SPEED: 0.463s / iter | ETA: 13 days, 7:27:13 >
+INFO train_engine.py:90] Iteration 15200, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3679 (1.3970)
+INFO train_engine.py:90] Iteration 15220, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3862 (1.3958)
+INFO train_engine.py:90] Iteration 15240, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3638 (1.3946)
+INFO train_engine.py:90] Iteration 15260, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4140 (1.3934)
+INFO train_engine.py:90] Iteration 15280, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4171 (1.3940)
+INFO train_engine.py:90] Iteration 15300, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4129 (1.3945)
+INFO train_engine.py:90] Iteration 15320, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4053 (1.3951)
+INFO train_engine.py:90] Iteration 15340, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3975 (1.3955)
+INFO train_engine.py:90] Iteration 15360, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3899 (1.3954)
+INFO train_engine.py:90] Iteration 15380, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3918 (1.3951)
+INFO train_engine.py:169] < PROGRESS: 0.62% | SPEED: 0.463s / iter | ETA: 13 days, 7:26:36 >
+INFO train_engine.py:90] Iteration 15400, lr = 0.00080000, time = 0.42s
+INFO train_engine.py:92]     Train net output(loss): 1.4271 (1.3955)
+INFO train_engine.py:90] Iteration 15420, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4331 (1.3961)
+INFO train_engine.py:90] Iteration 15440, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3937 (1.3963)
+INFO train_engine.py:90] Iteration 15460, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3908 (1.3964)
+INFO train_engine.py:90] Iteration 15480, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3763 (1.3963)
+INFO train_engine.py:90] Iteration 15500, lr = 0.00080000, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3861 (1.3961)
+INFO train_engine.py:90] Iteration 15520, lr = 0.00080000, time = 0.62s
+INFO train_engine.py:92]     Train net output(loss): 1.4072 (1.3958)
+INFO train_engine.py:90] Iteration 15540, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3733 (1.3955)
+INFO train_engine.py:90] Iteration 15560, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3792 (1.3951)
+INFO train_engine.py:90] Iteration 15580, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3731 (1.3945)
+INFO train_engine.py:169] < PROGRESS: 0.62% | SPEED: 0.463s / iter | ETA: 13 days, 7:24:06 >
+INFO train_engine.py:90] Iteration 15600, lr = 0.00080000, time = 0.43s
+INFO train_engine.py:92]     Train net output(loss): 1.3967 (1.3942)
+INFO train_engine.py:90] Iteration 15620, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3702 (1.3938)
+INFO train_engine.py:90] Iteration 15640, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3840 (1.3934)
+INFO train_engine.py:90] Iteration 15660, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3594 (1.3932)
+INFO train_engine.py:90] Iteration 15680, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3978 (1.3929)
+INFO train_engine.py:90] Iteration 15700, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4199 (1.3927)
+INFO train_engine.py:90] Iteration 15720, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3974 (1.3924)
+INFO train_engine.py:90] Iteration 15740, lr = 0.00080000, time = 0.50s
+INFO train_engine.py:92]     Train net output(loss): 1.4150 (1.3924)
+INFO train_engine.py:90] Iteration 15760, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4098 (1.3926)
+INFO train_engine.py:90] Iteration 15780, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3785 (1.3929)
+INFO train_engine.py:169] < PROGRESS: 0.63% | SPEED: 0.463s / iter | ETA: 13 days, 7:21:07 >
+INFO train_engine.py:90] Iteration 15800, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3972 (1.3931)
+INFO train_engine.py:90] Iteration 15820, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4122 (1.3931)
+INFO train_engine.py:90] Iteration 15840, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3719 (1.3932)
+INFO train_engine.py:90] Iteration 15860, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3843 (1.3932)
+INFO train_engine.py:90] Iteration 15880, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3719 (1.3934)
+INFO train_engine.py:90] Iteration 15900, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4254 (1.3935)
+INFO train_engine.py:90] Iteration 15920, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4215 (1.3937)
+INFO train_engine.py:90] Iteration 15940, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3835 (1.3938)
+INFO train_engine.py:90] Iteration 15960, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4136 (1.3939)
+INFO train_engine.py:90] Iteration 15980, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3740 (1.3937)
+INFO train_engine.py:169] < PROGRESS: 0.64% | SPEED: 0.463s / iter | ETA: 13 days, 7:18:27 >
+INFO train_engine.py:90] Iteration 16000, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4304 (1.3940)
+INFO train_engine.py:90] Iteration 16020, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4189 (1.3941)
+INFO train_engine.py:90] Iteration 16040, lr = 0.00080000, time = 0.64s
+INFO train_engine.py:92]     Train net output(loss): 1.3476 (1.3942)
+INFO train_engine.py:90] Iteration 16060, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3762 (1.3940)
+INFO train_engine.py:90] Iteration 16080, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3975 (1.3938)
+INFO train_engine.py:90] Iteration 16100, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4197 (1.3940)
+INFO train_engine.py:90] Iteration 16120, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4046 (1.3941)
+INFO train_engine.py:90] Iteration 16140, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3992 (1.3942)
+INFO train_engine.py:90] Iteration 16160, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3879 (1.3943)
+INFO train_engine.py:90] Iteration 16180, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3803 (1.3943)
+INFO train_engine.py:169] < PROGRESS: 0.65% | SPEED: 0.463s / iter | ETA: 13 days, 7:17:48 >
+INFO train_engine.py:90] Iteration 16200, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3882 (1.3942)
+INFO train_engine.py:90] Iteration 16220, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3911 (1.3940)
+INFO train_engine.py:90] Iteration 16240, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3868 (1.3942)
+INFO train_engine.py:90] Iteration 16260, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4313 (1.3944)
+INFO train_engine.py:90] Iteration 16280, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4205 (1.3945)
+INFO train_engine.py:90] Iteration 16300, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4079 (1.3946)
+INFO train_engine.py:90] Iteration 16320, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4104 (1.3947)
+INFO train_engine.py:90] Iteration 16340, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3599 (1.3949)
+INFO train_engine.py:90] Iteration 16360, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4237 (1.3951)
+INFO train_engine.py:90] Iteration 16380, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4026 (1.3952)
+INFO train_engine.py:169] < PROGRESS: 0.66% | SPEED: 0.463s / iter | ETA: 13 days, 7:14:58 >
+INFO train_engine.py:90] Iteration 16400, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3926 (1.3953)
+INFO train_engine.py:90] Iteration 16420, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3866 (1.3954)
+INFO train_engine.py:90] Iteration 16440, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4115 (1.3954)
+INFO train_engine.py:90] Iteration 16460, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4024 (1.3955)
+INFO train_engine.py:90] Iteration 16480, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4336 (1.3956)
+INFO train_engine.py:90] Iteration 16500, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3643 (1.3957)
+INFO train_engine.py:90] Iteration 16520, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4060 (1.3958)
+INFO train_engine.py:90] Iteration 16540, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4112 (1.3959)
+INFO train_engine.py:90] Iteration 16560, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3918 (1.3961)
+INFO train_engine.py:90] Iteration 16580, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3921 (1.3961)
+INFO train_engine.py:169] < PROGRESS: 0.66% | SPEED: 0.463s / iter | ETA: 13 days, 7:11:47 >
+INFO train_engine.py:90] Iteration 16600, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3951 (1.3962)
+INFO train_engine.py:90] Iteration 16620, lr = 0.00080000, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4111 (1.3962)
+INFO train_engine.py:90] Iteration 16640, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3903 (1.3963)
+INFO train_engine.py:90] Iteration 16660, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3975 (1.3964)
+INFO train_engine.py:90] Iteration 16680, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4036 (1.3965)
+INFO train_engine.py:90] Iteration 16700, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3859 (1.3965)
+INFO train_engine.py:90] Iteration 16720, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4135 (1.3965)
+INFO train_engine.py:90] Iteration 16740, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3851 (1.3965)
+INFO train_engine.py:90] Iteration 16760, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4081 (1.3966)
+INFO train_engine.py:90] Iteration 16780, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4284 (1.3966)
+INFO train_engine.py:169] < PROGRESS: 0.67% | SPEED: 0.463s / iter | ETA: 13 days, 7:10:49 >
+INFO train_engine.py:90] Iteration 16800, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3877 (1.3965)
+INFO train_engine.py:90] Iteration 16820, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3936 (1.3965)
+INFO train_engine.py:90] Iteration 16840, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4027 (1.3965)
+INFO train_engine.py:90] Iteration 16860, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3972 (1.3965)
+INFO train_engine.py:90] Iteration 16880, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3968 (1.3965)
+INFO train_engine.py:90] Iteration 16900, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3702 (1.3964)
+INFO train_engine.py:90] Iteration 16920, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3991 (1.3964)
+INFO train_engine.py:90] Iteration 16940, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3991 (1.3964)
+INFO train_engine.py:90] Iteration 16960, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4013 (1.3964)
+INFO train_engine.py:90] Iteration 16980, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4392 (1.3964)
+INFO train_engine.py:169] < PROGRESS: 0.68% | SPEED: 0.463s / iter | ETA: 13 days, 7:08:09 >
+INFO train_engine.py:90] Iteration 17000, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4076 (1.3965)
+INFO train_engine.py:90] Iteration 17020, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4041 (1.3966)
+INFO train_engine.py:90] Iteration 17040, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4065 (1.3967)
+INFO train_engine.py:90] Iteration 17060, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4079 (1.3967)
+INFO train_engine.py:90] Iteration 17080, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4113 (1.3968)
+INFO train_engine.py:90] Iteration 17100, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3763 (1.3968)
+INFO train_engine.py:90] Iteration 17120, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4205 (1.3969)
+INFO train_engine.py:90] Iteration 17140, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3923 (1.3969)
+INFO train_engine.py:90] Iteration 17160, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3847 (1.3969)
+INFO train_engine.py:90] Iteration 17180, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4120 (1.3970)
+INFO train_engine.py:169] < PROGRESS: 0.69% | SPEED: 0.463s / iter | ETA: 13 days, 7:04:56 >
+INFO train_engine.py:90] Iteration 17200, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4217 (1.3971)
+INFO train_engine.py:90] Iteration 17220, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3951 (1.3970)
+INFO train_engine.py:90] Iteration 17240, lr = 0.00080000, time = 0.50s
+INFO train_engine.py:92]     Train net output(loss): 1.4155 (1.3971)
+INFO train_engine.py:90] Iteration 17260, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3980 (1.3970)
+INFO train_engine.py:90] Iteration 17280, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3962 (1.3971)
+INFO train_engine.py:90] Iteration 17300, lr = 0.00080000, time = 0.64s
+INFO train_engine.py:92]     Train net output(loss): 1.4103 (1.3971)
+INFO train_engine.py:90] Iteration 17320, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3929 (1.3970)
+INFO train_engine.py:90] Iteration 17340, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4233 (1.3970)
+INFO train_engine.py:90] Iteration 17360, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4056 (1.3969)
+INFO train_engine.py:90] Iteration 17380, lr = 0.00080000, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3804 (1.3969)
+INFO train_engine.py:169] < PROGRESS: 0.70% | SPEED: 0.463s / iter | ETA: 13 days, 7:04:33 >
+INFO train_engine.py:90] Iteration 17400, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4112 (1.3968)
+INFO train_engine.py:90] Iteration 17420, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4091 (1.3969)
+INFO train_engine.py:90] Iteration 17440, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3820 (1.3969)
+INFO train_engine.py:90] Iteration 17460, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4123 (1.3969)
+INFO train_engine.py:90] Iteration 17480, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4050 (1.3970)
+INFO train_engine.py:90] Iteration 17500, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3927 (1.3970)
+INFO train_engine.py:90] Iteration 17520, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3770 (1.3970)
+INFO train_engine.py:90] Iteration 17540, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3901 (1.3969)
+INFO train_engine.py:90] Iteration 17560, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3707 (1.3969)
+INFO train_engine.py:90] Iteration 17580, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3942 (1.3969)
+INFO train_engine.py:169] < PROGRESS: 0.70% | SPEED: 0.463s / iter | ETA: 13 days, 7:02:12 >
+INFO train_engine.py:90] Iteration 17600, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3863 (1.3969)
+INFO train_engine.py:90] Iteration 17620, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3797 (1.3969)
+INFO train_engine.py:90] Iteration 17640, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3826 (1.3969)
+INFO train_engine.py:90] Iteration 17660, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3861 (1.3969)
+INFO train_engine.py:90] Iteration 17680, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3722 (1.3969)
+INFO train_engine.py:90] Iteration 17700, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4034 (1.3968)
+INFO train_engine.py:90] Iteration 17720, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3813 (1.3969)
+INFO train_engine.py:90] Iteration 17740, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4226 (1.3969)
+INFO train_engine.py:90] Iteration 17760, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3953 (1.3969)
+INFO train_engine.py:90] Iteration 17780, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4138 (1.3970)
+INFO train_engine.py:169] < PROGRESS: 0.71% | SPEED: 0.463s / iter | ETA: 13 days, 6:59:33 >
+INFO train_engine.py:90] Iteration 17800, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3785 (1.3971)
+INFO train_engine.py:90] Iteration 17820, lr = 0.00080000, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3877 (1.3971)
+INFO train_engine.py:90] Iteration 17840, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3928 (1.3971)
+INFO train_engine.py:90] Iteration 17860, lr = 0.00080000, time = 0.69s
+INFO train_engine.py:92]     Train net output(loss): 1.3924 (1.3971)
+INFO train_engine.py:90] Iteration 17880, lr = 0.00080000, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4057 (1.3970)
+INFO train_engine.py:90] Iteration 17900, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3956 (1.3971)
+INFO train_engine.py:90] Iteration 17920, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3938 (1.3970)
+INFO train_engine.py:90] Iteration 17940, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3937 (1.3971)
+INFO train_engine.py:90] Iteration 17960, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3810 (1.3971)
+INFO train_engine.py:90] Iteration 17980, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4008 (1.3971)
+INFO train_engine.py:169] < PROGRESS: 0.72% | SPEED: 0.463s / iter | ETA: 13 days, 6:59:14 >
+INFO train_engine.py:90] Iteration 18000, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3948 (1.3971)
+INFO train_engine.py:90] Iteration 18020, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3640 (1.3971)
+INFO train_engine.py:90] Iteration 18040, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4091 (1.3970)
+INFO train_engine.py:90] Iteration 18060, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3829 (1.3970)
+INFO train_engine.py:90] Iteration 18080, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4095 (1.3970)
+INFO train_engine.py:90] Iteration 18100, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3961 (1.3970)
+INFO train_engine.py:90] Iteration 18120, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3877 (1.3969)
+INFO train_engine.py:90] Iteration 18140, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3773 (1.3969)
+INFO train_engine.py:90] Iteration 18160, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3945 (1.3968)
+INFO train_engine.py:90] Iteration 18180, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3789 (1.3968)
+INFO train_engine.py:169] < PROGRESS: 0.73% | SPEED: 0.463s / iter | ETA: 13 days, 6:56:46 >
+INFO train_engine.py:90] Iteration 18200, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3773 (1.3968)
+INFO train_engine.py:90] Iteration 18220, lr = 0.00080000, time = 0.49s
+INFO train_engine.py:92]     Train net output(loss): 1.3803 (1.3967)
+INFO train_engine.py:90] Iteration 18240, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3451 (1.3966)
+INFO train_engine.py:90] Iteration 18260, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3901 (1.3966)
+INFO train_engine.py:90] Iteration 18280, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3912 (1.3966)
+INFO train_engine.py:90] Iteration 18300, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4045 (1.3965)
+INFO train_engine.py:90] Iteration 18320, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4052 (1.3965)
+INFO train_engine.py:90] Iteration 18340, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3994 (1.3965)
+INFO train_engine.py:90] Iteration 18360, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3982 (1.3966)
+INFO train_engine.py:90] Iteration 18380, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3905 (1.3966)
+INFO train_engine.py:169] < PROGRESS: 0.74% | SPEED: 0.463s / iter | ETA: 13 days, 6:54:05 >
+INFO train_engine.py:90] Iteration 18400, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3973 (1.3966)
+INFO train_engine.py:90] Iteration 18420, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4218 (1.3966)
+INFO train_engine.py:90] Iteration 18440, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4149 (1.3966)
+INFO train_engine.py:90] Iteration 18460, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4144 (1.3967)
+INFO train_engine.py:90] Iteration 18480, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3916 (1.3967)
+INFO train_engine.py:90] Iteration 18500, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4056 (1.3967)
+INFO train_engine.py:90] Iteration 18520, lr = 0.00080000, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3750 (1.3966)
+INFO train_engine.py:90] Iteration 18540, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4176 (1.3966)
+INFO train_engine.py:90] Iteration 18560, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4073 (1.3966)
+INFO train_engine.py:90] Iteration 18580, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3801 (1.3966)
+INFO train_engine.py:169] < PROGRESS: 0.74% | SPEED: 0.463s / iter | ETA: 13 days, 6:51:49 >
+INFO train_engine.py:90] Iteration 18600, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3990 (1.3966)
+INFO train_engine.py:90] Iteration 18620, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3968 (1.3966)
+INFO train_engine.py:90] Iteration 18640, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4061 (1.3967)
+INFO train_engine.py:90] Iteration 18660, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4211 (1.3967)
+INFO train_engine.py:90] Iteration 18680, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4046 (1.3966)
+INFO train_engine.py:90] Iteration 18700, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3807 (1.3966)
+INFO train_engine.py:90] Iteration 18720, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.4045 (1.3966)
+INFO train_engine.py:90] Iteration 18740, lr = 0.00080000, time = 0.49s
+INFO train_engine.py:92]     Train net output(loss): 1.3873 (1.3965)
+INFO train_engine.py:90] Iteration 18760, lr = 0.00080000, time = 0.61s
+INFO train_engine.py:92]     Train net output(loss): 1.4284 (1.3965)
+INFO train_engine.py:90] Iteration 18780, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4061 (1.3965)
+INFO train_engine.py:169] < PROGRESS: 0.75% | SPEED: 0.463s / iter | ETA: 13 days, 6:50:54 >
+INFO train_engine.py:90] Iteration 18800, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3644 (1.3964)
+INFO train_engine.py:90] Iteration 18820, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3779 (1.3964)
+INFO train_engine.py:90] Iteration 18840, lr = 0.00080000, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.3780 (1.3963)
+INFO train_engine.py:90] Iteration 18860, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3964 (1.3962)
+INFO train_engine.py:90] Iteration 18880, lr = 0.00080000, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4172 (1.3962)
+INFO train_engine.py:90] Iteration 18900, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3830 (1.3962)
+INFO train_engine.py:90] Iteration 18920, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4121 (1.3961)
+INFO train_engine.py:90] Iteration 18940, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4026 (1.3962)
+INFO train_engine.py:90] Iteration 18960, lr = 0.00080000, time = 0.45s
+INFO train_engine.py:92]     Train net output(loss): 1.3998 (1.3962)
+INFO train_engine.py:90] Iteration 18980, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4117 (1.3962)
+INFO train_engine.py:169] < PROGRESS: 0.76% | SPEED: 0.463s / iter | ETA: 13 days, 6:48:05 >
+INFO train_engine.py:90] Iteration 19000, lr = 0.00080000, time = 0.44s
+INFO train_engine.py:92]     Train net output(loss): 1.3983 (1.3962)
+INFO train_engine.py:90] Iteration 19020, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4048 (1.3962)
+INFO train_engine.py:90] Iteration 19040, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3825 (1.3962)
+INFO train_engine.py:90] Iteration 19060, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4009 (1.3962)
+INFO train_engine.py:90] Iteration 19080, lr = 0.00080000, time = 0.47s
+INFO train_engine.py:92]     Train net output(loss): 1.4170 (1.3963)
+INFO train_engine.py:90] Iteration 19100, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4055 (1.3963)
+INFO train_engine.py:90] Iteration 19120, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.3941 (1.3963)
+INFO train_engine.py:90] Iteration 19140, lr = 0.00080000, time = 0.46s
+INFO train_engine.py:92]     Train net output(loss): 1.4056 (1.3963)

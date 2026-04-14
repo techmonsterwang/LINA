@@ -1,0 +1,23 @@
+{
+  "_class_name": "NOVAPipeline",
+  "tokenizer": [
+    "transformers",
+    "CodeGenTokenizerFast"
+  ],
+  "scheduler": [
+    "diffusers",
+    "FlowMatchEulerDiscreteScheduler"
+  ],
+  "vae": [
+    "diffnext.models.autoencoders.autoencoder_kl",
+    "AutoencoderKL"
+  ],
+  "text_encoder": [
+    "diffnext.models.text_encoders.phi",
+    "PhiEncoderModel"
+  ],
+  "transformer": [
+    "diffnext.models.transformers.transformer_nova",
+    "NOVATransformer3DModel"
+  ]
+}

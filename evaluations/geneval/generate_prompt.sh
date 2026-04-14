@@ -1,0 +1,1 @@
+python evaluations/geneval/generate_prompt.py

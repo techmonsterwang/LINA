@@ -1,0 +1,68 @@
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+2025-03-21 15:57:57.720420: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-03-21 15:57:58.139121: I tensorflow/core/util/util.cc:169] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-03-21 15:57:58.298188: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-03-21 15:58:02.121547: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-21 15:58:02.121986: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-03-21 15:58:02.122003: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+INFO train_torchrun.py:60] Called with args:
+Namespace(cfg='/share/project/wangjiahao/LAR/diffnext/config/imagenet/mar_large_1k_nova_d48w768_256px_debug.yml', exp_dir='exp_dir/debug_dev', tensorboard=True, distributed=False, host='', deepspeed='/share/project/wangjiahao/NOVA/deepspeed/zero2_bf16.json', num_gpus='8', world_size='1', rank='0', master_ip='cuda122-new13-exp-gpu-jiahao')
+INFO train_torchrun.py:64] Using config:
+GPU_ID: 0
+MODEL:
+  CONFIG: {'image_dim': 16, 'image_size': [256, 256], 'image_stride': 16, 'rotary_pos_embed': True, 'video_base_size': [1, 8, 8], 'image_base_size': [16, 16], 'arch': ['vit_d16w768', 'vit_d32w768', 'mlp_d6w768']}
+  PRECISION: bfloat16
+  TYPE: transformer
+  WEIGHTS: /share/project/panting/diffnext-main/models.c2i/scratch_d48w768_256px_f16c16
+NUM_GPUS: 8
+PIPELINE:
+  MODULES: {'vae': '/share/project/panting/mm_ckpt/vae/mar', 'scheduler': '/share/project/panting/mm_ckpt/nova_shared/scheduler/flow', 'model_index': '/share/project/panting/mm_ckpt/nova_shared/model_index/flow_mar_cls_nova.json'}
+  TYPE: nova_train_c2i
+RNG_SEED: 3
+SOLVER:
+  ACCUM_STEPS: 1
+  ADAM_BETA2: 0.95
+  BASE_LR: 0.0008
+  DECAY_GAMMA: 0.5
+  DECAY_STEPS: []
+  DISPLAY: 20
+  EMA_EVERY: 100
+  LR_POLICY: 
+  MAX_STEPS: 2500000
+  MIN_LR: 0.0
+  OPTIMIZER: AdamW
+  SNAPSHOT_EVERY: 5000
+  SNAPSHOT_PREFIX: in1k_nova_d48w768_256px
+  WARM_UP_FACTOR: 0.001
+  WARM_UP_STEPS: 10000
+  WEIGHT_DECAY: 0.02
+TRAIN:
+  BATCH_SIZE: 64
+  CHECKPOINTING: 0
+  DATASET: /share/project/panting/share_datasets/in1k_collection/in1k_mar256
+  DATASET2: 
+  DEVICE_EMA: gpu
+  LOADER: vae_train
+  LOSS_REPEAT: 4
+  MODEL_EMA: 0.99
+  NUM_THREADS: 8
+W0321 15:58:29.263000 140367707252544 torch/distributed/run.py:779] 
+W0321 15:58:29.263000 140367707252544 torch/distributed/run.py:779] *****************************************
+W0321 15:58:29.263000 140367707252544 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0321 15:58:29.263000 140367707252544 torch/distributed/run.py:779] *****************************************
+[W321 15:58:29.193503759 socket.cpp:697] [c10d] The IPv6 network addresses of (cuda122-new13-exp-gpu-jiahao, 23456) cannot be retrieved (gai error: -2 - Name or service not known).
+[W321 15:58:30.194849302 socket.cpp:697] [c10d] The IPv6 network addresses of (cuda122-new13-exp-gpu-jiahao, 23456) cannot be retrieved (gai error: -2 - Name or service not known).
+[W321 15:58:31.196198849 socket.cpp:697] [c10d] The IPv6 network addresses of (cuda122-new13-exp-gpu-jiahao, 23456) cannot be retrieved (gai error: -2 - Name or service not known).
+[W321 15:58:32.196689082 socket.cpp:697] [c10d] The IPv6 network addresses of (cuda122-new13-exp-gpu-jiahao, 23456) cannot be retrieved (gai error: -2 - Name or service not known).
+[W321 15:58:33.197931942 socket.cpp:697] [c10d] The IPv6 network addresses of (cuda122-new13-exp-gpu-jiahao, 23456) cannot be retrieved (gai error: -2 - Name or service not known).
+[W321 15:58:34.210977246 socket.cpp:697] [c10d] The IPv6 network addresses of (cuda122-new13-exp-gpu-jiahao, 23456) cannot be retrieved (gai error: -2 - Name or service not known).
+[W321 15:58:35.212703253 socket.cpp:697] [c10d] The IPv6 network addresses of (cuda122-new13-exp-gpu-jiahao, 23456) cannot be retrieved (gai error: -2 - Name or service not known).
+[W321 15:58:36.213931325 socket.cpp:697] [c10d] The IPv6 network addresses of (cuda122-new13-exp-gpu-jiahao, 23456) cannot be retrieved (gai error: -2 - Name or service not known).
+[W321 15:58:37.215086394 socket.cpp:697] [c10d] The IPv6 network addresses of (cuda122-new13-exp-gpu-jiahao, 23456) cannot be retrieved (gai error: -2 - Name or service not known).
+[W321 15:58:38.216619628 socket.cpp:697] [c10d] The IPv6 network addresses of (cuda122-new13-exp-gpu-jiahao, 23456) cannot be retrieved (gai error: -2 - Name or service not known).
+[W321 15:58:39.230080803 socket.cpp:697] [c10d] The IPv6 network addresses of (cuda122-new13-exp-gpu-jiahao, 23456) cannot be retrieved (gai error: -2 - Name or service not known).
+[W321 15:58:40.231597417 socket.cpp:697] [c10d] The IPv6 network addresses of (cuda122-new13-exp-gpu-jiahao, 23456) cannot be retrieved (gai error: -2 - Name or service not known).
+[W321 15:58:41.232980895 socket.cpp:697] [c10d] The IPv6 network addresses of (cuda122-new13-exp-gpu-jiahao, 23456) cannot be retrieved (gai error: -2 - Name or service not known).
+[W321 15:58:42.234242076 socket.cpp:697] [c10d] The IPv6 network addresses of (cuda122-new13-exp-gpu-jiahao, 23456) cannot be retrieved (gai error: -2 - Name or service not known).

@@ -1,0 +1,485 @@
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+2025-09-12 21:05:13.275286: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-09-12 21:05:13.762359: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-09-12 21:05:15.513376: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:05:15.513776: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:05:15.513785: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+INFO train_torchrun.py:60] Called with args:
+Namespace(cfg='/share/project/wangjiahao/LAR/diffnext/config/t2i/sdxl28m_nova_d48w1536_512px_finetune_nova.yml', exp_dir='exp_dir/t2i/linear_decouple1_kvscale1_w1536_6node_finetune_nova_512px', tensorboard=True, distributed=False, host='', deepspeed='/share/project/wangjiahao/LAR/configs/deepspeed/zero2_bf16.json', num_gpus='8', world_size='6', rank='1', master_ip='job-ead216a2-e2ba-46da-8e87-bae181933456-master-0')
+INFO train_torchrun.py:64] Using config:
+GPU_ID: 0
+MODEL:
+  CONFIG: {'image_dim': 4, 'image_size': [512, 512], 'image_stride': 8, 'text_token_dim': 2560, 'text_token_len': 256, 'video_base_size': [1, 16, 16], 'image_base_size': [32, 32], 'arch': ['vit_d16w1536', 'vit_d32w1536', 'mlp_d6w1536']}
+  PRECISION: bfloat16
+  TYPE: transformer
+  WEIGHTS: /share/project/wangjiahao/LAR/pretrained/models.t2i/finetune_nova_d48w1536_512px
+NUM_GPUS: 48
+PIPELINE:
+  MODULES: {'scheduler': '/share/project/panting/mm_ckpt/nova_shared/scheduler/flow', 'text_encoder': '/share/project/panting/mm_ckpt/nova_shared/text_encoder/phi2', 'tokenizer': '/share/project/panting/mm_ckpt/nova_shared/tokenizer/phi2', 'vae': '/share/project/panting/mm_ckpt/nova_shared/vae/sdxl', 'model_index': '/share/project/wangjiahao/LAR/diffnext/model_index/linear/t2i/linear_decouple1_kvscale1_high_res_flow_sdxl_phi2_nova.json'}
+  TYPE: nova_train_t2i
+RNG_SEED: 3
+SOLVER:
+  ACCUM_STEPS: 1
+  ADAM_BETA2: 0.95
+  BASE_LR: 0.0001
+  DECAY_GAMMA: 0.5
+  DECAY_STEPS: []
+  DISPLAY: 20
+  EMA_EVERY: 100
+  LR_POLICY: 
+  MAX_STEPS: 2500000
+  MIN_LR: 0.0
+  OPTIMIZER: AdamW
+  SNAPSHOT_EVERY: 5000
+  SNAPSHOT_PREFIX: sdxl28m_nova_d48w1536_256px
+  WARM_UP_FACTOR: 0.001
+  WARM_UP_STEPS: 10000
+  WEIGHT_DECAY: 0.02
+TRAIN:
+  BATCH_SIZE: 4
+  CHECKPOINTING: 2
+  DATASET: /share/project/panting/share_datasets/emu3_sdxl512_train28m
+  DATASET2: 
+  DEVICE_EMA: gpu
+  LOADER: vae_train
+  LOSS_REPEAT: 4
+  MODEL_EMA: 0.99
+  NUM_THREADS: 8
+W0912 21:05:24.889000 139867546285888 torch/distributed/run.py:779] 
+W0912 21:05:24.889000 139867546285888 torch/distributed/run.py:779] *****************************************
+W0912 21:05:24.889000 139867546285888 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0912 21:05:24.889000 139867546285888 torch/distributed/run.py:779] *****************************************
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+2025-09-12 21:07:16.595842: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-09-12 21:07:16.595918: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-09-12 21:07:16.599305: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-09-12 21:07:16.599738: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-09-12 21:07:16.599911: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-09-12 21:07:16.600124: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-09-12 21:07:16.600124: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-09-12 21:07:16.602270: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-09-12 21:07:16.832013: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-09-12 21:07:16.832295: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-09-12 21:07:16.832691: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-09-12 21:07:16.832740: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-09-12 21:07:16.832780: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-09-12 21:07:16.832804: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-09-12 21:07:16.833852: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-09-12 21:07:16.835748: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-09-12 21:07:19.395057: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:07:19.395096: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:07:19.395162: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:07:19.395508: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:07:19.395523: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-09-12 21:07:19.395523: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:07:19.395531: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-09-12 21:07:19.395540: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:07:19.395564: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-09-12 21:07:19.410732: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:07:19.411020: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:07:19.411029: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-09-12 21:07:19.415913: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:07:19.416016: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:07:19.416024: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-09-12 21:07:19.422143: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:07:19.422143: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:07:19.422265: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:07:19.422270: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:07:19.422272: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-09-12 21:07:19.422278: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2025-09-12 21:07:19.422341: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:07:19.422434: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/cv2/../../lib64:/usr/local/cuda/compat/lib.real:/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/torch_tensorrt/lib:/usr/local/cuda/compat/lib:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-09-12 21:07:19.422441: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]An error occurred while trying to fetch /tmp/tmph3p5yre2/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmph3p5yre2/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:00,  9.11it/s]Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][AAn error occurred while trying to fetch /tmp/tmp3l0iw_dc/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp3l0iw_dc/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpbqeswt33/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpbqeswt33/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Effective image_size=64, calculated sequence_length=1280
+[ALinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+Loading pipeline components...:  40%|████      | 2/5 [00:00<00:00,  4.59it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:01,  2.25it/s]Loading pipeline components...:  40%|████      | 2/5 [00:00<00:01,  2.53it/s]An error occurred while trying to fetch /tmp/tmpdpixc2fg/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpdpixc2fg/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpn2kskvmm/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpn2kskvmm/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+Loading pipeline components...:  60%|██████    | 3/5 [00:00<00:00,  6.35it/s]An error occurred while trying to fetch /tmp/tmpxnrozhqx/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpxnrozhqx/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+
+Loading checkpoint shards:  50%|█████     | 1/2 [00:08<00:08,  8.24s/it][A
+Loading checkpoint shards:  50%|█████     | 1/2 [00:08<00:08,  8.17s/it][A
+Loading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.01s/it][ALoading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.65s/it]
+Loading pipeline components...:  40%|████      | 2/5 [00:09<00:14,  4.69s/it]An error occurred while trying to fetch /tmp/tmpobzt4wxm/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpobzt4wxm/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+
+Loading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.42s/it][ALoading checkpoint shards: 100%|██████████| 2/2 [00:09<00:00,  4.98s/it]
+Loading pipeline components...:  40%|████      | 2/5 [00:10<00:15,  5.04s/it]Loading pipeline components...:  60%|██████    | 3/5 [00:10<00:05,  2.98s/it]An error occurred while trying to fetch /tmp/tmpa5xiwisi/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpa5xiwisi/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+LinearAttentionDecoder initialized with image_size=(64, 64), patch_size=2
+Effective image_size=64, calculated sequence_length=1280
+Loading pipeline components...:  40%|████      | 2/5 [00:11<00:17,  5.94s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][ALoading pipeline components...:  40%|████      | 2/5 [00:12<00:18,  6.15s/it]Loading pipeline components...:  40%|████      | 2/5 [00:12<00:18,  6.11s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][ALoading pipeline components...:  60%|██████    | 3/5 [00:12<00:07,  3.81s/it]Loading pipeline components...:  60%|██████    | 3/5 [00:12<00:07,  3.84s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][A
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][ALoading pipeline components...:  60%|██████    | 3/5 [00:13<00:12,  6.06s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][ALoading pipeline components...:  60%|██████    | 3/5 [00:13<00:11,  5.51s/it]Loading pipeline components...:  80%|████████  | 4/5 [00:13<00:03,  3.49s/it]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s][ALoading pipeline components...:  80%|████████  | 4/5 [00:14<00:03,  3.55s/it]Loading pipeline components...: 100%|██████████| 5/5 [00:14<00:00,  2.36s/it]Loading pipeline components...: 100%|██████████| 5/5 [00:14<00:00,  2.97s/it]
+Loading pipeline components...:  60%|██████    | 3/5 [00:15<00:10,  5.21s/it]Loading pipeline components...:  80%|████████  | 4/5 [00:15<00:03,  3.32s/it]Loading pipeline components...: 100%|██████████| 5/5 [00:15<00:00,  3.11s/it]
+
+Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.48s/it][A
+Loading checkpoint shards:  50%|█████     | 1/2 [00:07<00:07,  7.25s/it][A
+Loading checkpoint shards:  50%|█████     | 1/2 [00:06<00:06,  6.77s/it][A
+Loading checkpoint shards:  50%|█████     | 1/2 [00:06<00:06,  6.89s/it][A
+Loading checkpoint shards:  50%|█████     | 1/2 [00:06<00:06,  6.40s/it][A
+Loading checkpoint shards:  50%|█████     | 1/2 [00:06<00:06,  6.45s/it][ALoading pipeline components...:  60%|██████    | 3/5 [00:20<00:00,  6.35it/s][2025-09-12 21:07:50,544] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+
+Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  3.70s/it][ALoading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.27s/it]
+Loading pipeline components...:  60%|██████    | 3/5 [00:20<00:14,  7.05s/it][2025-09-12 21:07:51,121] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+
+Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  3.85s/it][ALoading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.36s/it]
+Loading pipeline components...: 100%|██████████| 5/5 [00:21<00:00,  3.38s/it]Loading pipeline components...: 100%|██████████| 5/5 [00:21<00:00,  4.22s/it]
+Loading pipeline components...: 100%|██████████| 5/5 [00:21<00:00,  5.33s/it]Loading pipeline components...: 100%|██████████| 5/5 [00:21<00:00,  4.20s/it]
+
+Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.28s/it][ALoading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.75s/it]
+Loading pipeline components...: 100%|██████████| 5/5 [00:21<00:00,  4.91s/it]Loading pipeline components...: 100%|██████████| 5/5 [00:21<00:00,  4.21s/it]
+
+Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  3.68s/it][ALoading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.16s/it]
+Loading pipeline components...: 100%|██████████| 5/5 [00:21<00:00,  4.02s/it]Loading pipeline components...: 100%|██████████| 5/5 [00:21<00:00,  4.24s/it]
+
+Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.46s/it][ALoading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.91s/it]
+Loading pipeline components...:  80%|████████  | 4/5 [00:21<00:06,  6.78s/it]Loading pipeline components...: 100%|██████████| 5/5 [00:21<00:00,  4.28s/it]
+
+Loading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.02s/it][ALoading checkpoint shards: 100%|██████████| 2/2 [00:08<00:00,  4.43s/it]
+Loading pipeline components...:  80%|████████  | 4/5 [00:21<00:05,  5.75s/it]Loading pipeline components...: 100%|██████████| 5/5 [00:21<00:00,  3.79s/it]Loading pipeline components...: 100%|██████████| 5/5 [00:21<00:00,  4.39s/it]
+[2025-09-12 21:07:53,790] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-09-12 21:07:54,732] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-09-12 21:07:54,837] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-09-12 21:07:55,237] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-09-12 21:07:56,364] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-09-12 21:07:57,332] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1_high_res.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1_high_res.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1_high_res.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1_high_res.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1_high_res.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1_high_res.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1_high_res.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1_high_res.py:68: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1_high_res.py:133: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1_high_res.py:133: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1_high_res.py:133: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1_high_res.py:133: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1_high_res.py:133: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1_high_res.py:133: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1_high_res.py:133: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/LAR/diffnext/models/vision_transformer_linear_decouple1_kvscale1_high_res.py:133: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=not use_fp32_attention):
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/utils/checkpoint.py:1399: FutureWarning: `torch.cpu.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cpu', args...)` instead.
+  with device_autocast_ctx, torch.cpu.amp.autocast(**cpu_autocast_kwargs), recompute_context:  # type: ignore[attr-defined]

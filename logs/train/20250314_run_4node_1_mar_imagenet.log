@@ -1,0 +1,217 @@
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+INFO train_torchrun.py:60] Called with args:
+Namespace(cfg='/share/project/wangjiahao/LAR/diffnext/config/imagenet/mar1k_nova_d48w768_256px.yml', exp_dir='exp_dir', tensorboard=True, distributed=False, host='', deepspeed='/share/project/wangjiahao/LAR/configs/deepspeed/zero2_bf16.json', num_gpus='8', world_size='4', rank='1', master_ip='job-01315d01-46ae-46c4-8967-0d41b6bac6e8-master-0')
+INFO train_torchrun.py:64] Using config:
+GPU_ID: 0
+MODEL:
+  CONFIG: {'image_dim': 16, 'image_size': [256, 256], 'image_stride': 16, 'rotary_pos_embed': True, 'video_base_size': [1, 8, 8], 'image_base_size': [16, 16], 'arch': ['vit_d16w768', 'vit_d32w768', 'mlp_d6w768']}
+  PRECISION: bfloat16
+  TYPE: transformer
+  WEIGHTS: /share/project/panting/diffnext-main/models.c2i/scratch_d48w768_256px_f16c16
+NUM_GPUS: 32
+PIPELINE:
+  MODULES: {'vae': '/share/project/panting/mm_ckpt/vae/mar', 'scheduler': '/share/project/panting/mm_ckpt/nova_shared/scheduler/flow', 'model_index': '/share/project/panting/mm_ckpt/nova_shared/model_index/flow_mar_cls_nova.json'}
+  TYPE: nova_train_c2i
+RNG_SEED: 3
+SOLVER:
+  ACCUM_STEPS: 1
+  ADAM_BETA2: 0.95
+  BASE_LR: 0.0008
+  DECAY_GAMMA: 0.5
+  DECAY_STEPS: []
+  DISPLAY: 20
+  EMA_EVERY: 100
+  LR_POLICY: 
+  MAX_STEPS: 2500000
+  MIN_LR: 0.0
+  OPTIMIZER: AdamW
+  SNAPSHOT_EVERY: 5000
+  SNAPSHOT_PREFIX: in1k_nova_d48w768_256px
+  WARM_UP_FACTOR: 0.001
+  WARM_UP_STEPS: 10000
+  WEIGHT_DECAY: 0.02
+TRAIN:
+  BATCH_SIZE: 64
+  CHECKPOINTING: 0
+  DATASET: /share/project/panting/share_datasets/in1k_collection/in1k_mar256
+  DATASET2: 
+  DEVICE_EMA: gpu
+  LOADER: vae_train
+  LOSS_REPEAT: 4
+  MODEL_EMA: 0.99
+  NUM_THREADS: 8
+W0314 18:05:56.814000 140702630246208 torch/distributed/run.py:779] 
+W0314 18:05:56.814000 140702630246208 torch/distributed/run.py:779] *****************************************
+W0314 18:05:56.814000 140702630246208 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0314 18:05:56.814000 140702630246208 torch/distributed/run.py:779] *****************************************
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/_distutils_hack/__init__.py:53: UserWarning: Reliance on distutils from stdlib is deprecated. Users must rely on setuptools to provide the distutils module. Avoid importing distutils or import setuptools first, and avoid setting SETUPTOOLS_USE_DISTUTILS=stdlib. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+  warnings.warn(
+Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]An error occurred while trying to fetch /tmp/tmpnlo6frwk/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpnlo6frwk/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]An error occurred while trying to fetch /tmp/tmp0q9victv/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp0q9victv/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]An error occurred while trying to fetch /tmp/tmplegpb9jw/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmplegpb9jw/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]An error occurred while trying to fetch /tmp/tmpyg4pe_bb/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpyg4pe_bb/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]An error occurred while trying to fetch /tmp/tmp1k9_uylx/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp1k9_uylx/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpobzd6id1/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpobzd6id1/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:   0%|          | 0/3 [00:00<?, ?it/s]An error occurred while trying to fetch /tmp/tmphb72xia8/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmphb72xia8/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmp4sf6irhn/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp4sf6irhn/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:00<00:01,  1.39it/s]An error occurred while trying to fetch /tmp/tmp1k9_uylx/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp1k9_uylx/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:00<00:01,  1.35it/s]Loading pipeline components...:  33%|███▎      | 1/3 [00:00<00:01,  1.31it/s]An error occurred while trying to fetch /tmp/tmp4sf6irhn/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp4sf6irhn/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+An error occurred while trying to fetch /tmp/tmpobzd6id1/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpobzd6id1/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:00<00:00,  2.23it/s]An error occurred while trying to fetch /tmp/tmpyg4pe_bb/transformer: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpyg4pe_bb/transformer.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:02<00:05,  2.94s/it]An error occurred while trying to fetch /tmp/tmpnlo6frwk/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmpnlo6frwk/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:02<00:05,  2.95s/it]An error occurred while trying to fetch /tmp/tmp0q9victv/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmp0q9victv/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  33%|███▎      | 1/3 [00:02<00:05,  2.90s/it]An error occurred while trying to fetch /tmp/tmplegpb9jw/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmplegpb9jw/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:02<00:01,  1.45s/it]An error occurred while trying to fetch /tmp/tmphb72xia8/vae: Error no file named diffusion_pytorch_model.safetensors found in directory /tmp/tmphb72xia8/vae.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:03<00:01,  1.37s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.07s/it]
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.15it/s]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.08s/it]
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.03it/s]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.07s/it]
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:03<00:01,  1.40s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.08s/it]
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.30s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.13s/it]
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.16s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.11s/it]
+Loading pipeline components...:  67%|██████▋   | 2/3 [00:03<00:01,  1.90s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.15s/it]
+Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.24s/it]Loading pipeline components...: 100%|██████████| 3/3 [00:03<00:00,  1.19s/it]
+[2025-03-14 18:06:37,033] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-14 18:06:37,036] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-14 18:06:37,151] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-14 18:06:37,217] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-14 18:06:37,243] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-14 18:06:37,256] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+df: /root/.triton/autotune: No such file or directory
+[2025-03-14 18:06:37,431] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-14 18:06:37,571] [INFO] [real_accelerator.py:222:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[rank11]:[E317 09:13:50.948478324 ProcessGroupNCCL.cpp:607] [Rank 11] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2899177, OpType=ALLREDUCE, NumelIn=361906960, NumelOut=361906960, Timeout(ms)=600000) ran for 600034 milliseconds before timing out.
+[rank11]:[E317 09:13:50.954400770 ProcessGroupNCCL.cpp:1664] [PG 2 Rank 11] Exception (either an error or timeout) detected by watchdog at work: 2899177, last enqueued NCCL work: 2899178, last completed NCCL work: 2899176.
+[rank9]:[E317 09:13:50.985011344 ProcessGroupNCCL.cpp:607] [Rank 9] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2899177, OpType=ALLREDUCE, NumelIn=361906960, NumelOut=361906960, Timeout(ms)=600000) ran for 600070 milliseconds before timing out.
+[rank9]:[E317 09:13:50.985238976 ProcessGroupNCCL.cpp:1664] [PG 2 Rank 9] Exception (either an error or timeout) detected by watchdog at work: 2899177, last enqueued NCCL work: 2899178, last completed NCCL work: 2899176.
+[rank13]:[E317 09:13:50.986870501 ProcessGroupNCCL.cpp:607] [Rank 13] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2899177, OpType=ALLREDUCE, NumelIn=361906960, NumelOut=361906960, Timeout(ms)=600000) ran for 600055 milliseconds before timing out.
+[rank13]:[E317 09:13:50.987096901 ProcessGroupNCCL.cpp:1664] [PG 2 Rank 13] Exception (either an error or timeout) detected by watchdog at work: 2899177, last enqueued NCCL work: 2899178, last completed NCCL work: 2899176.
+[rank10]:[E317 09:13:50.990828891 ProcessGroupNCCL.cpp:607] [Rank 10] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2899177, OpType=ALLREDUCE, NumelIn=361906960, NumelOut=361906960, Timeout(ms)=600000) ran for 600078 milliseconds before timing out.
+[rank10]:[E317 09:13:50.991004435 ProcessGroupNCCL.cpp:1664] [PG 2 Rank 10] Exception (either an error or timeout) detected by watchdog at work: 2899177, last enqueued NCCL work: 2899178, last completed NCCL work: 2899176.
+[rank12]:[E317 09:13:50.008237890 ProcessGroupNCCL.cpp:607] [Rank 12] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2899177, OpType=ALLREDUCE, NumelIn=361906960, NumelOut=361906960, Timeout(ms)=600000) ran for 600090 milliseconds before timing out.
+[rank12]:[E317 09:13:50.008506800 ProcessGroupNCCL.cpp:1664] [PG 2 Rank 12] Exception (either an error or timeout) detected by watchdog at work: 2899177, last enqueued NCCL work: 2899178, last completed NCCL work: 2899176.
+[rank14]:[E317 09:13:50.008990218 ProcessGroupNCCL.cpp:607] [Rank 14] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2899177, OpType=ALLREDUCE, NumelIn=361906960, NumelOut=361906960, Timeout(ms)=600000) ran for 600094 milliseconds before timing out.
+[rank14]:[E317 09:13:50.009256232 ProcessGroupNCCL.cpp:1664] [PG 2 Rank 14] Exception (either an error or timeout) detected by watchdog at work: 2899177, last enqueued NCCL work: 2899178, last completed NCCL work: 2899176.
+[rank8]:[E317 09:13:50.016614753 ProcessGroupNCCL.cpp:607] [Rank 8] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2899177, OpType=ALLREDUCE, NumelIn=361906960, NumelOut=361906960, Timeout(ms)=600000) ran for 600087 milliseconds before timing out.
+[rank8]:[E317 09:13:50.016762834 ProcessGroupNCCL.cpp:1664] [PG 2 Rank 8] Exception (either an error or timeout) detected by watchdog at work: 2899177, last enqueued NCCL work: 2899178, last completed NCCL work: 2899176.
+[rank15]:[E317 09:13:50.016934049 ProcessGroupNCCL.cpp:607] [Rank 15] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2899177, OpType=ALLREDUCE, NumelIn=361906960, NumelOut=361906960, Timeout(ms)=600000) ran for 600099 milliseconds before timing out.
+[rank15]:[E317 09:13:50.017121344 ProcessGroupNCCL.cpp:1664] [PG 2 Rank 15] Exception (either an error or timeout) detected by watchdog at work: 2899177, last enqueued NCCL work: 2899178, last completed NCCL work: 2899176.
+[rank9]:[E317 09:13:51.496126467 ProcessGroupNCCL.cpp:1709] [PG 2 Rank 9] Timeout at NCCL work: 2899177, last enqueued NCCL work: 2899178, last completed NCCL work: 2899176.
+[rank9]:[E317 09:13:51.496143930 ProcessGroupNCCL.cpp:621] [Rank 9] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank9]:[E317 09:13:51.496147837 ProcessGroupNCCL.cpp:627] [Rank 9] To avoid data inconsistency, we are taking the entire process down.
+[rank9]:[E317 09:13:51.497771137 ProcessGroupNCCL.cpp:1515] [PG 2 Rank 9] Process group watchdog thread terminated with exception: [Rank 9] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2899177, OpType=ALLREDUCE, NumelIn=361906960, NumelOut=361906960, Timeout(ms)=600000) ran for 600070 milliseconds before timing out.
+Exception raised from checkTimeout at /opt/conda/conda-bld/pytorch_1720538440907/work/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:609 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x7f56b3976f86 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x1d2 (0x7f5650e30f02 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::watchdogHandler() + 0x233 (0x7f5650e37943 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x10c (0x7f5650e39d2c in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xdbbf4 (0x7f56b34c7bf4 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/../../../.././libstdc++.so.6)
+frame #5: <unknown function> + 0x94b43 (0x7f56bbb5bb43 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #6: <unknown function> + 0x126a00 (0x7f56bbbeda00 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+[rank8]:[E317 09:13:51.591914106 ProcessGroupNCCL.cpp:1709] [PG 2 Rank 8] Timeout at NCCL work: 2899177, last enqueued NCCL work: 2899178, last completed NCCL work: 2899176.
+[rank8]:[E317 09:13:51.591932140 ProcessGroupNCCL.cpp:621] [Rank 8] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank8]:[E317 09:13:51.591936188 ProcessGroupNCCL.cpp:627] [Rank 8] To avoid data inconsistency, we are taking the entire process down.
+[rank8]:[E317 09:13:51.593341154 ProcessGroupNCCL.cpp:1515] [PG 2 Rank 8] Process group watchdog thread terminated with exception: [Rank 8] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2899177, OpType=ALLREDUCE, NumelIn=361906960, NumelOut=361906960, Timeout(ms)=600000) ran for 600087 milliseconds before timing out.
+Exception raised from checkTimeout at /opt/conda/conda-bld/pytorch_1720538440907/work/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:609 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x7ff5e8b76f86 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x1d2 (0x7ff586030f02 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::watchdogHandler() + 0x233 (0x7ff586037943 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x10c (0x7ff586039d2c in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xdbbf4 (0x7ff5e86c7bf4 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/../../../.././libstdc++.so.6)
+frame #5: <unknown function> + 0x94b43 (0x7ff5f0cfeb43 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #6: <unknown function> + 0x126a00 (0x7ff5f0d90a00 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+[rank15]:[E317 09:13:51.599393185 ProcessGroupNCCL.cpp:1709] [PG 2 Rank 15] Timeout at NCCL work: 2899177, last enqueued NCCL work: 2899178, last completed NCCL work: 2899176.
+[rank15]:[E317 09:13:51.599428022 ProcessGroupNCCL.cpp:621] [Rank 15] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank15]:[E317 09:13:51.599433903 ProcessGroupNCCL.cpp:627] [Rank 15] To avoid data inconsistency, we are taking the entire process down.
+[rank15]:[E317 09:13:51.600768935 ProcessGroupNCCL.cpp:1515] [PG 2 Rank 15] Process group watchdog thread terminated with exception: [Rank 15] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2899177, OpType=ALLREDUCE, NumelIn=361906960, NumelOut=361906960, Timeout(ms)=600000) ran for 600099 milliseconds before timing out.
+Exception raised from checkTimeout at /opt/conda/conda-bld/pytorch_1720538440907/work/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:609 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x7f6caa2abf86 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x1d2 (0x7f6c47830f02 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::watchdogHandler() + 0x233 (0x7f6c47837943 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x10c (0x7f6c47839d2c in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xdbbf4 (0x7f6ca9ec7bf4 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/../../../.././libstdc++.so.6)
+frame #5: <unknown function> + 0x94b43 (0x7f6cb23f2b43 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #6: <unknown function> + 0x126a00 (0x7f6cb2484a00 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+[rank14]:[E317 09:13:51.601603879 ProcessGroupNCCL.cpp:1709] [PG 2 Rank 14] Timeout at NCCL work: 2899177, last enqueued NCCL work: 2899178, last completed NCCL work: 2899176.
+[rank14]:[E317 09:13:51.601619730 ProcessGroupNCCL.cpp:621] [Rank 14] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank14]:[E317 09:13:51.601623327 ProcessGroupNCCL.cpp:627] [Rank 14] To avoid data inconsistency, we are taking the entire process down.
+[rank14]:[E317 09:13:51.602966274 ProcessGroupNCCL.cpp:1515] [PG 2 Rank 14] Process group watchdog thread terminated with exception: [Rank 14] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2899177, OpType=ALLREDUCE, NumelIn=361906960, NumelOut=361906960, Timeout(ms)=600000) ran for 600094 milliseconds before timing out.
+Exception raised from checkTimeout at /opt/conda/conda-bld/pytorch_1720538440907/work/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:609 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::string) + 0x96 (0x7fda2a376f86 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libc10.so)
+frame #1: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x1d2 (0x7fd9c7830f02 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #2: c10d::ProcessGroupNCCL::watchdogHandler() + 0x233 (0x7fd9c7837943 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #3: c10d::ProcessGroupNCCL::ncclCommWatchdog() + 0x10c (0x7fd9c7839d2c in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/libtorch_cuda.so)
+frame #4: <unknown function> + 0xdbbf4 (0x7fda29ec7bf4 in /share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/lib/../../../.././libstdc++.so.6)
+frame #5: <unknown function> + 0x94b43 (0x7fda324d8b43 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #6: <unknown function> + 0x126a00 (0x7fda3256aa00 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+W0317 09:13:51.720000 140702630246208 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 1521 closing signal SIGTERM
+W0317 09:13:51.720000 140702630246208 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 1523 closing signal SIGTERM
+W0317 09:13:51.721000 140702630246208 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 1524 closing signal SIGTERM
+W0317 09:13:51.722000 140702630246208 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 1525 closing signal SIGTERM
+W0317 09:13:51.723000 140702630246208 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 1526 closing signal SIGTERM
+W0317 09:13:51.726000 140702630246208 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 1527 closing signal SIGTERM
+W0317 09:13:51.727000 140702630246208 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 1528 closing signal SIGTERM
+E0317 09:13:53.458000 140702630246208 torch/distributed/elastic/multiprocessing/api.py:833] failed (exitcode: -6) local_rank: 1 (pid: 1522) of binary: /share/project/wangjiahao/anaconda3/envs/nova3/bin/python
+Traceback (most recent call last):
+  File "/share/project/wangjiahao/anaconda3/envs/nova3/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.4.0', 'console_scripts', 'torchrun')())
+  File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+    return f(*args, **kwargs)
+  File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 133, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/share/project/wangjiahao/anaconda3/envs/nova3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/share/project/wangjiahao/LAR/scripts/train_torchrun.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-03-17_09:13:51
+  host      : job-01315d01-46ae-46c4-8967-0d41b6bac6e8-worker-0
+  rank      : 9 (local_rank: 1)
+  exitcode  : -6 (pid: 1522)
+  error_file: <N/A>
+  traceback : Signal 6 (SIGABRT) received by PID 1522
+============================================================

@@ -1,0 +1,51 @@
+GPU Memory Usage Comparison - Multiple Models
+============================================
+
+Number of inference steps: 128
+Number of diffusion steps: 25
+Guidance scale: 7.0
+Prompt size: 1
+Sample size: 1
+VAE batch size: 16
+Runs per model: 3
+
+Model: Model_1_sdxl28m_nova_d48w1536_256px_iter_200000
+------------------------------------------------------
+Peak allocated memory per run (MB):
+  Run 1: 5406.55 MB
+  Run 2: 5406.55 MB
+  Run 3: 5406.55 MB
+Peak reserved memory per run (MB):
+  Run 1: 8072.00 MB
+  Run 2: 8072.00 MB
+  Run 3: 8072.00 MB
+
+Summary:
+  Allocated: avg=5406.55 MB, min=5406.55 MB, max=5406.55 MB, std=0.00 MB
+  Reserved : avg=8072.00 MB, min=8072.00 MB, max=8072.00 MB, std=0.00 MB
+
+Model: Model_2_scratch_full_attention_nova_d48w1536_1024px
+----------------------------------------------------------
+Peak allocated memory per run (MB):
+  Run 1: 5401.96 MB
+  Run 2: 5401.96 MB
+  Run 3: 5401.96 MB
+Peak reserved memory per run (MB):
+  Run 1: 7552.00 MB
+  Run 2: 7552.00 MB
+  Run 3: 7552.00 MB
+
+Summary:
+  Allocated: avg=5401.96 MB, min=5401.96 MB, max=5401.96 MB, std=0.00 MB
+  Reserved : avg=7552.00 MB, min=7552.00 MB, max=7552.00 MB, std=0.00 MB
+
+Comparison Summary:
+===================
+Model_1_sdxl28m_nova_d48w1536_256px_iter_200000:
+  Allocated: avg=5406.55 MB, min=5406.55 MB, max=5406.55 MB, std=0.00 MB
+  Reserved : avg=8072.00 MB, min=8072.00 MB, max=8072.00 MB, std=0.00 MB
+
+Model_2_scratch_full_attention_nova_d48w1536_1024px:
+  Allocated: avg=5401.96 MB, min=5401.96 MB, max=5401.96 MB, std=0.00 MB
+  Reserved : avg=7552.00 MB, min=7552.00 MB, max=7552.00 MB, std=0.00 MB
+

@@ -1,0 +1,36 @@
+NUM_GPUS: 32
+MODEL:
+  PRECISION: "bfloat16"
+  WEIGHTS: "/share/project/wangjiahao/LAR/pretrained/models.c2i/linear_decouple1_kvscale1/scratch_d48w1024_256px_f16c16"
+  CONFIG: {
+    "image_dim": 16,
+    "image_size": [256, 256],
+    "image_stride": 16,
+    "rotary_pos_embed": false,
+    "video_base_size": [1, 8, 8],
+    "image_base_size": [16, 16],
+    "arch": ["vit_d16w1024", "vit_d32w1024", "mlp_d6w1024"],
+  }
+PIPELINE:
+  TYPE: "nova_train_c2i"
+  MODULES: {
+    "vae": "/share/project/panting/mm_ckpt/vae/mar",
+    "scheduler": "/share/project/panting/mm_ckpt/nova_shared/scheduler/flow",
+    "model_index": "/share/project/wangjiahao/LAR/diffnext/model_index/linear/linear_decouple1_kvscale1_flow_mar_cls_nova.json",
+  }
+SOLVER:
+  BASE_LR: 0.0008
+  WEIGHT_DECAY: 0.02
+  WARM_UP_STEPS: 10000
+  MAX_STEPS: 2500000
+  EMA_EVERY: 100
+  SNAPSHOT_EVERY: 5000
+  SNAPSHOT_PREFIX: "in1k_nova_d48w1024_256px"
+TRAIN:
+  DATASET: "/share/project/panting/share_datasets/in1k_collection/in1k_mar256"
+  LOADER: "vae_train"
+  BATCH_SIZE: 48
+  CHECKPOINTING: 0
+  MODEL_EMA: 0.99
+  NUM_THREADS: 8
+

@@ -1,0 +1,39 @@
+NUM_GPUS: 48
+MODEL:
+  PRECISION: "bfloat16"
+  WEIGHTS: "/share/project/wangjiahao/LAR/pretrained/models.t2i/scratch_full_attention_nova_d48w1536_1024px"
+  CONFIG: {
+    "image_dim": 4,
+    "image_size": [1024, 1024],
+    "image_stride": 8,
+    "text_token_dim": 2560,
+    "text_token_len": 256,
+    "video_base_size": [1, 32, 32],
+    "image_base_size": [64, 64],
+    "arch": ["vit_d16w1536", "vit_d32w1536", "mlp_d6w1536"],
+  }
+PIPELINE:
+  TYPE: "nova_train_t2i"
+  MODULES: {
+    "scheduler": "/share/project/panting/mm_ckpt/nova_shared/scheduler/flow",
+    "text_encoder": "/share/project/panting/mm_ckpt/nova_shared/text_encoder/phi2",
+    "tokenizer": "/share/project/panting/mm_ckpt/nova_shared/tokenizer/phi2",
+    "vae": "/share/project/panting/mm_ckpt/nova_shared/vae/sdxl",
+    "model_index": "/share/project/wangjiahao/LAR/diffnext/model_index/linear/t2i/flow_sdxl_phi2_nova.json",
+  }
+SOLVER:
+  BASE_LR: 0.00005
+  WEIGHT_DECAY: 0.02
+  WARM_UP_STEPS: 10000
+  MAX_STEPS: 2500000
+  EMA_EVERY: 100
+  SNAPSHOT_EVERY: 5000
+  SNAPSHOT_PREFIX: "sdxl28m_nova_d48w1536_256px"
+TRAIN:
+  DATASET: "/share/project/panting/share_datasets/emu3_sdxl1024_train16m"
+  LOADER: "vae_train"
+  BATCH_SIZE: 1
+  MODEL_EMA: 0.99
+  CHECKPOINTING: 2
+  NUM_THREADS: 8
+
