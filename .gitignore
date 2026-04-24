@@ -87,3 +87,15 @@ evaluations/geneval/prompts.pth
 evaluations/geneval/image_folder
 
 evaluations/geneval/linearnova-d48w1536-sdxl28m-cfg7-780000
+
+simple_test.py
+
+test_hybrid_attention.py
+
+test_model_init.py
+
+test_multires_decoder.py
+
+download_nova_pretrained_and_save_d1024.py
+
+run_inference_nova.py
