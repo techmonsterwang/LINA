@@ -4,7 +4,7 @@
 
 <p align="center">
 <a href="https://arxiv.org/abs/2601.22630"><img src="https://img.shields.io/badge/ArXiv-2601.22630-%23840707.svg" alt="ArXiv"></a>
-<a href="https://huggingface.co/spaces/techmonsterwang/lina-t2i-d48w1536-sdxl1024"><img src="https://img.shields.io/badge/🤗 Demo-T2I-%26840707.svg" alt="T2IDemo"></a>
+<a href="https://huggingface.co/spaces/techmonsterwang/LINA-t2i-d48w1536-sdxl1024"><img src="https://img.shields.io/badge/🤗 Demo-T2I-%26840707.svg" alt="T2IDemo"></a>
 <!-- <a href="https://huggingface.co/spaces/BAAI/nova-d48w1024-osp480"><img src="https://img.shields.io/badge/🤗 Demo-T2V-%26840707.svg" alt="T2VDemo"></a>
 <a href="http://bitterdhg.github.io/NOVA_page"><img src="https://img.shields.io/badge/Webpage-NOVA-%237CB4F7.svg" alt="Webpage"></a> -->
 </p>
@@ -25,15 +25,16 @@ We propose **LINA** (**LI**near **N**on-Quantized **A**utoregressive Model), a s
 - ```[Apr 2026]``` Released [Evaluation Guide](./docs/evaluation.md).
 - ```[Apr 2026]``` Released [Training Guide](./docs/training.md).
 <!-- - ```[Jan 2025]``` Accepted by ICLR 2025 ([OpenReview Page](https://openreview.net/forum?id=JE9tCwe3lp)). -->
-- ```[Apr 2026]``` Released 🤗 Online Demo (<a href="https://huggingface.co/spaces/techmonsterwang/lina-t2i-d48w1536-sdxl1024"><b>T2I (1024px)</b></a>, <a href="https://huggingface.co/spaces/techmonsterwang/lina-t2i-d48w1536-sdxl512"><b>T2I (512px)</b></a>, <a href="https://huggingface.co/spaces/techmonsterwang/lina-c2i-d48w1536-marvae"><b>C2I</b></a>)
+- ```[Apr 2026]``` Released 🤗 Online Demo (<a href="https://huggingface.co/spaces/techmonsterwang/LINA-t2i-d48w1536-sdxl1024"><b>T2I (1024px)</b></a>, <a href="https://huggingface.co/spaces/techmonsterwang/LINA-t2i-d48w1536-sdxl512"><b>T2I (512px)</b></a>, <a href="https://huggingface.co/spaces/techmonsterwang/LINA-c2i-d48w1536-marvae"><b>C2I</b></a>)
 - ```[Apr 2026]``` Released [weights](#model-zoo), and [Quick Start](#2-quick-start) guide.
 - ```[Jan 2026]``` Released [paper](https://arxiv.org/abs/2601.22630), [weights](#model-zoo), and [Quick Start](#2-quick-start) guide.
+- ```[Oct 2025]``` Released 🐻 [URSA](https://github.com/baaivision/URSA), a new video generation model developed by several LINA authors together with other collaborators.
 
 ## ✨Hightlights
 
-- 🔥 **Practical Linear Attention Exploration for Generative Models**: Non-quantized video autoregressive generation.
-- 🔥 **Highly Competetive Performance**: High efficiency with state-of-the-art t2i/t2v results.
-- 🔥 **Linear Complexity**: Multi-task capabilities in a single unified model.
+- 🔥 **Systematic Exploration of Linear Attention for Generative Models**: Practical insights into linear attention, including normalization paradigms, architectural design, and gating mechanisms.
+- 🔥 **Highly Competetive Performance**: A clear baseline with competitive t2i/c2i results.
+- 🔥 **Linear Complexity**: Generative autoregressive transformer using pure linear attention.
 
 ## 🗄️Model Zoo
 <a id="model-zoo"></a>
@@ -42,31 +43,28 @@ We propose **LINA** (**LI**near **N**on-Quantized **A**utoregressive Model), a s
 ### Text to Image
 <a id="text-to-image-weight"></a>
 
-| Model       | Parameters | Resolution | Data |  Weight                                                               | GenEval | DPGBench |
-|:-----------:|:----------:|:----------:|:----:|:---------------------------------------------------------------------:|:--------:|:-------:|
-| NOVA-0.6B   | 0.6B       | 512x512    | 16M  | [🤗 HF link](https://huggingface.co/BAAI/nova-d48w1024-sd512)          | 0.75   |   81.76   |
-| NOVA-0.3B   | 0.3B       | 1024x1024  | 600M | [🤗 HF link](https://huggingface.co/BAAI/nova-d48w768-sdxl1024)        | 0.67   |   80.60   |
-| NOVA-0.6B   | 0.6B       | 1024x1024  | 600M | [🤗 HF link](https://huggingface.co/BAAI/nova-d48w1024-sdxl1024)       | 0.69   |   82.25   |
-| NOVA-1.4B   | 1.4B       | 1024x1024  | 600M | [🤗 HF link](https://huggingface.co/BAAI/nova-d48w1536-sdxl1024)       | 0.71   |   83.01   |
+| Model       | Parameters | Resolution |   Weight                                                               | GenEval | 
+|:-----------:|:----------:|:----------:|:---------------------------------------------------------------------:|:--------:|
+| LINA-1.4B   | 1.4B       | 512x512    | [🤗 HF link](https://huggingface.co/techmonsterwang/LINA-t2i-d48w1536-sdxl512)          | 0.74   | 
+| LINA-1.5B   | 1.5B       | 1024x1024    | [🤗 HF link](https://huggingface.co/techmonsterwang/LINA-t2i-d48w1536-sdxl1024)          | 0.72   |
 
-### Text to Video
-<a id="text-to-video-weight"></a>
 
-| Model       | Parameters  | Resolution | Data | Weight                                                                | VBench |
+### Class to Image
+<a id="class-to-image-weight"></a>
+
+| Model       | Parameters  | Resolution | Data | Weight                                                                | FID |
 |:-----------:|:-----------:|:----------:|:----:|-----------------------------------------------------------------------|:------:|
-| NOVA-0.6B   | 0.6B        | 33x768x480 | 20M  | [🤗 HF link](https://huggingface.co/BAAI/nova-d48w1024-osp480)        |  80.12  |
+| LINA-1.4B   | 1.4B        | 256x256 | ImageNet  | [🤗 HF link](https://huggingface.co/techmonsterwang/LINA-c2i-d48w1536-marvae)        |  2.18  |
 
 ## 📖Table of Contents
 - [1. Installation](#1-installation)
   - [1.1 From Source](#from-source)
   - [1.2 From Git](#from-git)
-- [2. Quick Start](#2-quick-start)
-  - [2.1 Text to Image](#text-to-image-quickstart)
-  - [2.2 Text to Video](#text-to-video-quickstart)
-- [3. Gradio Demo](#3-gradio-demo)
-- [4. Train](#4-train)
-- [5. Inference](#5-inference)
-- [6. Evaluation](#6-evaluation)
+- [2. Quick Start (Text to Image)](#2-quick-start)
+  <!-- - [2.1 Text to Image](#text-to-image-quickstart) -->
+- [3. Train](#3-train)
+- [4. Evaluation](#4-evaluation)
+- [5. Sample](#5-sample)
 
 ## 1. Installation
 ### 1.1 From Source
@@ -76,8 +74,8 @@ Clone this repository to local disk and install:
 
 ```bash
 pip install diffusers transformers accelerate imageio[ffmpeg]
-git clone https://github.com/baaivision/NOVA.git
-cd NOVA && pip install .
+git clone https://github.com/techmonsterwang/LINA.git
+cd LINA && pip install .
 ```
 
 ### 1.2 From Git
@@ -87,18 +85,18 @@ You can also install from the remote repository **if you have set your Github SS
 
 ```bash
 pip install diffusers transformers accelerate imageio[ffmpeg]
-pip install git+ssh://git@github.com/baaivision/NOVA.git
+pip install git+ssh://git@github.com/techmonsterwang/LINA.git
 ```
 
-## 2. Quick Start
-### 2.1 Text to Image
-<a id="text-to-image-quickstart"></a>
+## 2. Quick Start (Text to Image)
+<!-- ### 2.1 Text to Image
+<a id="text-to-image-quickstart"></a> -->
 
 ```python
 import torch
 from diffnext.pipelines import NOVAPipeline
 
-model_id = "BAAI/nova-d48w768-sdxl1024"
+model_id = "techmonsterwang/LINA-t2i-d48w1536-sdxl1024"
 model_args = {"torch_dtype": torch.float16, "trust_remote_code": True}
 pipe = NOVAPipeline.from_pretrained(model_id, **model_args)
 pipe = pipe.to("cuda")
@@ -109,91 +107,37 @@ image = pipe(prompt).images[0]
 image.save("shiba_inu.jpg")
 ```
 
-### 2.2  Text to Video
-<a id="text-to-video-quickstart"></a>
 
-```python
-import os
-import torch
-from diffnext.pipelines import NOVAPipeline
-from diffnext.utils import export_to_image, export_to_video
-os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
-
-model_id = "BAAI/nova-d48w1024-osp480"
-low_memory = False
-
-model_args = {"torch_dtype": torch.float16, "trust_remote_code": True}
-pipe = NOVAPipeline.from_pretrained(model_id, **model_args)
-
-if low_memory:
-    # Use CPU model offload routine and expandable allocator if OOM.
-    pipe.enable_model_cpu_offload()
-else:
-    pipe = pipe.to("cuda")
-
-# Text to Video
-prompt = "Many spotted jellyfish pulsating under water."
-video = pipe(prompt, max_latent_length=9).frames[0]
-export_to_video(video, "jellyfish.mp4", fps=12)
-
-# Increase AR and diffusion steps for better video quality.
-video = pipe(
-  prompt,
-  max_latent_length=9,
-  num_inference_steps=128,  # default: 64
-  num_diffusion_steps=100,  # default: 25
-).frames[0]
-export_to_video(video, "jellyfish_v2.mp4", fps=12)
-
-# You can also generate images from text, with the first frame as an image.
-prompt = "Many spotted jellyfish pulsating under water."
-image = pipe(prompt, max_latent_length=1).frames[0, 0]
-export_to_image(image, "jellyfish.jpg")
-```
-
-## 3. Gradio Demo
-
-```bash
-# For text-to-image demo
-python scripts/app_nova_t2i.py --model "BAAI/nova-d48w1024-sdxl1024" --device 0
-
-# For text-to-video demo
-python scripts/app_nova_t2v.py --model "BAAI/nova-d48w1024-osp480" --device 0
-```
-
-## 4. Train
+## 3. Train
 - See [Training Guide](./docs/training.md)
 
-## 5. Evaluation
+## 4. Evaluation
 - See [Evaluation Guide](./docs/evaluation.md)
 
-## 6. Inference
-- See [Inference Guide](./docs/inference.md)
+## 5. Sample
+- See [Sample Guide](./docs/sample.md)
 
 ## 📋Todo List
 - [X] [Model zoo](#model-zoo)
 - [X] [Quick Start](#2-quick-start)
-- [X] [Gradio Demo](#3-gradio-demo)
-- [X] [Training guide](#4-train)
-- [X] [Evaluation guide](#5-evaluation)
-- [ ] Inference guide
-- [ ] Prompt Writer
-- [ ] Larger model size
-- [ ] Additional downstream tasks: Image editing, Video editing, Controllable generation
+- [X] [Training guide](#3-train)
+- [X] [Evaluation guide](#4-evaluation)
+- [X] [Sample guide](#5-sample)
+
 
 ## Citation
 If you find this repository useful, please consider giving a star ⭐ and citation 🦖:
 ```
-@article{deng2024nova,
-  title={Autoregressive Video Generation without Vector Quantization},
-  author={Deng, Haoge and Pan, Ting and Diao, Haiwen and Luo, Zhengxiong and Cui, Yufeng and Lu, Huchuan and Shan, Shiguang and Qi, Yonggang and Wang, Xinlong},
-  journal={arXiv preprint arXiv:2412.14169},
-  year={2024}
+@article{wang2026lina,
+  title={LINA: Linear Autoregressive Image Generative Models with Continuous Tokens},
+  author={Wang, Jiahao and Pan, Ting and Deng, Haoge and Han, Dongchen and Wu, Taiqiang and Wang, Xinlong and Luo, Ping},
+  journal={arXiv preprint arXiv:2601.22630},
+  year={2026}
 }
 ```
 
 ## Acknowledgement
 
-We thank the repositories: [MAE](https://github.com/facebookresearch/mae), [MAR](https://github.com/LTH14/mar), [MaskGIT](https://github.com/google-research/maskgit), [DiT](https://github.com/facebookresearch/DiT), [Open-Sora-Plan](https://github.com/PKU-YuanGroup/Open-Sora-Plan), [CogVideo](https://github.com/THUDM/CogVideo), [FLUX](https://github.com/black-forest-labs/flux) and [CodeWithGPU](https://github.com/seetacloud/codewithgpu).
+We thank the repositories: [NOVA](https://github.com/baaivision/nova), [Flatten-Transformer](https://github.com/LeapLabTHU/Flatten-Transformer), [InLine](https://github.com/LeapLabTHU/InLine), [MAE](https://github.com/facebookresearch/mae), [MAR](https://github.com/LTH14/mar), [MaskGIT](https://github.com/google-research/maskgit), [DiT](https://github.com/facebookresearch/DiT), [FLUX](https://github.com/black-forest-labs/flux) and [CodeWithGPU](https://github.com/seetacloud/codewithgpu).
 ## License
 Code and models are licensed under [Apache License 2.0](LICENSE).
