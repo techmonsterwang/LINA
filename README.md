@@ -26,7 +26,7 @@ We propose **LINA** (**LI**near **N**on-Quantized **A**utoregressive Model), a s
 - ```[Apr 2026]``` Released [Evaluation Guide](./docs/evaluation.md).
 - ```[Apr 2026]``` Released [Training Guide](./docs/training.md).
 <!-- - ```[Jan 2025]``` Accepted by ICLR 2025 ([OpenReview Page](https://openreview.net/forum?id=JE9tCwe3lp)). -->
-- ```[Apr 2026]``` Released 🤗 Online Demo (<a href="https://huggingface.co/spaces/techmonsterwang/LINA-t2i-d48w1536-sdxl1024"><b>T2I (1024px)</b></a>, <a href="https://huggingface.co/spaces/techmonsterwang/LINA-t2i-d48w1536-sdxl512"><b>T2I (512px)</b></a>, <a href="https://huggingface.co/spaces/techmonsterwang/LINA-c2i-d48w1536-marvae"><b>C2I</b></a>)
+- ```[Apr 2026]``` Released 🤗 Online Demo [<a href="https://huggingface.co/spaces/techmonsterwang/LINA-t2i-d48w1536-sdxl1024"><b>T2I (1024px)</b></a>, <a href="https://huggingface.co/spaces/techmonsterwang/LINA-t2i-d48w1536-sdxl512"><b>T2I (512px)</b></a>, <a href="https://huggingface.co/spaces/techmonsterwang/LINA-c2i-d48w1536-marvae"><b>C2I</b></a>]
 - ```[Apr 2026]``` Released [weights](#model-zoo), and [Quick Start](#2-quick-start) guide.
 - ```[Jan 2026]``` Released [paper](https://arxiv.org/abs/2601.22630), [weights](#model-zoo), and [Quick Start](#2-quick-start) guide.
 - ```[Oct 2025]``` Released 🐻 [URSA](https://github.com/baaivision/URSA), a new video generation model developed by several LINA authors together with other collaborators.
