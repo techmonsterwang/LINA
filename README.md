@@ -14,6 +14,7 @@
 
 [HKU](https://www.hku.hk/)<sup>1</sup>, [ICT-CAS](http://english.ict.cas.cn)<sup>2</sup>, [THU](https://www.tsinghua.edu.cn/en/)<sup>3</sup>, [BAAI](https://www.baai.ac.cn/english.html)<sup>4</sup><br>
 <sup>†</sup> Corresponding Author
+<br><br><image src="assets/sample_results_lina.png"/>
 <br><br><image src="assets/picture_lina.png"/>
 </div>
 
