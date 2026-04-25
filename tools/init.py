@@ -40,7 +40,7 @@ def init_scratch(pipe):
 
 if __name__ == "__main__":
     # fmt: off
-    cfg_file = "/share/project/wangjiahao/LAR/diffnext/config/t2i/sdxl28m_nova_d48w1536_256px.yml"
+    cfg_file = "/path/to/LINA/diffnext/config/imagenet/linear/linear_decouple1_kvscale1_mar1k_nova_d48w1536_256px.yml"
     # fmt: on
 
     # Prepare save path.
