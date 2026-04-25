@@ -1,13 +1,11 @@
-# 1. text 2 img
-| Model       | Parameters | Resolution | Data |  Weight                                                               | GenEval | DPGBench |
-|:-----------:|:----------:|:----------:|:----:|:---------------------------------------------------------------------:|:--------:|:-------:|
-| NOVA-0.6B   | 0.6B       | 512x512    | 16M  | [🤗 HF link](https://huggingface.co/BAAI/nova-d48w1024-sd512)          | 0.75   |   81.76   |
-| NOVA-0.3B   | 0.3B       | 1024x1024  | 600M | [🤗 HF link](https://huggingface.co/BAAI/nova-d48w768-sdxl1024)        | 0.67   |   80.60   |
-| NOVA-0.6B   | 0.6B       | 1024x1024  | 600M | [🤗 HF link](https://huggingface.co/BAAI/nova-d48w1024-sdxl1024)       | 0.69   |   82.25   |
-| NOVA-1.4B   | 1.4B       | 1024x1024  | 600M | [🤗 HF link](https://huggingface.co/BAAI/nova-d48w1536-sdxl1024)       | 0.71   |   83.01   |
+# 1. text 2 image
+| Model       | Parameters | Resolution |   Weight                                                               | GenEval | 
+|:-----------:|:----------:|:----------:|:---------------------------------------------------------------------:|:--------:|
+| LINA-1.4B   | 1.4B       | 512x512    | [🤗 HF link](https://huggingface.co/techmonsterwang/LINA-t2i-d48w1536-sdxl512)          | 0.74   | 
+| LINA-1.5B   | 1.5B       | 1024x1024    | [🤗 HF link](https://huggingface.co/techmonsterwang/LINA-t2i-d48w1536-sdxl1024)          | 0.72   |
 
 
-# 2. text 2 video
-| Model       | Parameters  | Resolution | Data | Weight                                                                | VBench |
+# 2. class 2 image
+| Model       | Parameters  | Resolution | Data | Weight                                                                | FID |
 |:-----------:|:-----------:|:----------:|:----:|-----------------------------------------------------------------------|:------:|
-| NOVA-0.6B   | 0.6B        | 33x768x480 | 20M  | [🤗 HF link](https://huggingface.co/BAAI/nova-d48w1024-osp480)        |  80.12  |
+| LINA-1.4B   | 1.4B        | 256x256 | ImageNet  | [🤗 HF link](https://huggingface.co/techmonsterwang/LINA-c2i-d48w1536-marvae)        |  2.18  |
