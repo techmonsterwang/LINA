@@ -1,4 +1,30 @@
-# 1. Sample
+# 1. Generate prompt embeddings
+```python
+import json, torch
+from transformers import CodeGenTokenizerFast
+from diffnext.models.text_encoders.phi import PhiEncoderModel
+
+model_path = "/path/to/lina-t2i-d48w1536-sdxl1024"
+device, dtype = torch.device("cuda", 0), torch.float16
+
+tokenizer = CodeGenTokenizerFast.from_pretrained(model_path + "/tokenizer")
+model = PhiEncoderModel.from_pretrained(model_path + "/text_encoder", torch_dtype=dtype)
+model = model.eval().to(device=device)
+
+coll_embeds = [[], []]
+for data in open("./evaluations/geneval/pick.txt").readlines():
+    for i, prompt in enumerate((data["prompt"], data["dense_prompt"])):
+        input_ids = tokenizer(prompt, max_length=256, truncation=True).input_ids
+        input_ids = torch.as_tensor(input_ids, device=device, dtype=torch.int64)
+        with torch.no_grad():
+            coll_embeds[i].append(model(input_ids.unsqueeze_(0)).last_hidden_state[0].cpu())
+torch.save({"prompts": coll_embeds[0]}, "./evaluations/geneval/pick.pth")
+torch.save({"prompts": coll_embeds[1]}, "./evaluations/geneval/pick_rewrite.pth")
+```
+
+
+
+# 2. Sample
 ```bash
 # For text-to-image demo
 python evaluations/geneval/pick.py \
