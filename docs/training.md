@@ -34,7 +34,7 @@ writer.write({"shape": x.shape, "moments": x.tobytes(), **example}), writer.clos
 
 # 2. Train models
 
-## Train C2I model
+## 2.1. Train C2I model
 Following snippet provides simple C2I training arguments.
 
 ```bash
@@ -59,7 +59,7 @@ python -u scripts/train_torchrun.py \
 
 
 
-## Train T2I model
+## 2.2. Train T2I model
 Following snippet provides simple T2I training arguments.
 
 Download NOVA pretrained weights for initialization:
@@ -68,7 +68,7 @@ Download NOVA pretrained weights for initialization:
 python download_nova_pretrained_and_save.py
 ```
 
-2.1 Training LINA 256px T2I model (initialized from NOVA):
+2.2.1. Training LINA 256px T2I model (initialized from NOVA):
 
 ```bash
 python tools/init_t2i_finetune_nova.py
@@ -89,7 +89,7 @@ python -u scripts/train_torchrun.py \
 ```
 
 
-2.2 Training LINA 512px T2I model (initialized from LINA 256px T2I model):
+2.2.2. Training LINA 512px T2I model (initialized from LINA 256px T2I model):
 
 ```bash
 python tools/init_t2i_finetune_nova_512_v3.py
@@ -111,7 +111,7 @@ python -u scripts/train_torchrun.py \
 ```
 
 
-2.3 Training LINA 1024px T2I model (initialized from LINA 512px T2I model):
+2.2.3. Training LINA 1024px T2I model (initialized from LINA 512px T2I model):
 
 ```bash
 python tools/init_t2i_finetune_nova_1024_v3.py
